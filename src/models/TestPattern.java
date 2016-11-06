@@ -187,24 +187,24 @@ public class TestPattern {
 		return variantDescriptionList;
 	}
 
-	public void setVariantDescriptionList(List<String> variantDescriptionList) {
-		this.variantDescriptionList = variantDescriptionList;
+	public void setVariantDescriptionList(String variantDescription) {
+		this.variantDescriptionList.add(variantDescription);
 	}
 
 	public List<String> getRelatedPatterns() {
 		return relatedPatterns;
 	}
 
-	public void setRelatedPatterns(List<String> relatedPatterns) {
-		this.relatedPatterns = relatedPatterns;
+	public void setRelatedPatterns(String relatedPattern) {
+		this.relatedPatterns.add(relatedPattern);
 	}
 
 	public Map<String, String> getReferences() {
 		return references;
 	}
 
-	public void setReferences(Map<String, String> references) {
-		this.references = references;
+	public void setReferences(String title, String url) {
+		this.references.put(title, url);
 	}
 
 	public int getVulnerableTestcaseNumber() {
