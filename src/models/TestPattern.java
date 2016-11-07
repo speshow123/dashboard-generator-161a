@@ -101,6 +101,11 @@ public class TestPattern {
      * Default constructor
      */
     public TestPattern() {
+    	variantDescriptionList = new ArrayList<>();
+    	relatedPatterns = new ArrayList<>();
+    	references = new HashMap<>();
+    	testCaseList = new ArrayList<>();
+    	variantList = new ArrayList<>();
     }
 
 	public String getPatternID() {

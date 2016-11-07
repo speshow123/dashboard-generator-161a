@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Testcase</title>
+	<script src="../../js/chart.js"></script>
+	<link rel="stylesheet" href="../../stylesheet/style.css" type="text/css"/>
+	<style type="text/css">
+	<!--
+		canvas{ }
+	-->
+	</style>
+</head>
+<body>
+	<div id="top-container">
+		<div id="top-row">
+			<div id="column-left">
+				<div class="column-in">
+					<a href="../../index.html">DashBoard\</a><a href="../campaign.html">Campaign 01\</a><a href="../patterns/xss_ms_pattern.html">XSS MultiStep\</a><a href="ms_xss_instances_8_(1a_c8_03).html">ms XSS instances_8 (1a-c8-03)</a>
+				</div>
+			</div>
+			<div id="column-right">
+				<div class="column-in, detect_color">
+					VULNERABILITY DETECTED
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="overview-container">
+		<h1>Overview</h1>
+		<div id="overview">
+			<div id="overview-image">
+				<canvas id="canvas" height="180" width="180"></canvas>
+			</div>
+			<script>
+				var pieData = [
+					{value : 105, color : "#FF0000"},
+					{value : 0, color : "#FF6600"},
+					{value : 1, color : "#00CC00"}
+				];
+				var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+			</script>
+			<div id="overview-content" class="pattern_testcase">
+				<div id="overview-content-left">
+					<p class="bgcolor_01">&nbsp;</p>
+					<p class="bgcolor_02">Total number of variants</p>
+					<p>Variants revealing a vulnerability</p>
+					<p class="bgcolor_02">Variants not revealing any vulnerability</p>
+					<p>Inconclusive variants (eg due to technical issue)</p>
+				</div>
+				<div id="overview-content-right">
+					<p class="bgcolor_01">Number of variants</p>
+					<p class="bgcolor_02">106</p>
+					<p>105</p>
+					<p class="bgcolor_02">1</p>
+					<p>0</p>
+				</div>
+			</div>
+		</div>
+		<div id="bottom"></div>
+	</div>
+	<div id="details-container">
+		<h1>Details</h1>
+		<div id="details">
+			<div id="details-link">
+				<p><a href="ms_xss_instances_8_(1a_c8_03)_actions.html" target="iframe"><h2>Actions</h2></a></p>
+				<p><a href="../variants/ms_xss_instances_8_(1a_c8_03)_variants.html" target="iframe"><h2>Variants</h2></a></p>
+				<p><a href="../logs/ms_xss_instances_8_(1a_c8_03)_logs.html" target="iframe"><h2>Logs</h2></a></p>
+			</div>
+			<div id="details-main">
+				<iframe src="ms_xss_instances_8_(1a_c8_03)_actions.html" name="iframe" width="100%" height="100%" scrolling="Auto" id="iframe"></iframe>
+			</div>
+		</div>
+		<div id="bottom"></div>
+	</div>
+</body>
+</html>

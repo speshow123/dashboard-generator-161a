@@ -13,11 +13,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * File:   PatternParser.java
- * @author Huynh Minh Duc
- * Created on 27/03/2014 at 11:52
- */
 
 public abstract class PatternParser
 {
