@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Action list</title>
+<script type="text/javascript">
+		function toggle_visibility(tbid,lnkid)
+		{
+			if(document.all)
+			{
+				document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "block" ? "none" : "block";
+			}
+			else
+			{
+				document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "table" ? "none" : "table";
+			}
+			document.getElementById(lnkid).value = document.getElementById(lnkid).value == "[-] Collapse" ? "[+] Expand" : "[-] Collapse";
+		}
+	</script>
+    <link rel="stylesheet" href="stylesheet/style.css" />
+</head>
+
+<body>
+<p><h2>Test sequence</h2></p>
+<table width="100%" border="0">
+<tr>
+	<td width="8%" height="45" bgcolor="#CCCCCC"><div align="center"><h3>Step</h3></div></td>
+	<td width="52%" bgcolor="#CCCCCC"><h3>Actions</h3></td>
+	<td width="40%" bgcolor="#CCCCCC"><div align="center"><h3>Observations</h3></div></td>
+</tr>
+<tr>
+	<td height="35"><div align="center">1</div></td>
+	<td height="35">setup()</td>
+	<td height="35">   </td>
+</tr>
+<tr>
+	<td height="35" bgcolor="#CCCCCC"><div align="center">2</div></td>
+	<td height="35" bgcolor="#CCCCCC">setup()</td>
+	<td height="35" bgcolor="#CCCCCC">   </td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30"><div align="center">3</div></td>
+		<td width="52%" height="30">goToLogin()</td>
+		<td width="34%" height="30">   </td>
+		<td width="6%" height="30"><div align="right"><input id="link3" type="button" value="[+] Expand" onClick="toggle_visibility('table3','link3');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table3" name="table3">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = false)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" ><div align="center">2</div></td>
+			<td width="46%" >setCurrentPage(newPageId = LOGIN)</td>
+			<td width="40%" >   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30" bgcolor="#CCCCCC"><div align="center">4</div></td>
+		<td width="52%" height="30" bgcolor="#CCCCCC">login(in_login = U_LOGIN_1, in_password = U_PASSWORD_1)</td>
+		<td width="34%" height="30" bgcolor="#CCCCCC">   </td>
+		<td width="6%" height="30" bgcolor="#CCCCCC"><div align="right"><input id="link4" type="button" value="[+] Expand" onClick="toggle_visibility('table4','link4');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table4" name="table4">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = false)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" ><div align="center">2</div></td>
+			<td width="46%" >setOngoingAction(newActionId = LOGIN)</td>
+			<td width="40%" >   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">3</div></td>
+			<td width="46%" bgcolor="#E6E6E6">setCurrentPage(newPageId = HOME_LOGGED_IN)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30"><div align="center">5</div></td>
+		<td width="52%" height="30">finalizeAction()</td>
+		<td width="34%" height="30">   </td>
+		<td width="6%" height="30"><div align="right"><input id="link5" type="button" value="[+] Expand" onClick="toggle_visibility('table5','link5');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table5" name="table5">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = true)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30" bgcolor="#CCCCCC"><div align="center">6</div></td>
+		<td width="52%" height="30" bgcolor="#CCCCCC">goToRecentPictures()</td>
+		<td width="34%" height="30" bgcolor="#CCCCCC">   </td>
+		<td width="6%" height="30" bgcolor="#CCCCCC"><div align="right"><input id="link6" type="button" value="[+] Expand" onClick="toggle_visibility('table6','link6');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table6" name="table6">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = false)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" ><div align="center">2</div></td>
+			<td width="46%" >setCurrentPage(newPageId = RECENT_PICTURES)</td>
+			<td width="40%" >   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30"><div align="center">7</div></td>
+		<td width="52%" height="30">goToPicture(in_picture = PICTURE_ID_1)</td>
+		<td width="34%" height="30">   </td>
+		<td width="6%" height="30"><div align="right"><input id="link7" type="button" value="[+] Expand" onClick="toggle_visibility('table7','link7');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table7" name="table7">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = false)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" ><div align="center">2</div></td>
+			<td width="46%" >setCurrentPage(newPageId = PICTURE)</td>
+			<td width="40%" >   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30" bgcolor="#CCCCCC"><div align="center">8</div></td>
+		<td width="52%" height="30" bgcolor="#CCCCCC">submitComment(in_content = EMPTY_COMMENT_CONTENT)</td>
+		<td width="34%" height="30" bgcolor="#CCCCCC">   </td>
+		<td width="6%" height="30" bgcolor="#CCCCCC"><div align="right"><input id="link8" type="button" value="[+] Expand" onClick="toggle_visibility('table8','link8');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table8" name="table8">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = false)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" ><div align="center">2</div></td>
+			<td width="46%" >setOngoingAction(newActionId = PICTURE_COMMENT)</td>
+			<td width="40%" >   </td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">3</div></td>
+			<td width="46%" bgcolor="#E6E6E6">setCurrentPage(newPageId = PICTURE_COMMENT_PREVIEW)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30"><div align="center">9</div></td>
+		<td width="52%" height="30">injectXSS(paramId = PICTURE_COMMENT)</td>
+		<td width="34%" height="30">   </td>
+		<td width="6%" height="30"><div align="right"><input id="link9" type="button" value="[+] Expand" onClick="toggle_visibility('table9','link9');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table9" name="table9">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = true)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="30" colspan="3">
+	<table width="100%" border="0">
+	<tr>
+		<td width="8%" height="30" bgcolor="#CCCCCC"><div align="center">10</div></td>
+		<td width="52%" height="30" bgcolor="#CCCCCC">finalizeAction()</td>
+		<td width="34%" height="30" bgcolor="#CCCCCC">   </td>
+		<td width="6%" height="30" bgcolor="#CCCCCC"><div align="right"><input id="link10" type="button" value="[+] Expand" onClick="toggle_visibility('table10','link10');"></div></td>
+	</tr>
+	<tr>
+		<td height="2" colspan="4">
+		<table width="100%" border="0" id="table10" name="table10">
+		<tr>
+			<td width="8%">&nbsp;</td>
+			<td colspan="3" class="action_color">Subactions</td>
+		</tr>
+		<tr>
+			<td height="25">&nbsp;</td>
+			<td width="6%" bgcolor="#E6E6E6"><div align="center">1</div></td>
+			<td width="46%" bgcolor="#E6E6E6">hasOngoingAction(result = true)</td>
+			<td width="40%" bgcolor="#E6E6E6">   </td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="35"><div align="center">11</div></td>
+	<td height="35">checkXSS()</td>
+	<td height="35">   </td>
+</tr>
+<tr>
+	<td height="35" bgcolor="#CCCCCC"><div align="center">12</div></td>
+	<td height="35" bgcolor="#CCCCCC">teardown()</td>
+	<td height="35" bgcolor="#CCCCCC">   </td>
+</tr>
+<tr>
+	<td height="35"><div align="center">13</div></td>
+	<td height="35">teardown()</td>
+	<td height="35">   </td>
+</tr>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Run logs</title>
+<script type="text/javascript">
+		function toggle_visibility(tbid,lnkid)
+		{
+			if(document.all)
+			{
+				document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "block" ? "none" : "block";
+			}
+			else
+			{
+				document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "table" ? "none" : "table";
+			}
+			document.getElementById(lnkid).value = document.getElementById(lnkid).value == "[-] Collapse" ? "[+] Expand" : "[-] Collapse";
+		}
+	</script>
+<link rel="stylesheet" href="stylesheet/style.css" />
+<style type="text/css">
+<!--
+table {
+	border-collapse:collapse;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0">
+  <tr>
+    <td width="91%" bgcolor="#E6E6E6">Info: test variant Ms_XSS_instances_10__1a_ea_ef_[0] has run duration in 7260 and its vulnerability is <span class="notdetect_color">not detect</span></td>
+    <td width="9%" bgcolor="#E6E6E6"><div align="right">
+        <input id="link1" type="button" value="[+] Expand" onClick="toggle_visibility('table1','link1');">
+      </div></td>
+  </tr>
+  <tr>
+	<td colspan="2">
+	<table style="table-layout: fixed" width="100%" border="0" id="table1" name="table1">
+	<tr>
+		<td style="word-wrap: break-word" bgcolor="#CCCCCC">injecting payload &#39;;alert(String.fromCharCode(88,83,83))//\&#39;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//\&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&#39;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{} in parameter text</td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word"><pre>18 nov. 2013 14:35:44 com.gargoylesoftware.htmlunit.javascript.host.Window alert
+ATTENTION: window.alert(&quot;XSS&quot;) no alert handler installed
+</pre></td>
+	</tr>
+	<tr>
+		<td style="word-wrap: break-word" bgcolor="#CCCCCC">checking that vector &#39;;alert(String.fromCharCode(88,83,83))//\&#39;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//\&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&#39;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{} has been reflected verbatim...</td>
+	</tr>
+    </table>
+</table>
+</body>
+</html>

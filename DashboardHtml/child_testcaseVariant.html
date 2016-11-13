@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Test variant list</title>
+<script>
+		applyFilter = function(kind, elt)
+		{
+			var elts = document.body.getElementsByClassName(kind);
+			for (var e in elts)
+			{
+				if (elts[e].style) elts[e].style.display = (elt.checked) ? 'table-row' : 'none';
+			}
+		}
+		initFilters = function()
+		{
+			document.getElementById("cb_detected").checked = true;
+			document.getElementById("cb_notdetected").checked = true;
+			document.getElementById("cb_inconclusive").checked = true;
+		}
+	</script>
+    <link rel="stylesheet" href="stylesheet/style.css" />
+</head>
+
+<body onload="initFilters()">
+<table style="table-layout: fixed" width="100%" border="0">
+<tr>
+	<td width="9%" height="43" bgcolor="#CCCCCC"><div align="center"><h3>No</h3></div></td>
+	<td width="47%" bgcolor="#CCCCCC"><h3>Payload</h3></td>
+	<td width="25%" bgcolor="#CCCCCC"><h3>Associated observation</h3></td>
+	<td width="19%" bgcolor="#CCCCCC"><div align="center"><h3>Vulnerability</h3></div></td>
+</tr>
+<tr class="fdetected">
+	<td valign="top" ><div align="center">1</div></td>
+	<td style="word-wrap: break-word" valign="top" >checking that vector &lt;A HREF=&quot;http://www.gohttp://www.google.com/ogle.com/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &#39;;alert(String.fromCharCode(88,83,83))//\&#39;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//\&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&#39;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{} in parameter text.
+</td>
+	<td style="word-wrap: break-word" valign="top" >   </td>
+	<td valign="top" ><div align="right" class="detect_color">DETECTED</div></td>
+</tr>
+<tr class="fdetected">
+	<td valign="top" bgcolor="#CCCCCC"><div align="center">2</div></td>
+	<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">checking that vector &#39;;alert(String.fromCharCode(88,83,83))//\&#39;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//\&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&#39;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{} has been reflected verbatim...
+</td>
+	<td style="word-wrap: break-word" valign="top" bgcolor="#CCCCCC">   </td>
+	<td valign="top" bgcolor="#CCCCCC"><div align="right" class="detect_color">DETECTED</div></td>
+</tr>
+<tr class="fdetected">
+	<td valign="top" ><div align="center">3</div></td>
+	<td style="word-wrap: break-word" valign="top" >injecting payload &#39;&#39;;!--&quot;&lt;XSS&gt;=&amp;{()} in parameter text.
+checking that vector &#39;&#39;;!--&quot;&lt;XSS&gt;=&amp;{()} has been reflected verbatim...
+injecting payload &lt;SCRIPT&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt; in parameter text.
+</td>
+	<td style="word-wrap: break-word" valign="top" >   </td>
+	<td valign="top" ><div align="right" class="detect_color">DETECTED</div></td>
+</tr>
+</body>
+</html>

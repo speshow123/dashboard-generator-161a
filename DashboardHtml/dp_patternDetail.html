@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattern Details</title>
+<link rel="stylesheet" href="stylesheet/style.css" />
+<style type="text/css">
+	<!--
+		table {border-collapse: collapse;}
+	-->
+	</style>
+</head>
+
+<body>
+<p><h2>Test pattern details</h2></p>
+<table width="100%" border="0">
+<tr>
+	<td width="5%">&nbsp;</td>
+	<td width="95%">
+	<table width="100%" border="1" bordercolor="#000000">
+	<tr>
+		<td width="18%" height="33"><h4>Pattern name</h4></td>
+		<td width="82%">XSS MultiStep</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Preconditions</h4></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Postconditions</h4></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Description</h4></td>
+		<td>This pattern could be used on any web applications that use user inputs not filtered; a stored XSS is usually used to redirect a user to a malevolent site in order to steal browser information (session, cookies, and exploitation) and it will be trigger all the time because it’s a persistent attack.</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Test objective</h4></td>
+		<td>Steal cookie session of user, gain browser privileges</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Prerequisites</h4></td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Procedure</h4></td>
+		<td>&lt;script&gt;alert(document.cookies);&lt;/script&gt;</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Observation</h4></td>
+		<td>Execution of JavaScript payload (interactive) + information stolen is a success</td>
+	</tr>
+	<tr>
+		<td><h4>Variants</h4></td>
+		<td>
+		<table width="100%" border="0">
+		<tr>
+			<td>Encoding characters</td>
+		</tr>
+		<tr>
+			<td>Non ALNUM transformation</td>
+		</tr>
+		<tr>
+			<td>Hex Transformation</td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Known uses</h4></td>
+		<td>Sometimes web application use web application firewall to mitigate attacks but still, it could be possible to bypass it using variants</td>
+	</tr>
+	<tr>
+		<td height="33"><h4>Related patterns</h4></td>
+		<td>XSS-R</td>
+	</tr>
+	<tr>
+		<td><h4>References</h4></td>
+		<td>
+		<table width="100%" border="0">
+		<tr>
+			<td>CAPEC-86: Cross-site Scripting : http://capec.mitre.org/data/definitions/86.html</td>
+		</tr>
+		<tr>
+			<td>WASC-8: Cross Site : http://projects.webappsec.org/w/page/13246920/Cross%20Site%20Scripting</td>
+		</tr>
+		<tr>
+			<td>OWASP: Cross Site Scripting : https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>
