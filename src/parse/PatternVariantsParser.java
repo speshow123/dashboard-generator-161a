@@ -86,8 +86,7 @@ public abstract class PatternVariantsParser {
                         switch(streamReader.getLocalName())
                         {
                             case "attack":
-                                //testPattern.setVariantList(PatternVariantsParser.getVariantList());
-                                //testPattern.setTestCaseList(TestCasesParser.getTestCaseList());
+                                
                                 patternVariantList.add(patternVariant);
                                 break;
                             case "Name":

@@ -19,11 +19,7 @@ public class Parameter {
      */
     private String nameParam;
 
-    /**
-     * 
-     */
-    private Value valueParam;
-
+    
     /**
      * Default constructor
      */
@@ -45,15 +41,5 @@ public class Parameter {
 	public void setNameParam(String nameParam) {
 		this.nameParam = nameParam;
 	}
-
-	public Value getValueParam() {
-		return valueParam;
-	}
-
-	public void setValueParam(Value valueParam) {
-		this.valueParam = valueParam;
-	}
-
-
 
 }
