@@ -6,95 +6,25 @@ import java.util.*;
  * 
  */
 public class TestPattern {
-	
-	/**
-     * 
-     */
-    private String patternID;
-
-    /**
-     * 
-     */
+	private String patternID;
     private String patternName;
-
-    /**
-     * 
-     */
     private String preConditions;
-
-    /**
-     * 
-     */
     private String postConditions;
-
-    /**
-     * 
-     */
     private String patternDescription;
-
-    /**
-     * 
-     */
     private String testObjective;
-
-    /**
-     * 
-     */
     private String prerequisites;
-
-    /**
-     * 
-     */
     private String patternProcedure;
-
-    /**
-     * 
-     */
     private String patternObservation;
-
-    /**
-     * 
-     */
     private String knownUses;
-
-    /**
-     * 
-     */
     private List<String> variantDescriptionList;
-
-    /**
-     * 
-     */
     private List<String> relatedPatterns;
-
-    /**
-     * 
-     */
     private Map<String, String> references;
 
-    /**
-     * 
-     */
     private int vulnerableTestcaseNumber;
-
-    /**
-     * 
-     */
     private int errorTestcaseNumber;
-
-    /**
-     * 
-     */
     private int passedTestcaseNumber;
 
-    /**
-     * 
-     */
     private List<TestCase> testCaseList;
-
-    /**
-     * 
-     */
     private List<Variant> variantList;
 
     /**
@@ -104,6 +34,9 @@ public class TestPattern {
     	variantDescriptionList = new ArrayList<>();
     	relatedPatterns = new ArrayList<>();
     	references = new HashMap<>();
+    	testCaseList = new ArrayList<>();
+    	variantList = new ArrayList<>();
+    	
     	testCaseList = new ArrayList<>();
     	variantList = new ArrayList<>();
     }

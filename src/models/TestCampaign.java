@@ -42,6 +42,10 @@ class TestCampaign {
      * Default constructor
      */
     private TestCampaign() {
+    	testPatternList = new ArrayList<TestPattern>();
+    	vulnerableTestPatternNumber = 0;
+    	errorTestPatternNumber = 0;
+    	passTestPatternNumber = 0;
     }
 
 	public String getCampaignID() {
@@ -64,8 +68,8 @@ class TestCampaign {
 		return testPatternList;
 	}
 
-	public void setTestPatternList(List<TestPattern> testPatternList) {
-		this.testPatternList = testPatternList;
+	public void setTestPatternList(TestPattern testPattern) {
+		this.testPatternList.add(testPattern);
 	}
 
 	public int getVulnerableTestPatternNumber() {
