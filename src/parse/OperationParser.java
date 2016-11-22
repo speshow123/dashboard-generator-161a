@@ -12,34 +12,35 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import models.Value;
+import models.Operation;
+import models.Parameter;
 
-public abstract class ValueParser {
-	private static List<Value> valueList;
+public abstract class OperationParser {
+	private static List<Operation> operationList;
 
     /**
      *
      */
-	private ValueParser() { }
+	private OperationParser() { }
 	
-    public static void initiateValueList()
+    public static void initiateOperationList()
     {
-    	valueList = new ArrayList<>();
+    	operationList = new ArrayList<>();
     }
 
     /**
      *
      * @return
      */
-    public static List<Value> getValueList()
+    public static List<Operation> getOperationList()
     {
-        return valueList;
+        return operationList;
     }
-    public static Value getValue(String valueID) {
-    	for(Value val:valueList) {
-    		if(val.getIdValue().equals(valueID)) {
-    			return val;
-    		}
+    
+    public static Operation getOperation(String operationID) {
+    	for(Operation operation:operationList) {
+    		if(operation.getIdOperation().equals(operationID))
+    			return operation;
     	}
     	return null;
     }
@@ -47,11 +48,13 @@ public abstract class ValueParser {
      *
      * @param fileName
      */
-    public static void parseValueXmlFile(String fileName)
+    public static void parseOperationXmlFile(String fileName)
     {
         try
         {
-        	Value value = null;
+        	Operation operation = null;
+        	Parameter parameter = null;
+        	int count = 0;
             String elementContent = null;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
                         InputStream inputStream = new FileInputStream(fileName);
@@ -67,11 +70,16 @@ public abstract class ValueParser {
                     case XMLStreamConstants.START_ELEMENT:
                         switch(streamReader.getLocalName())
                         {
-                        	case "value":
-                        		value = new Value();
-                        		value.setIdValue(streamReader.getAttributeValue(0));
-                        		value.setNameValue(streamReader.getAttributeValue(1));
+                        	case "operation":
+                        		operation = new Operation();
+                        		operation.setIdOperation(streamReader.getAttributeValue(0));
+                        		operation.setNameOperation(streamReader.getAttributeValue(1));
                         		break;
+                        	case "parameter":
+                        		parameter = new Parameter();
+                        		parameter.setIdParam(streamReader.getAttributeValue(0));
+                        		parameter.setNameParam(streamReader.getAttributeValue(1));
+                        		
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:
@@ -80,9 +88,12 @@ public abstract class ValueParser {
                     case XMLStreamConstants.END_ELEMENT:
                         switch(streamReader.getLocalName())
                         {
-                            case "value":
-
-                                valueList.add(value);
+                            case "operation":
+                            	
+                                operationList.add(operation);
+                                break;
+                            case "parameter":
+                                operation.setParameter(parameter);
                                 break;
                             
                         }

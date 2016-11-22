@@ -9,81 +9,48 @@ public class Action {
 	/**
      * 
      */
-    private String actionID;
+    private String actionKind;
+    
+    public String getActionKind() {
+		return actionKind;
+	}
 
-    /**
-     * 
-     */
-    private String actionName;
 
-    /**
-     * 
-     */
-    private List<Parameter> paramsList;
+	public void setActionKind(String actionKind) {
+		this.actionKind = actionKind;
+	}
 
-    /**
-     * 
-     */
-    private List<Action> subActionList;
 
+	public Operation getOperation() {
+		return operation;
+	}
+
+
+	public void setOperation(Operation operation) {
+		this.operation = operation;
+	}
+
+
+	public List<Operation> getSubOperationList() {
+		return subOperationList;
+	}
+
+
+	public void setSubOperation(Operation subOperation) {
+		this.subOperationList.add(subOperation);
+	}
+
+
+	private Operation operation;
+    
+    private List<Operation> subOperationList;
 
     
     /**
      * Default constructor
      */
     public Action() {
+    	subOperationList = new ArrayList<>();
     }
-
-
-
-	public String getActionID() {
-		return actionID;
-	}
-
-
-
-	public void setActionID(String actionID) {
-		this.actionID = actionID;
-	}
-
-
-
-	public String getActionName() {
-		return actionName;
-	}
-
-
-
-	public void setActionName(String actionName) {
-		this.actionName = actionName;
-	}
-
-
-
-	public List<Parameter> getParamsList() {
-		return paramsList;
-	}
-
-
-
-	public void setParamsList(List<Parameter> paramsList) {
-		this.paramsList = paramsList;
-	}
-
-
-
-	public List<Action> getSubActionList() {
-		return subActionList;
-	}
-
-
-
-	public void setSubActionList(List<Action> subActionList) {
-		this.subActionList = subActionList;
-	}
-
-    
-
-
 
 }

@@ -23,7 +23,11 @@ public class Value {
      */
     public Value() {
     }
-
+    
+    public Value(String nameValue) {
+    	this.idValue = UUID.randomUUID().toString();
+    	this.nameValue = nameValue;
+    }
 
 	public String getIdValue() {
 		return idValue;

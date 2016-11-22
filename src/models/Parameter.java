@@ -41,5 +41,5 @@ public class Parameter {
 	public void setNameParam(String nameParam) {
 		this.nameParam = nameParam;
 	}
-
+	
 }
