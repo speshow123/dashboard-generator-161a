@@ -2,12 +2,8 @@ package generation;
 
 import models.TestPattern;
 import java.io.*;
+import java.util.Map.Entry;
 
-/**
- * File:   PatternGeneration.java
- * @author Huynh Minh Duc
- * Created on 12/03/14 at 10:53
- */
 
 public abstract class PatternGeneration
 {
@@ -17,13 +13,18 @@ public abstract class PatternGeneration
     private static final String header = "<!DOCTYPE html>\n" +
             "<html lang=\"en\">\n" +
             "<head>\n" +
-            "\t<meta charset=\"utf-8\"/>\n" +
-            "\t<title>Test pattern</title>\n" +
-            "\t<script src=\"../../js/script.js\"></script>\n" +
-            "\t<link rel=\"stylesheet\" href=\"../../stylesheet/style.css\" type=\"text/css\"/>\n" +
-            "\t<style type=\"text/css\">\n" +
-            "\t</style>\n" +
-            "</head>";
+            "\t<meta charset=\"utf-8\"/>\n"
+            + "\t<link rel=\"icon\" type=\"image/png\" href=\"assets/img/favicon.ico\">\n"
+            + "\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />\n" 
+            + "\t<title>Test Campaign</title>\n"
+            + "\t<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />\n"
+            + "\t<meta name=\"viewport\" content=\"width=device-width\" />\n"
+            + "\t<link href=\"assets/css/bootstrap.min.css\" rel=\"stylesheet\" />\n"
+            + "\t<link href=\"assets/css/light-bootstrap-dashboard.css\" rel=\"stylesheet\"/>\n"
+            + "\t<link href=\"http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">\n"
+            + "\t<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>\n"
+            + "\t<link href=\"assets/css/pe-icon-7-stroke.css\" rel=\"stylesheet\" />\n"
+            + "</head>";
 
     /**
      *
@@ -89,107 +90,105 @@ public abstract class PatternGeneration
         {
             String fileNamePrefix = pattern.getPatternID().replace('-', '_').toLowerCase();
             setPatternFileName(fileNamePrefix + "_pattern.html");
-            String patternFilePath = patternDirectory + File.separator + "patterns" + File.separator + patternFileName;
+            String patternFilePath = patternDirectory + File.separator + patternFileName;
             File htmlFile = new File(patternFilePath);
             OutputStream htmlFileStream = new FileOutputStream(htmlFile);
             PrintStream printHtmlFile = new PrintStream(htmlFileStream);
             StringBuilder htmlContent = new StringBuilder();
             htmlContent.append(header);
-            htmlContent.append("\n<body onload=\"displayOrNotForRSSI()\">\n" +
-                    "\t<div id=\"top-container\">\n" +
-                    "\t\t<div id=\"top-row\">\n" +
-                    "\t\t\t<div id=\"column-left\">\n" +
-                    "\t\t\t\t<div class=\"column-in\">\n" +
-                    "\t\t\t\t\t<a href=\"../../index.html\">DashBoard</a>\\" +
-                    //"<a href=\"../campaign.html\">" + CampaignGeneration.getCampaignName() + "</a>\\" +
-                    "<a href=\"" + patternFileName + "\">" + patternName + "</a>\n" +
-                    "\t\t\t\t</div>\n" +
-                    "\t\t\t</div>\n" +
-                    "\t\t\t<div id=\"column-right\">\n" +
-                    "\t\t\t\t<div class=\"column-in, ");
-            if(pattern.getVulnerableTestcaseNumber() > 0)
+            htmlContent.append("\n<body>\n" +
+	                "\t<div class=\"container\">\n" +
+	                "\t\t<ol class=\"breadcrumb breadcrumb-arrow\">\n" +
+	                "\t\t\t<li><a href=\"dashboard.html\">Home</a></li>\n" +
+	                "\t\t\t<li class=\"active\"><span>Detail Pattern</span></li>\n" +
+	                "\t\t</ol><br/>\n" +
+	                "\t\t<div class=\"row\">\n" + 
+	                "\t\t\t<div class=\"col-md-2 col-md-offset-3\">\n" +
+	                "\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='testcase.html'\">Testcases</button>\n" + 
+	                "\t\t\t</div>\n" + 
+	                "\t\t\t<div class=\"col-md-2\">\n" +
+	                "\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='variants.html'\" >Variants</button>\n" + 
+	                "\t\t\t</div>\n" + 
+	                "\t\t\t<div class=\"col-md-2\">\n" +
+	                "\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='logs.html'\" >Logs</button>\n" + 
+	                "\t\t\t</div>\n" +
+	                "\t\t</div>\n" +
+	                "\t\t<div class=\"content\">\n" + 
+	                "\t\t\t<div class=\"row\">\n" + 
+	                "\t\t\t\t<div class=\"col-md-10\">\n" +
+	                "\t\t\t\t\t<div class=\"card card-plain\">\n" + 
+	                "\t\t\t\t\t\t<div class=\"header\">\n" + 
+	                "\t\t\t\t\t\t\t<h4 class=\"title\">Test pattern detail</h4>\n" +
+	                "\t\t\t\t\t\t</div>\n" + 
+	                "\t\t\t\t\t\t<div class=\"content table-responsive table-full-width\">\n" +
+	                "\t\t\t\t\t\t\t<table class=\"table table-hover\">\n" +
+	                "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Pattern name</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternName() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Preconditions</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPreConditions() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Postconditions</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPostConditions() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Description</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternDescription() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Test objective</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getTestObjective() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Prerequisites</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPrerequisites() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Procedure</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternProcedure() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Observation</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternObservation() + "</td>\n" +
+                    "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n"+
+                    "\t\t\t\t\t\t\t\t\t<td>Variants</td>\n"+
+                    "\t\t\t\t\t\t\t\t\t<td>");
+            for(String variantDescription : pattern.getVariantDescriptionList())
             {
-                htmlContent.append("detect_color\">\n\t\t\t\t\tVULNERABILITY DETECTED\n");
+                htmlContent.append( variantDescription + "<br/>\n");
             }
-            else
+            htmlContent.append("\t\t\t\t\t\t\t\t\t</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Known uses</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>" + pattern.getKnownUses() + "</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>Related patterns</td>\n" + "\t\t\t\t\t\t\t\t\t<td>");
+            for(int i = 0; i < pattern.getRelatedPatterns().size(); i++)
             {
-                if(pattern.getErrorTestcaseNumber() > 0)
+                if(i < (pattern.getRelatedPatterns().size() - 1))
                 {
-                    htmlContent.append("inconclusive_color\">\n\t\t\t\t\tINCONCLUSIVE\n");
+                    htmlContent.append(pattern.getRelatedPatterns().get(i) + ", ");
                 }
                 else
                 {
-                    if(pattern.getPassedTestcaseNumber() > 0)
-                    {
-                        htmlContent.append("notdetect_color\">\n\t\t\t\t\tVULNERABILITY NOT DETECTED\n");
-                    }
-                    else
-                    {
-                        htmlContent.append("notrun_color\">\n\t\t\t\t\tNOT RUN\n");
-                    }
+                    htmlContent.append(pattern.getRelatedPatterns().get(i));
                 }
             }
-            htmlContent.append("\t\t\t\t</div>\n" +
-                    "\t\t\t</div>\n" +
-                    "\t\t</div>\n" +
-                    "\t</div>\n" +
-                    "\t<div id=\"overview-container\">\n" +
-                    "\t\t<h1>Overview</h1>\n" +
-                    "\t\t<div id=\"overview\">\n" +
-                    "\t\t\t<div id=\"overview-image\">\n" +
-                    "\t\t\t\t<canvas id=\"canvas\" height=\"180\" width=\"180\"></canvas>\n" +
-                    "\t\t\t</div>\n" +
-                    "\t\t\t<script>\n" +
-                    "\t\t\t\tvar pieData = [\n" +
-                    "\t\t\t\t\t{value : " + pattern.getVulnerableTestcaseNumber() + ", color : \"#00CC00\"},\n" +
-                    "\t\t\t\t\t{value : " + pattern.getErrorTestcaseNumber() + ", color : \"#FF6600\"},\n" +
-                    "\t\t\t\t\t{value : " + pattern.getPassedTestcaseNumber() + ", color : \"#FF0000\"}\n" +
-                    "\t\t\t\t];\n" +
-                    "\t\t\t\tvar myPie = new Chart(document.getElementById(\"canvas\").getContext(\"2d\")).Pie(pieData);\n" +
-                    "\t\t\t</script>\n" +
-                    "\t\t\t<div id=\"overview-content\" class=\"pattern_testcase\">\n" +
-                    "\t\t\t\t<div id=\"overview-content-left\">\n" +
-                    "\t\t\t\t\t<p class=\"bgcolor_01\">&nbsp;</p>\n" +
-                    "\t\t\t\t\t<p class=\"bgcolor_02\">Total number of testcases</p>\n" +
-                    "\t\t\t\t\t<p>Testcases revealing a vulnerability</p>\n" +
-                    "\t\t\t\t\t<p class=\"bgcolor_02\">Testcases not revealing any vulnerability</p>\n" +
-                    "\t\t\t\t\t<p>Inconclusive testcases (eg due to technical issue)</p>\n" +
-                    "\t\t\t\t</div>\n" +
-                    "\t\t\t\t<div id=\"overview-content-right\">\n" +
-                    "\t\t\t\t\t<p class=\"bgcolor_01\">Number of testcases</p>\n" +
-                    "\t\t\t\t\t<p class=\"bgcolor_02\">");
-            htmlContent.append(pattern.getVulnerableTestcaseNumber() + pattern.getErrorTestcaseNumber() + pattern.getPassedTestcaseNumber());
-            htmlContent.append("</p>\n" +
-                    "\t\t\t\t\t<p>" + pattern.getVulnerableTestcaseNumber() + "</p>\n" +
-                    "\t\t\t\t\t<p class=\"bgcolor_02\">" + pattern.getPassedTestcaseNumber() + "</p>\n" +
-                    "\t\t\t\t\t<p>" + pattern.getErrorTestcaseNumber() + "</p>\n" +
-                    "\t\t\t\t</div>\n" +
-                    "\t\t\t</div>\n" +
-                    "\t\t</div>\n" +
-                    "\t\t<div id=\"bottom\"></div>\n" +
-                    "\t</div>\n" +
-                    "\t<div id=\"details-container\">\n" +
-                    "\t\t<h1>Details</h1>\n" +
-                    "\t\t<div id=\"details\">\n" +
-                    "\t\t\t<div id=\"details-link\">\n");
-            htmlContent.append("\t\t\t\t<p><h2><a href=\"" + fileNamePrefix + "_details.html" +
-                    "\" target=\"iframe\">Test pattern</a></h2></p>\n" +
-                    "\t\t\t\t<p><h2><a class=\"not4rssi\" href=\"" + fileNamePrefix + "_testcases.html" +
-                    "\" target=\"iframe\">Testcases</a></h2></p>\n" +
-                    "\t\t\t\t<p><h2><a class=\"not4rssi\" href=\"../variants/" + fileNamePrefix + "_variants.html" +
-                    "\" target=\"iframe\">Variants</a></h2></p>\n" +
-                    "\t\t\t\t<p><h2><a href=\"../logs/" + fileNamePrefix + "_logs.html" +
-                    "\" target=\"iframe\">Logs</a></h2></p>\n" +
-                    "\t\t\t</div>\n" +
-                    "\t\t\t<div id=\"details-main\">\n" +
-                    "\t\t\t\t<iframe src=\"" + fileNamePrefix + "_details.html" +
-                    "\" name=\"iframe\" width=\"100%\" height=\"100%\" scrolling=\"Auto\" id=\"iframe\"></iframe>\n");
-            htmlContent.append("\t\t\t</div>\n" +
-                    "\t\t</div>\n" +
-                    "\t\t<div id=\"bottom\"></div>\n" +
-                    "\t</div>\n" +
-                    "</body>\n" +
-                    "</html>");
+            htmlContent.append("</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td>References</td>\n" + "\t\t\t\t\t\t\t\t\t<td>\n");
+            for(Entry<String, String> entry : pattern.getReferences().entrySet())
+            {
+                htmlContent.append(entry.getKey() + " : " + entry.getValue() + "<br/>\n");
+            }
+            htmlContent.append("\t\t\t\t\t\t\t\t\t</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + 
+            "\t\t\t\t\t\t\t</table>\n" + "\t\t\t\t\t\t</div>\n" + "\t\t\t\t\t</div>\n" +
+            "\t\t\t</div>\n" + "\t\t</div>\n" + "\t</div>\n" + "\t</div>\n" +
+            "</body>\n\n" +
+            "<script src=\"assets/js/jquery-1.10.2.js\" type=\"text/javascript\"></script>\n" +
+            "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
+            
+            "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
+            "<script src=\"assets/js/demo.js\"></script>\n" +
+            "<script type=\"text/javascript\">\n" +
+            "\t$(document).ready(function(){demo.initChartist();});\n" +
+            "</script>\n" +
+            "</html>"
+            );
+            
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();

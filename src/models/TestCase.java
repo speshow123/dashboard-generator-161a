@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-class TestCase {
+public class TestCase {
 	
 	/**
      * 
@@ -35,7 +35,7 @@ class TestCase {
     /**
      * 
      */
-    private List<VariantDetail> variantDetailList;
+    private List<Log> variantDetailList;
 
 
     /**
@@ -46,7 +46,13 @@ class TestCase {
     /**
      * Default constructor
      */
-    private TestCase() {
+    public TestCase() {
+    	vulnerableVariantNumber = 0;
+    	errorVariantNumber = 0;
+    	passVariantNumber = 0;
+    	
+    	variantDetailList = new ArrayList<>();
+    	actionList = new ArrayList<>();
     }
 
     public String getTestID() {
@@ -99,12 +105,12 @@ class TestCase {
 	}
 
 
-	public List<VariantDetail> getVariantDetailList() {
+	public List<Log> getVariantDetailList() {
 		return variantDetailList;
 	}
 
 
-	public void setVariantDetailList(List<VariantDetail> variantDetailList) {
+	public void setVariantDetailList(List<Log> variantDetailList) {
 		this.variantDetailList = variantDetailList;
 	}
 
@@ -114,8 +120,8 @@ class TestCase {
 	}
 
 
-	public void setActionList(List<Action> actionList) {
-		this.actionList = actionList;
+	public void setActionList(Action act) {
+		this.actionList.add(act);
 	}
 
 	

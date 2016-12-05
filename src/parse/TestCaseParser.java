@@ -12,38 +12,40 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import models.TestCase;
 import models.Action;
 import models.Operation;
 import models.Value;
 
-public abstract class ActionParser {
-	private static List<Action> actionList;
+public abstract class TestCaseParser {
+	private static List<TestCase> testCaseList;
 
     /**
      *
      */
-    public static void initiateActionList()
+    public static void initiateTestCaseList()
     {
-        actionList = new ArrayList<>();
+        testCaseList = new ArrayList<>();
     }
 
     /**
      *
      * @return
      */
-    public static List<Action> getActionList()
+    public static List<TestCase> getTestCaseList()
     {
-        return actionList;
+        return testCaseList;
     }
 
     /**
      *
      * @param fileName
      */
-    public static void parseActionXmlFile(String fileName)
+    public static void parseTestCaseXmlFile(String fileName)
     {
         try
         {
+        	TestCase test = null;
             Action action = null;
             List<Operation> optList = new ArrayList<>();
             String elementContent = null;
@@ -61,6 +63,12 @@ public abstract class ActionParser {
                     case XMLStreamConstants.START_ELEMENT:
                         switch(streamReader.getLocalName())
                         {
+                        	case "test":
+                        		test = new TestCase();
+                        		test.setTestID(streamReader.getAttributeValue(0));
+                        		test.setTestName(streamReader.getAttributeValue(1));
+                        		
+                        	break;
                             case "step":
                                 action = new Action();
                                 action.setActionKind(streamReader.getAttributeValue(0));
@@ -71,8 +79,8 @@ public abstract class ActionParser {
                             case "argument":
                             	Value val = ValueParser.getValue(streamReader.getAttributeValue(1)) != null ? ValueParser.getValue(streamReader.getAttributeValue(1)):new Value(streamReader.getAttributeValue(1));
                             	optList.get(optList.size()-1).setValue(streamReader.getAttributeValue(0),val);
-                            	
                             	break;
+                            
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:
@@ -81,6 +89,9 @@ public abstract class ActionParser {
                     case XMLStreamConstants.END_ELEMENT:
                         switch(streamReader.getLocalName())
                         {
+                        	case "test":
+                        		testCaseList.add(test);
+                        	break;
                             case "step":
                             	action.setOperation(optList.get(0));
                             	if(optList.size() > 1) {
@@ -88,7 +99,7 @@ public abstract class ActionParser {
                             			action.setSubOperation(optList.get(i));
                             	}
                             	optList.clear();
-                                actionList.add(action);
+                                test.setActionList(action);
                                 break;
                             case "call":
                             	System.out.println("doc duoc");
@@ -99,6 +110,7 @@ public abstract class ActionParser {
                         break;
                 }
             }
+            
         }
         catch(XMLStreamException exception)
         {

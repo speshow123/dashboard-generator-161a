@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Test Campaign</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+	<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<ol class="breadcrumb breadcrumb-arrow">
+			<li><a href="dashboard.html">Home</a></li>
+			<li class="active"><span>Detail Pattern</span></li>
+		</ol><br/>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-3">
+				<button class="btn btn-info btn-fill btn-block" onClick="location.href='testcase.html'">Testcases</button>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-info btn-fill btn-block" onClick="location.href='variants.html'" >Variants</button>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-info btn-fill btn-block" onClick="location.href='logs.html'" >Logs</button>
+			</div>
+			
+		</div>
+		<div class="content">
+			<div class="row">
+				<div class="col-md-10">
+					<div class="card card-plain">
+						<div class="header">
+							<h4 class="title">Test pattern detail</h4>
+						</div>
+						<div class="content table-responsive table-full-width">
+							<table class="table table-hover">
+								<tr>
+									<td>Pattern name</td>
+									<td>XSS MultiStep</td>
+								</tr>
+								<tr>
+									<td>Preconditions</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Postconditions</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Description</td>
+									<td>This pattern could be used on any web applications that use user inputs not filtered; a stored XSS is usually used to redirect a user to a malevolent site in order to steal browser information (session, cookies, and exploitation) and it will be trigger all the time because it’s a persistent attack.</td>
+								</tr>
+								<tr>
+									<td>Test objective</td>
+									<td>Steal cookie session of user, gain browser privileges</td>
+								</tr>
+								<tr>
+									<td>Prerequisites</td>
+									<td>N/A</td>
+								</tr>
+								<tr>
+									<td>Procedure</td>
+									<td><script>alert(document.cookies);</script></td>
+								</tr>
+								<tr>
+									<td>Observation</td>
+									<td>Execution of JavaScript payload (interactive) + information stolen is a success</td>
+								</tr>
+								<tr>
+									<td>Variants</td>
+									<td>Encoding characters<br/>
+Non ALNUM transformation<br/>
+Hex Transformation<br/>
+									</td>
+								</tr>
+								<tr>
+									<td>Known uses</td>
+									<td>Sometimes web application use web application firewall to mitigate attacks but still, it could be possible to bypass it using variants</td>
+								</tr>
+								<tr>
+									<td>Related patterns</td>
+									<td>XSS-R</td>
+								</tr>
+								<tr>
+									<td>References</td>
+									<td>
+CAPEC-86: Cross-site Scripting : http://capec.mitre.org/data/definitions/86.html<br/>
+WASC-8: Cross Site : http://projects.webappsec.org/w/page/13246920/Cross%20Site%20Scripting<br/>
+OWASP: Cross Site Scripting : https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)<br/>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){demo.initChartist();});
+</script>
+</html>

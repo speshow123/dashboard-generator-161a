@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-class TestCampaign {
+public class TestCampaign {
 
 
     /**
@@ -41,7 +41,7 @@ class TestCampaign {
     /**
      * Default constructor
      */
-    private TestCampaign() {
+    public TestCampaign() {
     	testPatternList = new ArrayList<TestPattern>();
     	vulnerableTestPatternNumber = 0;
     	errorTestPatternNumber = 0;

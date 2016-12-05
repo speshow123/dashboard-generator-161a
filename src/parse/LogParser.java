@@ -12,40 +12,40 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import models.Action;
+import models.Log;
 import models.Operation;
 import models.Value;
 
-public abstract class ActionParser {
-	private static List<Action> actionList;
+public abstract class LogParser {
+	private static List<Log> logList;
 
     /**
      *
      */
-    public static void initiateActionList()
+    public static void initiateLogList()
     {
-        actionList = new ArrayList<>();
+        logList = new ArrayList<>();
     }
 
     /**
      *
      * @return
      */
-    public static List<Action> getActionList()
+    public static List<Log> getLogList()
     {
-        return actionList;
+        return logList;
     }
 
     /**
      *
      * @param fileName
      */
-    public static void parseActionXmlFile(String fileName)
+    public static void parseLogXmlFile(String fileName)
     {
         try
         {
-            Action action = null;
-            List<Operation> optList = new ArrayList<>();
+            Log log = null;
+
             String elementContent = null;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
                         InputStream inputStream = new FileInputStream(fileName);
@@ -61,17 +61,13 @@ public abstract class ActionParser {
                     case XMLStreamConstants.START_ELEMENT:
                         switch(streamReader.getLocalName())
                         {
-                            case "step":
-                                action = new Action();
-                                action.setActionKind(streamReader.getAttributeValue(0));
+                            case "test":
+                                log = new Log();
+                                log.setVariantDetailError(streamReader.getAttributeValue(1));
+                                log.setName(streamReader.getAttributeValue(2));
                                 break;
-                            case "call":
-                            	optList.add(OperationParser.getOperation(streamReader.getAttributeValue(1)));
-                            	break;
-                            case "argument":
-                            	Value val = ValueParser.getValue(streamReader.getAttributeValue(1)) != null ? ValueParser.getValue(streamReader.getAttributeValue(1)):new Value(streamReader.getAttributeValue(1));
-                            	optList.get(optList.size()-1).setValue(streamReader.getAttributeValue(0),val);
-                            	
+                            case "output":
+                            	log.setPayLoads(streamReader.getElementText());
                             	break;
                         }
                         break;
@@ -81,17 +77,11 @@ public abstract class ActionParser {
                     case XMLStreamConstants.END_ELEMENT:
                         switch(streamReader.getLocalName())
                         {
-                            case "step":
-                            	action.setOperation(optList.get(0));
-                            	if(optList.size() > 1) {
-                            		for(int i=1;i<optList.size();i++)
-                            			action.setSubOperation(optList.get(i));
-                            	}
-                            	optList.clear();
-                                actionList.add(action);
-                                break;
-                            case "call":
-                            	System.out.println("doc duoc");
+                            case "test":
+                            	logList.add(log);
+                            	break;
+                            case "output":
+                            	log.setPayLoads(elementContent);
                             	break;
                         }
                         break;

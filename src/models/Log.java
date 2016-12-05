@@ -9,20 +9,37 @@ public class Log {
 	/**
      * 
      */
-    private List<String> logs;
-
+	private String name;
+	private List<String> payloads;
+    private int variantDetailError;
     /**
      * Default constructor
      */
     public Log() {
+    	payloads = new ArrayList<>();
+    	variantDetailError = 0;
     }
-
-    public List<String> getLogs() {
-		return logs;
+    public String getName() {
+		return name;
 	}
 
-	public void setLogs(List<String> logs) {
-		this.logs = logs;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getVariantDetailError() {
+		return variantDetailError;
+	}
+
+	public void setVariantDetailError(String status) {
+		this.variantDetailError = status.equalsIgnoreCase("passed") ? 1:0;
+	}
+    public List<String> getPayLoads() {
+		return payloads;
+	}
+
+	public void setPayLoads(String payLoad) {
+		payloads.add(payLoad);
 	}
 
 	
