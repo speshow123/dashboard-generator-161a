@@ -91,7 +91,7 @@ public abstract class ActionParser {
                                 actionList.add(action);
                                 break;
                             case "call":
-                            	System.out.println("doc duoc");
+                            	
                             	break;
                         }
                         break;

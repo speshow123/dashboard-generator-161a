@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 
 public abstract class PatternParser
 {
@@ -45,6 +46,8 @@ public abstract class PatternParser
         {
             TestPattern testPattern = null;
             String elementContent = null;
+            
+    		
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
                         InputStream inputStream = new FileInputStream(fileName);
 
@@ -70,7 +73,7 @@ public abstract class PatternParser
                                 testPattern.setPrerequisites(streamReader.getElementText());
                                 break;
                             case "Procedure":
-                                testPattern.setPatternProcedure(streamReader.getElementText());
+                                testPattern.setPatternProcedure(StringEscapeUtils.escapeXml11(streamReader.getElementText()));
                                 break;
                             case "Observation":
                                 testPattern.setPatternObservation(streamReader.getElementText());
