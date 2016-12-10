@@ -26,7 +26,7 @@ public class TestPattern {
 
     private List<TestCase> testCaseList;
     private List<Variant> variantList;
-
+    private List<Log> logs;
     /**
      * Default constructor
      */
@@ -39,6 +39,7 @@ public class TestPattern {
     	
     	testCaseList = new ArrayList<>();
     	variantList = new ArrayList<>();
+    	logs = new ArrayList<>();
     }
 
 	public String getPatternID() {
@@ -168,7 +169,15 @@ public class TestPattern {
 	public void setPassedTestcaseNumber() {
 		this.passedTestcaseNumber++;
 	}
-
+	
+	public List<Log> getLogs() {
+		return logs;
+	}
+	
+	public void setLog(List<Log> logs) {
+		this.logs = logs;
+	}
+	
 	public List<TestCase> getTestCaseList() {
 		return testCaseList;
 	}

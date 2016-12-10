@@ -97,7 +97,8 @@ public abstract class PatternParser
                         {
                             case "TestPattern":
                                 testPattern.setVariantList(PatternVariantsParser.getVariantList());
-                                //testPattern.setTestCaseList(TestCasesParser.getTestCaseList());
+                                //testPattern.setTestCaseList(TestCaseParser.getTestCaseList());
+                                testPattern.setLog(LogParser.getLogList());
                                 testPatternList.add(testPattern);
                                 break;
                             case "Name":
