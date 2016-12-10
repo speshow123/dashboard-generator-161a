@@ -96,7 +96,7 @@ public abstract class PatternParser
                         switch(streamReader.getLocalName())
                         {
                             case "TestPattern":
-                                //testPattern.setVariantList(PatternVariantsParser.getVariantList());
+                                testPattern.setVariantList(PatternVariantsParser.getVariantList());
                                 //testPattern.setTestCaseList(TestCasesParser.getTestCaseList());
                                 testPatternList.add(testPattern);
                                 break;

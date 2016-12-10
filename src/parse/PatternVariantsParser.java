@@ -12,6 +12,8 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import models.Variant;
 
 public abstract class PatternVariantsParser {
@@ -44,6 +46,7 @@ public abstract class PatternVariantsParser {
         {
         	Variant patternVariant = null;
             String elementContent = null;
+            int variantID = 0;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
                         InputStream inputStream = new FileInputStream(fileName);
 
@@ -60,21 +63,22 @@ public abstract class PatternVariantsParser {
                         {
                         	case "attack":
                         		patternVariant = new Variant();
+                        		patternVariant.setID("variant_"+(++variantID));
                         		break;
                             case "name":
                             	patternVariant.setName(streamReader.getElementText());
                                 break;
                             case "code":
-                            	patternVariant.setCode(streamReader.getElementText());
+                            	patternVariant.setCode(StringEscapeUtils.escapeXml11(streamReader.getElementText()));
                                 break;
                             case "desc":
-                            	patternVariant.setDesc(streamReader.getElementText());
+                            	patternVariant.setDesc(StringEscapeUtils.escapeXml11(streamReader.getElementText()));
                                 break;
                             case "label":
                             	patternVariant.setLabel(streamReader.getElementText());
                                 break;
                             case "browser":
-                            	patternVariant.setBrowser(streamReader.getElementText());
+                            	patternVariant.setBrowser(StringEscapeUtils.escapeXml11(streamReader.getElementText()));
                                 break;
                            
                         }
@@ -93,16 +97,16 @@ public abstract class PatternVariantsParser {
                             	patternVariant.setName(elementContent);
                                 break;
                             case "code":
-                            	patternVariant.setCode(elementContent);
+                            	patternVariant.setCode(StringEscapeUtils.escapeXml11(elementContent));
                                 break;
                             case "desc":
-                            	patternVariant.setDesc(elementContent);
+                            	patternVariant.setDesc(StringEscapeUtils.escapeXml11(elementContent));
                                 break;
                             case "label":
                             	patternVariant.setLabel(elementContent);
                                 break;
                             case "browser":
-                            	patternVariant.setBrowser(elementContent);
+                            	patternVariant.setBrowser(StringEscapeUtils.escapeXml11(elementContent));
                                 break;
                         }
                         break;

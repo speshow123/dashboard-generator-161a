@@ -30,7 +30,7 @@ public class TestCase {
     /**
      * 
      */
-    private int passVariantNumber;
+    private int passedVariantNumber;
 
     /**
      * 
@@ -49,7 +49,7 @@ public class TestCase {
     public TestCase() {
     	vulnerableVariantNumber = 0;
     	errorVariantNumber = 0;
-    	passVariantNumber = 0;
+    	passedVariantNumber = 0;
     	
     	variantDetailList = new ArrayList<>();
     	actionList = new ArrayList<>();
@@ -80,8 +80,8 @@ public class TestCase {
 	}
 
 
-	public void setVulnerableVariantNumber(int vulnerableVariantNumber) {
-		this.vulnerableVariantNumber = vulnerableVariantNumber;
+	public void setVulnerableVariantNumber() {
+		this.vulnerableVariantNumber++;
 	}
 
 
@@ -90,18 +90,16 @@ public class TestCase {
 	}
 
 
-	public void setErrorVariantNumber(int errorVariantNumber) {
-		this.errorVariantNumber = errorVariantNumber;
+	public void setErrorVariantNumber() {
+		this.errorVariantNumber++;
 	}
 
 
-	public int getPassVariantNumber() {
-		return passVariantNumber;
-	}
+	
 
 
-	public void setPassVariantNumber(int passVariantNumber) {
-		this.passVariantNumber = passVariantNumber;
+	public void setPassedVariantNumber() {
+		this.passedVariantNumber++;
 	}
 
 
@@ -122,6 +120,11 @@ public class TestCase {
 
 	public void setActionList(Action act) {
 		this.actionList.add(act);
+	}
+
+	public int getPassedVariantNumber() {
+		// TODO Auto-generated method stub
+		return passedVariantNumber;
 	}
 
 	

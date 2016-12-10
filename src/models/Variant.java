@@ -8,7 +8,8 @@ import java.util.*;
 public class Variant {
 
     
-
+	private String id;
+	
     /**
      * 
      */
@@ -39,7 +40,13 @@ public class Variant {
      */
     public Variant() {
     }
-
+    public String getID() {
+    	return id;
+    }
+    
+    public void setID(String id) {
+    	this.id = id;
+    }
 	public String getName() {
 		return name;
 	}

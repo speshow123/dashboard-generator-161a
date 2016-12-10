@@ -149,24 +149,24 @@ public class TestPattern {
 		return vulnerableTestcaseNumber;
 	}
 
-	public void setVulnerableTestcaseNumber(int vulnerableTestcaseNumber) {
-		this.vulnerableTestcaseNumber = vulnerableTestcaseNumber;
+	public void setVulnerableTestcaseNumber() {
+		this.vulnerableTestcaseNumber++;
 	}
 
 	public int getErrorTestcaseNumber() {
 		return errorTestcaseNumber;
 	}
 
-	public void setErrorTestcaseNumber(int errorTestcaseNumber) {
-		this.errorTestcaseNumber = errorTestcaseNumber;
+	public void setErrorTestcaseNumber() {
+		this.errorTestcaseNumber++;
 	}
 
 	public int getPassedTestcaseNumber() {
 		return passedTestcaseNumber;
 	}
 
-	public void setPassedTestcaseNumber(int passedTestcaseNumber) {
-		this.passedTestcaseNumber = passedTestcaseNumber;
+	public void setPassedTestcaseNumber() {
+		this.passedTestcaseNumber++;
 	}
 
 	public List<TestCase> getTestCaseList() {
@@ -175,6 +175,27 @@ public class TestPattern {
 
 	public void setTestCaseList(List<TestCase> testCaseList) {
 		this.testCaseList = testCaseList;
+		for(TestCase testCase : testCaseList)
+        {
+            if(testCase.getVulnerableVariantNumber() > 0)
+            {
+                this.setVulnerableTestcaseNumber();
+            }
+            else
+            {
+                if(testCase.getErrorVariantNumber() > 0)
+                {
+                    this.setErrorTestcaseNumber();
+                }
+                else
+                {
+                    if(testCase.getPassedVariantNumber() > 0)
+                    {
+                        this.setPassedTestcaseNumber();
+                    }
+                }
+            }
+        }
 	}
 
 	public List<Variant> getVariantList() {

@@ -9,11 +9,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Map.Entry;
 
-/**
- * File:   PatternDetailsGeneration.java
- * @author Huynh Minh Duc
- * Created on 12/03/14 at 10:54
- */
+
 
 public abstract class PatternDetailsGeneration
 {

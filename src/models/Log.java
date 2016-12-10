@@ -11,13 +11,14 @@ public class Log {
      */
 	private String name;
 	private List<String> payloads;
-    private int variantDetailError;
+    private String variantDetailError;
+    
     /**
      * Default constructor
      */
     public Log() {
     	payloads = new ArrayList<>();
-    	variantDetailError = 0;
+    	variantDetailError = "";
     }
     public String getName() {
 		return name;
@@ -27,12 +28,12 @@ public class Log {
 		this.name = name;
 	}
 
-	public int getVariantDetailError() {
+	public String getVariantDetailError() {
 		return variantDetailError;
 	}
 
 	public void setVariantDetailError(String status) {
-		this.variantDetailError = status.equalsIgnoreCase("passed") ? 1:0;
+		this.variantDetailError = status;
 	}
     public List<String> getPayLoads() {
 		return payloads;
