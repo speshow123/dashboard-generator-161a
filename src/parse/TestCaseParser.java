@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -100,6 +102,10 @@ public abstract class TestCaseParser {
                             	}
                             	optList.clear();
                                 test.setActionList(action);
+                        		String name = test.getTestName().replaceAll("[(|)| |-]", "_").toLowerCase();
+                                test.setVariantDetailList(LogParser.getLogList().stream()
+                                		.filter((x) -> name.equals(x.getName().substring(0, name.length()).toLowerCase()))
+                                		.collect(Collectors.toList()));
                                 break;
                             case "call":
                             	System.out.println("doc duoc");
