@@ -68,8 +68,8 @@ public class TestCampaign {
 		return testPatternList;
 	}
 
-	public void setTestPatternList(TestPattern testPattern) {
-		this.testPatternList.add(testPattern);
+	public void setTestPatternList(List<TestPattern> list) {
+		this.testPatternList = list;
 	}
 
 	public int getVulnerableTestPatternNumber() {

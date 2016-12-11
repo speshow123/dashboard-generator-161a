@@ -53,7 +53,7 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t<li class=\"active\">\n" +
 	                "\t\t\t\t\t<a href=\"#\"> <i class=\"pe-7s-graph\"></i> <p>Dashboard <b class=\"caret\"></b></p> </a>\n" +
 	                "\t\t\t\t\t\t<ul class=\"sidebar-submenu\">\n" +
-	                "\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"\"></i> Dashboard v1</a></li>\n" +
+	                "\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"\"></i> Dashboard "+ dashboard.getCampaignName() +"</a></li>\n" +
 	                "\t\t\t\t\t\t</ul>\n" +
 	                "\t\t\t\t\t</li>\n" +
 	                "\t\t\t\t</ul>\n" +
@@ -117,9 +117,15 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t\t<div class=\"content table-responsive table-full-width\">\n" + 
 	                "\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\"s>\n" + 
 	                "\t\t\t\t\t\t\t\t<thead><tr><th>ID</th><th>Vulnerability pattern</th><th>Vulnerability</th></tr></thead>\n" + 
-	                "\t\t\t\t\t\t\t\t<tbody>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>1</td><td><a href=\"Detailpattern.html\">XMSVirus</a></td><td class=\"detected\">DETECTED</td></tr>\n" + 
-	                "\t\t\t\t\t\t\t\t</tbody>\n" +
+	                "\t\t\t\t\t\t\t\t<tbody>\n");
+					for(int i=0;i<dashboard.getTestPatternList().size();i++) {
+						htmlContent.append("\t\t\t\t\t\t\t\t\t<tr><td>1</td><td><a href=\"")
+						.append(dashboard.getTestPatternList().get(i).getPatternID().replace('-', '_').toLowerCase() + "_pattern.html")
+						.append("\">").append(dashboard.getTestPatternList().get(i).getPatternName())
+						.append("</a></td><td class=\"detected\">DETECTED</td></tr>\n");
+					}
+	                
+	                htmlContent.append("\t\t\t\t\t\t\t\t</tbody>\n" +
 	                "\t\t\t\t\t\t\t</table>\n" +
 	                "\t\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t\t</div>\n" + 
@@ -139,7 +145,7 @@ public abstract class dashboardGeneration {
 			printHtmlFile.print(htmlContent.toString());
 	        printHtmlFile.close();
 	        htmlFileStream.close();
-	        System.out.println("Test pattern generation done!");
+	        System.out.println("Test campaign generation done!");
         }
         catch(IOException exception)
         {

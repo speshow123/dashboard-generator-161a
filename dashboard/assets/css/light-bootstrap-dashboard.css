@@ -3481,7 +3481,6 @@ body > .navbar-collapse[data-color="purple"]:after {
 }
 /* EDIT HERE */
 
-.my-table {
-    table-layout: fixed;
-    word-wrap: break-word;
+td{word-break: break-all;
+	word-wrap:break-word;
 }

@@ -1,6 +1,9 @@
 package models;
 
+import java.io.File;
 import java.util.*;
+
+import controllers.ModelGeneration;
 
 /**
  * 
@@ -41,5 +44,6 @@ public class Parameter {
 	public void setNameParam(String nameParam) {
 		this.nameParam = nameParam;
 	}
+	
 	
 }

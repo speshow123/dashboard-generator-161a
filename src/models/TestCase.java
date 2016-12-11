@@ -2,6 +2,9 @@ package models;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import controllers.ModelGeneration;
+
 import java.util.function.Function;
 /**
  * 
@@ -143,6 +146,11 @@ public class TestCase {
 	public int getPassedVariantNumber() {
 		// TODO Auto-generated method stub
 		return passedVariantNumber;
+	}
+
+	public void toHtml(ModelGeneration generation, String string) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

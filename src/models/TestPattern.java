@@ -1,6 +1,9 @@
 package models;
 
+import java.io.File;
 import java.util.*;
+
+import controllers.ModelGeneration;
 
 /**
  * 
@@ -211,7 +214,17 @@ public class TestPattern {
 
     
 
-
+	public void toHtml(ModelGeneration generation, String directoryPath)
+    {
+        generation.generatePatternToHtml(this, directoryPath);
+        
+        for(TestCase testCase : this.getTestCaseList())
+        {
+            testCase.toHtml(generation, directoryPath);
+        }
+        
+        
+    }
 
 
 
