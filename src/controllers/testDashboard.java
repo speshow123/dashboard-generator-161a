@@ -15,7 +15,8 @@ public class testDashboard {
 		dashboard.setTestPatternList(PatternParser.getTestPatternList());
 		dashboardGeneration.setDashboardFileName("dashboard.html");
 		dashboardGeneration.generateDashboardnHtmlFile(dashboard);
-		PatternParser.getTestPatternList().get(0).toHtml(new ModelGeneration(), "./dashboard");
+		PatternParser.getTestPatternList().get(0).toHtml(new ModelGenerationVistor(), "./dashboard");
+		
 	}
 
 }

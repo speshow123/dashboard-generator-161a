@@ -104,13 +104,13 @@ public abstract class PatternGeneration
 	                "\t\t</ol><br/>\n" +
 	                "\t\t<div class=\"row\">\n" + 
 	                "\t\t\t<div class=\"col-md-2 col-md-offset-3\">\n" +
-	                "\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='testcase.html'\">Testcases</button>\n" + 
-	                "\t\t\t</div>\n" + 
-	                "\t\t\t<div class=\"col-md-2\">\n" +
-	                "\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='variants.html'\" >Variants</button>\n" + 
-	                "\t\t\t</div>\n" + 
-	                "\t\t\t<div class=\"col-md-2\">\n" +
-	                "\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='logs.html'\" >Logs</button>\n" + 
+	                
+    				"\t\t\t\t</div>\n" +
+    				"\t\t\t\t<div class=\"col-md-2\">\n" +
+    				"\t\t\t\t\t<button class=\"btn btn-info btn-fill btn-block \"  onClick=\"location.href='"+"pattern.html"+"'\"  >Testcases</button>\n" +
+    				"\t\t\t\t</div>\n" +
+    				"\t\t\t\t<div class=\"col-md-2\">\n" +
+    				
 	                "\t\t\t</div>\n" +
 	                "\t\t</div>\n" +
 	                "\t\t<div class=\"content\">\n" + 
@@ -123,40 +123,40 @@ public abstract class PatternGeneration
 	                "\t\t\t\t\t\t<div class=\"content table-responsive table-full-width\">\n" +
 	                "\t\t\t\t\t\t\t<table class=\"table table-hover\">\n" +
 	                "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Pattern name</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Pattern name</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternName() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Preconditions</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Preconditions</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPreConditions() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Postconditions</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Postconditions</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPostConditions() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Description</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Description</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternDescription() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Test objective</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Test objective</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getTestObjective() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Prerequisites</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Prerequisites</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPrerequisites() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Procedure</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Procedure</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternProcedure() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Observation</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Observation</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getPatternObservation() + "</td>\n" +
                     "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n"+
-                    "\t\t\t\t\t\t\t\t\t<td>Variants</td>\n"+
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Variants</td>\n"+
                     "\t\t\t\t\t\t\t\t\t<td>");
             for(String variantDescription : pattern.getVariantDescriptionList())
             {
                 htmlContent.append( variantDescription + "<br/>\n");
             }
             htmlContent.append("\t\t\t\t\t\t\t\t\t</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Known uses</td>\n" +
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Known uses</td>\n" +
                     "\t\t\t\t\t\t\t\t\t<td>" + pattern.getKnownUses() + "</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>Related patterns</td>\n" + "\t\t\t\t\t\t\t\t\t<td>");
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">Related patterns</td>\n" + "\t\t\t\t\t\t\t\t\t<td>");
             for(int i = 0; i < pattern.getRelatedPatterns().size(); i++)
             {
                 if(i < (pattern.getRelatedPatterns().size() - 1))
@@ -169,7 +169,7 @@ public abstract class PatternGeneration
                 }
             }
             htmlContent.append("</td>\n" + "\t\t\t\t\t\t\t\t</tr>\n" + "\t\t\t\t\t\t\t\t<tr>\n" +
-                    "\t\t\t\t\t\t\t\t\t<td>References</td>\n" + "\t\t\t\t\t\t\t\t\t<td>\n");
+                    "\t\t\t\t\t\t\t\t\t<td style=\"width:20%\">References</td>\n" + "\t\t\t\t\t\t\t\t\t<td>\n");
             for(Entry<String, String> entry : pattern.getReferences().entrySet())
             {
                 htmlContent.append(entry.getKey() + " : " + entry.getValue() + "<br/>\n");
@@ -182,10 +182,6 @@ public abstract class PatternGeneration
             "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
             
             "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
-            "<script src=\"assets/js/demo.js\"></script>\n" +
-            "<script type=\"text/javascript\">\n" +
-            "\t$(document).ready(function(){demo.initChartist();});\n" +
-            "</script>\n" +
             "</html>"
             );
             

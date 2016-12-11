@@ -100,77 +100,7 @@ public abstract class LogGeneration {
             StringBuilder htmlContent = new StringBuilder();
             htmlContent.append(header);
             htmlContent.append("\n<body>\n" + 
-            				"<div class=\"container\">\n"
-            				+ "\t<ol class=\"breadcrumb breadcrumb-arrow\">\n"
-            				+ "\t\t<li><a href=\"dashboard.html\">Home</a></li>\n"
-            				+ "\t\t<li><a href=\""+ fileNamePrefix + "_pattern.html" +"\">"+pattern.getPatternName()+"</a></li>\n"
-            				+ "\t\t<li class=\"active\"><span>Log</span></li>\n"
-            				+ "\t</ol>\n<br/>\n"
-            				+ "\t<div class=\"content\">\n"
-            				+ "\t\t<div class=\"container-fluid\">\n"
-            				+ "\t\t\t<div class=\"row\">\n"
-            				+ "\t\t\t\t<div class=\"col-md-4\">\n"
-            				+ "\t\t\t\t\t<div class=\"card\">\n"
-            				+ "\t\t\t\t\t\t<div class=\"header\">\n" +
-            				"\t\t\t\t\t\t\t<h4 class=\"title\">Test Statistics</h4>\n" +
-            				"\t\t\t\t\t\t\t<p class=\"category\">Last Campaign Performance</p>\n" +
-            				"\t\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t\t\t<div class=\"content\">\n" +
-            				"\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" +
-            				"\t\t\t\t\t\t\t<div class=\"footer\">\n" +
-            				"\t\t\t\t\t\t\t\t<div class=\"legend\"> <i class=\"fa fa-circle text-info\"></i> Unrisk <i class=\"fa fa-circle text-danger\"></i> Risk </div>\n" +
-            				"\t\t\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t</div>\n" +
-            				"\t\t\t\t<div class=\"col-md-8\">\n" +
-            				"\t\t\t\t\t<div class=\"card\">\n" +
-            				"\t\t\t\t\t\t<div class=\"header\">\n" +
-            				"\t\t\t\t\t\t\t<h4 class=\"title\">Table Report</h4>\n" +
-            				"\t\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t\t\t<div class=\"content table-responsive table-full-width\">\n" +
-            				"\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\">\n" +
-            				"\t\t\t\t\t\t\t\t<thead>\n" +
-            				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<th></th>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<th style=\"text-align:center;\">Testcases</th>\n" +
-            				"\t\t\t\t\t\t\t\t\t</tr>\n" +
-            				"\t\t\t\t\t\t\t\t</thead>\n" +
-            				"\t\t\t\t\t\t\t\t<tbody>\n" +
-            				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Total number of testcases</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">1</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t</tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Testcases revealing a vulnerability</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">1</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t</tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Test cases not revealing any vulnerability</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">0</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t</tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Inconclusive testcases (eg due to technical issue)</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">0</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t</tr>\n" +
-            				"\t\t\t\t\t\t\t\t</tbody>\n" +
-            				"\t\t\t\t\t\t\t</table>\n" +
-            				"\t\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t\t</div>\n" +
-            				"\t\t\t\t</div>\n" +
-            				"\t\t\t</div>\n" +
-            				"\t\t\t<div class=\"row\">\n" +
-            				"\t\t\t\t<div class=\"col-md-2 col-md-offset-3\">\n" +
-            				"\t\t\t\t\t<button class=\"btn btn-info btn-fill btn-block\" onClick=\"location.href='testcase.html'\">Testcases</button>\n" +
-            				"\t\t\t\t</div>\n" +
-            				"\t\t\t\t<div class=\"col-md-2\">\n" +
-            				"\t\t\t\t\t<button class=\"btn btn-info btn-fill btn-block \"  onClick=\"location.href='"+fileNamePrefix + "_variants.html"+"'\"  >Variants</button>\n" +
-            				"\t\t\t\t</div>\n" +
-            				"\t\t\t\t<div class=\"col-md-2\">\n" +
-            				"\t\t\t\t\t<button class=\"btn btn-info btn-fill btn-block \">Logs</button>\n" +
-            				"\t\t\t\t</div>\n" +
-            				"\t\t\t</div>\n" +
-            				"\t\t\t<br/>\n" +
+            				
             				"\t\t\t<div class=\"content\">\n" +
             				"\t\t\t\t<div class=\"row\">\n" +
             				"\t\t\t\t\t<div class=\"col-md-12\">\n" +
@@ -233,9 +163,7 @@ public abstract class LogGeneration {
             			"\t\t\t\t\t\t\t\t\t</table>\n" +
             			"\t\t\t\t\t\t\t\t</table>\n");
             }*/
-            htmlContent.append("\t\t\t\t\t\t\t</div>\n" +
-            		"\t\t\t\t\t\t</div>\n" +
-            		"\t\t\t\t\t</div>\n" +
+            htmlContent.append(
             		"\t\t\t\t</div>\n" +
             		"\t\t\t</div>\n" +
             		"\t\t</div>\n" +
@@ -244,12 +172,9 @@ public abstract class LogGeneration {
             		"</body>\n\n" +
             		"<script src=\"assets/js/jquery-1.10.2.js\" type=\"text/javascript\"></script>\n" +
                     "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
-                    "<script src=\"assets/js/chartist.min.js\"></script>" + 
+                    
                     "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
-                    "<script src=\"assets/js/demo.js\"></script>\n" +
-                    "<script type=\"text/javascript\">\n" +
-                    "\t$(document).ready(function(){demo.initChartist();});\n" +
-                    "</script>\n" +
+                   
                     "</html>"
                     );
             
@@ -263,7 +188,5 @@ public abstract class LogGeneration {
             exception.printStackTrace();
         }
     }
-    private void process(List<Log> logs) {
-    	
-    }
+    
 }

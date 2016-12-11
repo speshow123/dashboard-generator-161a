@@ -4,11 +4,12 @@ import java.io.File;
 import java.util.*;
 
 import controllers.ModelGeneration;
+import controllers.ModelGenerationVistor;
 
 /**
  * 
  */
-public class TestPattern {
+public class TestPattern implements Model{
 	private String patternID;
     private String patternName;
     private String preConditions;
