@@ -5,11 +5,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import models.Log;
 import models.TestPattern;
 
 public abstract class LogGeneration {
+	static int logID = 0;
 	private static String logDirectory;
     private static String logFileName;
     private static String logName;
@@ -178,8 +181,34 @@ public abstract class LogGeneration {
             				"\t\t\t\t\t\t\t<div class=\"content table-responsive table-full-width\">\n"
             				
                     );
-            for(Log log: pattern.getLogs()) {
-            	/*htmlContent.append("\t\t\t\t\t\t\t\t<table class=\"table table-hover\">\n" +
+            pattern.getTestCaseList().stream()
+    		.flatMap(x -> x.getVariantDetailList().stream())
+    		.forEach((log) -> {
+    			
+    			htmlContent.append("\t\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\">\n" +
+            			"\t\t\t\t\t\t\t\t\t<tr>\n" +
+            			"\t\t\t\t\t\t\t\t\t\t<td>Info: test variant "+log.getName()+" ] has run duration in "+ log.getRuntime() +" and its vulnerability is ");
+    			if(log.getVariantDetailError().equals("passed")) {
+    				htmlContent.append("<span class=\"notdetected\">not detect</span></td>\n");
+    			} else {
+    				htmlContent.append("<span class=\"detected\">detect</span></td>\n");
+    			}
+    			htmlContent.append("\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:right;\"><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#log_"+ (++logID) +"\">View Detail</button></td>\n" +
+            			"\t\t\t\t\t\t\t\t\t</tr>\n" +
+            			"\t\t\t\t\t\t\t\t\t<table id=\"log_"+ logID +"\"class=\"collapse table detail\">\n");
+            	for(int i=0;i<log.getPayLoads().size();i++) {
+            		htmlContent.append("\t\t\t\t\t\t\t\t\t\t<tr>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t\t<td>" + log.getPayLoads().get(i) +
+            				"</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n");
+            	}
+						
+    			htmlContent.append("\t\t\t\t\t\t\t\t\t</table>\n" +
+    					"\t\t\t\t\t\t\t\t</table>\n");
+    		});
+            	
+            
+            /*for(Log log: pattern.) {
+            	htmlContent.append("\t\t\t\t\t\t\t\t<table class=\"table table-hover\">\n" +
             			"\t\t\t\t\t\t\t\t\t<tr>\n" +
             			"\t\t\t\t\t\t\t\t\t\t<td>Variant "+v.getName()+"</td>\n" +
             			"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:right;\"><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#"+ v.getID() +"\">View Detail</button></td>\n" +
@@ -202,8 +231,8 @@ public abstract class LogGeneration {
             			"\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
             			"\t\t\t\t\t\t\t\t\t\t</tbody>\n" +
             			"\t\t\t\t\t\t\t\t\t</table>\n" +
-            			"\t\t\t\t\t\t\t\t</table>\n");*/
-            }
+            			"\t\t\t\t\t\t\t\t</table>\n");
+            }*/
             htmlContent.append("\t\t\t\t\t\t\t</div>\n" +
             		"\t\t\t\t\t\t</div>\n" +
             		"\t\t\t\t\t</div>\n" +
@@ -227,11 +256,14 @@ public abstract class LogGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println("Test pattern variants generation done!");
+            System.out.println("Test logs generation done!");
         }
         catch(IOException exception)
         {
             exception.printStackTrace();
         }
+    }
+    private void process(List<Log> logs) {
+    	
     }
 }

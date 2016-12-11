@@ -63,6 +63,7 @@ public abstract class LogParser {
                         {
                             case "test":
                                 log = new Log();
+                                log.setRuntime(streamReader.getAttributeValue(0));
                                 log.setVariantDetailError(streamReader.getAttributeValue(1));
                                 log.setName(streamReader.getAttributeValue(2));
                                 break;

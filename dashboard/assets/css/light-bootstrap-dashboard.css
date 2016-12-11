@@ -3479,3 +3479,9 @@ body > .navbar-collapse[data-color="purple"]:after {
 .breadcrumb-arrow li span {
     color: #434a54
 }
+/* EDIT HERE */
+
+.my-table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}

@@ -111,21 +111,22 @@ public class TestCase {
 
 	public void setVariantDetailList(List<Log> variantDetailList) {
 		this.variantDetailList = variantDetailList;
-		Map<String, Long> statusClassify = this.variantDetailList.stream()
+		Map<String, Long> statusClassify = this.variantDetailList.parallelStream()
 				.collect(
 					Collectors.groupingBy(Log::getVariantDetailError,
 								Collectors.counting())
 						);
 			
-		for(Map.Entry<String, Long> status: statusClassify.entrySet()) {
-			if(status.getKey().equals("passed"))
-				setPassedVariantNumber(status.getValue().intValue());
-			else if(status.getKey().equals("failed"))
-				setVulnerableVariantNumber(status.getValue().intValue());
+		for(String status: statusClassify.keySet()) {
+			int value = statusClassify.get(status).intValue();
+			if(status.equals("passed"))
+				setPassedVariantNumber(value);
+			else if(status.equals("failed"))
+				setVulnerableVariantNumber(value);
 			else
-				setErrorVariantNumber(status.getValue().intValue());
+				setErrorVariantNumber(value);
 		}
-		System.out.println(getPassedVariantNumber()+", " + getVulnerableVariantNumber()+", " + getErrorVariantNumber());
+		//System.out.println(getPassedVariantNumber()+", " + getVulnerableVariantNumber()+", " + getErrorVariantNumber());
 		
 	}
 

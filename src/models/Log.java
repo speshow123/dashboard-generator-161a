@@ -10,6 +10,7 @@ public class Log {
      * 
      */
 	private String name;
+	private String runtime;
 	private List<String> payloads;
     private String variantDetailError;
     
@@ -27,7 +28,14 @@ public class Log {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getRuntime() {
+		return runtime;
+	}
 
+	public void setRuntime(String runtime) {
+		this.runtime = runtime;
+	}
 	public String getVariantDetailError() {
 		return variantDetailError;
 	}
