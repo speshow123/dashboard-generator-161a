@@ -149,9 +149,9 @@ public class TestCase {
 		return passedVariantNumber;
 	}
 
-	public void toHtml(ModelGeneration generation, String string) {
+	public void toHtml(ModelGeneration generation, String directoryPath) {
 		// TODO Auto-generated method stub
-		
+		generation.generateTestcasesToHtml(this, directoryPath);
 	}
 
 	

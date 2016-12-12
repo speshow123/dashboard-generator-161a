@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.Map.Entry;
 
 
-public abstract class PatternGeneration
+public abstract class PatternDetailsGeneration
 {
     private static String patternDirectory;
     private static String patternFileName;
@@ -32,7 +32,7 @@ public abstract class PatternGeneration
      */
     public static void setPatternDirectory(String patternDirectory)
     {
-        PatternGeneration.patternDirectory = patternDirectory;
+        PatternDetailsGeneration.patternDirectory = patternDirectory;
     }
 
     /**
@@ -50,7 +50,7 @@ public abstract class PatternGeneration
      */
     public static void setPatternFileName(String patternFileName)
     {
-        PatternGeneration.patternFileName = patternFileName;
+        PatternDetailsGeneration.patternFileName = patternFileName;
     }
 
     /**
@@ -68,7 +68,7 @@ public abstract class PatternGeneration
      */
     public static void setPatternName(String patternName)
     {
-        PatternGeneration.patternName = patternName;
+        PatternDetailsGeneration.patternName = patternName;
     }
 
     /**

@@ -42,7 +42,7 @@ public class TestCampaign {
      * Default constructor
      */
     public TestCampaign() {
-    	testPatternList = new ArrayList<TestPattern>();
+    	testPatternList = new ArrayList<>();
     	vulnerableTestPatternNumber = 0;
     	errorTestPatternNumber = 0;
     	passTestPatternNumber = 0;
@@ -70,30 +70,51 @@ public class TestCampaign {
 
 	public void setTestPatternList(List<TestPattern> list) {
 		this.testPatternList = list;
+		for(TestPattern pattern : testPatternList)
+        {
+            if(pattern.getVulnerableTestcaseNumber() > 0)
+            {
+                this.setVulnerableTestPatternNumber();
+            }
+            else
+            {
+                if(pattern.getErrorTestcaseNumber() > 0)
+                {
+                    this.setErrorTestPatternNumber();
+                }
+                else
+                {
+                    if(pattern.getPassedTestcaseNumber() > 0)
+                    {
+                        this.setPassTestPatternNumber();
+                    }
+                }
+            }
+        }
 	}
 
 	public int getVulnerableTestPatternNumber() {
 		return vulnerableTestPatternNumber;
 	}
 
-	public void setVulnerableTestPatternNumber(int vulnerableTestPatternNumber) {
-		this.vulnerableTestPatternNumber = vulnerableTestPatternNumber;
+	public void setVulnerableTestPatternNumber() {
+		this.vulnerableTestPatternNumber++;
 	}
 
 	public int getErrorTestPatternNumber() {
 		return errorTestPatternNumber;
 	}
 
-	public void setErrorTestPatternNumber(int errorTestPatternNumber) {
-		this.errorTestPatternNumber = errorTestPatternNumber;
+	public void setErrorTestPatternNumber() {
+		this.errorTestPatternNumber++;
 	}
 
 	public int getPassTestPatternNumber() {
 		return passTestPatternNumber;
 	}
 
-	public void setPassTestPatternNumber(int passTestPatternNumber) {
-		this.passTestPatternNumber = passTestPatternNumber;
+	public void setPassTestPatternNumber() {
+		this.passTestPatternNumber++;
 	}
 
 

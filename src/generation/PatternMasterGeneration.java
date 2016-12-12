@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 import models.TestPattern;
 import models.Variant;
 
-public abstract class ListingTestcaseGeneration {
+public abstract class PatternMasterGeneration {
 	private static String patternDirectory;
     private static String patternFileName;
     private static String patternName;
@@ -36,7 +36,7 @@ public abstract class ListingTestcaseGeneration {
      */
     public static void setPatternDirectory(String patternDirectory)
     {
-    	ListingTestcaseGeneration.patternDirectory = patternDirectory;
+    	PatternMasterGeneration.patternDirectory = patternDirectory;
     }
 
     /**
@@ -54,7 +54,7 @@ public abstract class ListingTestcaseGeneration {
      */
     public static void setPatternFileName(String patternFileName)
     {
-    	ListingTestcaseGeneration.patternFileName = patternFileName;
+    	PatternMasterGeneration.patternFileName = patternFileName;
     }
 
     /**
@@ -72,7 +72,7 @@ public abstract class ListingTestcaseGeneration {
      */
     public static void setPatternName(String patternName)
     {
-    	ListingTestcaseGeneration.patternName = patternName;
+    	PatternMasterGeneration.patternName = patternName;
     }
 
     /**

@@ -9,7 +9,7 @@ import java.io.PrintStream;
 import models.TestCase;
 import models.TestPattern;
 
-public abstract class TestcasesGeneration {
+public abstract class TestcasesListGeneration {
 	static int testID = 0;
 	private static String testDirectory;
     private static String testFileName;
@@ -36,7 +36,7 @@ public abstract class TestcasesGeneration {
      */
     public static void setTestcasesDirectory(String testDirectory)
     {
-    	TestcasesGeneration.testDirectory = testDirectory;
+    	TestcasesListGeneration.testDirectory = testDirectory;
     }
 
     /**
@@ -54,7 +54,7 @@ public abstract class TestcasesGeneration {
      */
     public static void setTestcasesFileName(String testFilename)
     {
-    	TestcasesGeneration.testFileName = testFilename;
+    	TestcasesListGeneration.testFileName = testFilename;
     }
 
     /**
@@ -72,7 +72,7 @@ public abstract class TestcasesGeneration {
      */
     public static void setTestcasesName(String testName)
     {
-    	TestcasesGeneration.testName = testName;
+    	TestcasesListGeneration.testName = testName;
     }
 
     /**
@@ -124,7 +124,7 @@ public abstract class TestcasesGeneration {
             	int sum = test.getErrorVariantNumber() + test.getPassedVariantNumber() + test.getVulnerableVariantNumber();
             	htmlContent.append("\t\t\t\t\t\t\t<tr>\n"
           			+ "\t\t\t\t\t\t\t\t<td style=\"width:5%\">"+(++testID)+"</td>\n"
-          			+ "\t\t\t\t\t\t\t\t<td><a href=\"child_testcase_action.html\">"+ test.getTestName() +"</a></td>\n"
+          			+ "\t\t\t\t\t\t\t\t<td><a href=\""+ test.getTestName().replace(' ','_').toLowerCase()+".html\" target=\"_parent\">"+ test.getTestName() +"</a></td>\n"
           			+ "\t\t\t\t\t\t\t\t<td style=\"width:60%\">The combination of "+sum+" variants</td>\n");
           		if(test.getPassedVariantNumber() != sum) {
           			htmlContent.append("\t\t\t\t\t\t\t\t<td class=\"detected\">DETECTED </td>\n");

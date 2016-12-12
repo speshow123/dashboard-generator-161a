@@ -107,7 +107,7 @@ demo = {
         Chartist.Pie('#chartPreferences', {
           labels: ['62%','32%','6%'],
           series: [62, 32, 6]
-        });   
+        });
     },
     
     
