@@ -43,6 +43,8 @@ public abstract class dashboardGeneration {
 			OutputStream htmlFileStream = new FileOutputStream(htmlFile);
 	        PrintStream printHtmlFile = new PrintStream(htmlFileStream);
 			StringBuilder htmlContent = new StringBuilder();
+			int[] statusList = { dashboard.getPassTestPatternNumber(),
+					dashboard.getVulnerableTestPatternNumber(), dashboard.getErrorTestPatternNumber()};
 			htmlContent.append(header);
 			htmlContent.append("\n<body>\n" +
 	                "\t<div class=\"wrapper\">\n" +
@@ -81,9 +83,7 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t\t\t<div class=\"content\">\n" + 
 	                "\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" + 
-	                "\t\t\t\t\t\t\t<div class=\"footer\">\n" + 
-	                "\t\t\t\t\t\t\t\t<div class=\"legend\"> <i class=\"fa fa-circle text-info\"></i> Unrisk <i class=\"fa fa-circle text-danger\"></i> Risk </div>\n" + 
-	                "\t\t\t\t\t\t\t</div>\n" + 
+	                
 	                "\t\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t</div>\n" +
@@ -141,10 +141,33 @@ public abstract class dashboardGeneration {
 	                "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
 	                "<script src=\"assets/js/chartist.min.js\"></script>\n" +
 	                "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
-	                "<script src=\"assets/js/demo.js\"></script>\n" +
-	                "<script type=\"text/javascript\">\n" +
-	                "\t$(document).ready(function(){demo.initChartist();});\n" +
-	                "</script>\n" +
+	                "<script>\n"
+                    + "\tvar optionsPreferences = {\n"
+                    + "\t\tdonut: true,\n"
+                    + "\t\tdonutWidth: 40,\n"
+                    + "\t\tstartAngle: 0,\n"
+                    + "\t\ttotal: 100,\n"
+                    + "\t\tshowLabel: false,\n"
+                    + "\t\taxisX: {\n"
+                    + "\t\t\tshowGrid: false\n"
+                    + "\t\t}\n"
+                    + "\t};\n\n"
+                    + "\tChartist.Pie('#chartPreferences', optionsPreferences);\n\n"
+                    + "\tChartist.Pie('#chartPreferences', {\n"
+                    + "\t\tlabels: [");
+            for(int i=0;i<3;i++) {
+            	if(statusList[i] != 0) {
+            		htmlContent.append("'"+statusList[i]+"',");
+            	} else {
+            		htmlContent.append("'',");
+            	}
+            	
+            }
+            htmlContent.append("],\n");
+            
+            htmlContent.append("\t\tseries: ["+statusList[0]+","+statusList[1]+","+statusList[2]+"]\n"
+                    + "\t});\n"
+                    + "</script>\n" +
 	                "</html>"
 	                );
 			printHtmlFile.print(htmlContent.toString());

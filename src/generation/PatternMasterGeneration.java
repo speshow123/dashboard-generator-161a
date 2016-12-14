@@ -99,6 +99,8 @@ public abstract class PatternMasterGeneration {
             OutputStream htmlFileStream = new FileOutputStream(htmlFile);
             PrintStream printHtmlFile = new PrintStream(htmlFileStream);
             StringBuilder htmlContent = new StringBuilder();
+            int[] statusList = { pattern.getPassedTestcaseNumber(),
+            		pattern.getVulnerableTestcaseNumber(), pattern.getErrorTestcaseNumber() };
             htmlContent.append(header);
             htmlContent.append("\n<body>\n" + 
             				"<div class=\"container\">\n"
@@ -118,9 +120,7 @@ public abstract class PatternMasterGeneration {
             				"\t\t\t\t\t\t</div>\n" +
             				"\t\t\t\t\t\t<div class=\"content\">\n" +
             				"\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" +
-            				"\t\t\t\t\t\t\t<div class=\"footer\">\n" +
-            				"\t\t\t\t\t\t\t\t<div class=\"legend\"> <i class=\"fa fa-circle text-info\"></i> Unrisk <i class=\"fa fa-circle text-danger\"></i> Risk </div>\n" +
-            				"\t\t\t\t\t\t\t</div>\n" +
+            				
             				"\t\t\t\t\t\t</div>\n" +
             				"\t\t\t\t\t</div>\n" +
             				"\t\t\t\t</div>\n" +
@@ -140,19 +140,19 @@ public abstract class PatternMasterGeneration {
             				"\t\t\t\t\t\t\t\t<tbody>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Total number of testcases</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">1</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+pattern.getTestCaseList().size()+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Testcases revealing a vulnerability</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">1</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+pattern.getVulnerableTestcaseNumber()+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Test cases not revealing any vulnerability</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">0</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+pattern.getPassedTestcaseNumber()+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Inconclusive testcases (eg due to technical issue)</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">0</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+pattern.getErrorTestcaseNumber()+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t</tbody>\n" +
             				"\t\t\t\t\t\t\t</table>\n" +
@@ -182,10 +182,33 @@ public abstract class PatternMasterGeneration {
                     "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
                     "<script src=\"assets/js/chartist.min.js\"></script>" + 
                     "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
-                    "<script src=\"assets/js/demo.js\"></script>\n" +
-                    "<script type=\"text/javascript\">\n" +
-                    "\t$(document).ready(function(){demo.initChartist();});\n" +
-                    "</script>\n" +
+                    "<script>\n"
+                    + "\tvar optionsPreferences = {\n"
+                    + "\t\tdonut: true,\n"
+                    + "\t\tdonutWidth: 40,\n"
+                    + "\t\tstartAngle: 0,\n"
+                    + "\t\ttotal: 100,\n"
+                    + "\t\tshowLabel: false,\n"
+                    + "\t\taxisX: {\n"
+                    + "\t\t\tshowGrid: false\n"
+                    + "\t\t}\n"
+                    + "\t};\n\n"
+                    + "\tChartist.Pie('#chartPreferences', optionsPreferences);\n\n"
+                    + "\tChartist.Pie('#chartPreferences', {\n"
+                    + "\t\tlabels: [");
+            for(int i=0;i<3;i++) {
+            	if(statusList[i] != 0) {
+            		htmlContent.append("'"+statusList[i]+"',");
+            	} else {
+            		htmlContent.append("'',");
+            	}
+            	
+            }
+            htmlContent.append("],\n");
+            
+            htmlContent.append("\t\tseries: ["+statusList[0]+","+statusList[1]+","+statusList[2]+"]\n"
+                    + "\t});\n"
+                    + "</script>\n" +
                     "</html>"
                     );
             

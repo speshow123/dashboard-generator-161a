@@ -50,9 +50,6 @@
 						</div>
 						<div class="content">
 							<div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-							<div class="footer">
-								<div class="legend"> <i class="fa fa-circle text-info"></i> Unrisk <i class="fa fa-circle text-danger"></i> Risk </div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -105,8 +102,23 @@
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="assets/js/chartist.min.js"></script>
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
-<script src="assets/js/demo.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){demo.initChartist();});
+<script>
+	var optionsPreferences = {
+		donut: true,
+		donutWidth: 40,
+		startAngle: 0,
+		total: 100,
+		showLabel: false,
+		axisX: {
+			showGrid: false
+		}
+	};
+
+	Chartist.Pie('#chartPreferences', optionsPreferences);
+
+	Chartist.Pie('#chartPreferences', {
+		labels: ['','1','',],
+		series: [0,1,0]
+	});
 </script>
 </html>

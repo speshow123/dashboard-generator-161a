@@ -125,9 +125,7 @@ public abstract class TestcasesMasterGeneration {
             				"\t\t\t\t\t\t</div>\n" +
             				"\t\t\t\t\t\t<div class=\"content\">\n" +
             				"\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" +
-            				"\t\t\t\t\t\t\t<div class=\"footer\">\n" +
-            				"\t\t\t\t\t\t\t\t<div class=\"legend\"> <i class=\"fa fa-circle text-info\"></i> Unrisk <i class=\"fa fa-circle text-danger\"></i> Risk </div>\n" +
-            				"\t\t\t\t\t\t\t</div>\n" +
+            				
             				"\t\t\t\t\t\t</div>\n" +
             				"\t\t\t\t\t</div>\n" +
             				"\t\t\t\t</div>\n" +
