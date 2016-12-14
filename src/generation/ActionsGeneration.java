@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
+import models.Operation;
+import models.Parameter;
 import models.TestCase;
+import models.Value;
 
 public abstract class ActionsGeneration {
 	static int ActionID = 0;
@@ -112,7 +115,7 @@ public abstract class ActionsGeneration {
             				"\t\t\t\t\t\t<thead>\n" +
                 			"\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t<th style=\"width:5%\">Step</th>\n" +
-            				"\t\t\t\t\t\t\t\t<th style=\"width:20%\">Actions</th>\n" +
+            				"\t\t\t\t\t\t\t\t<th style=\"width:50%\">Actions</th>\n" +
             				"\t\t\t\t\t\t\t\t<th>Observations</th>\n" +
             				"\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t<thead>\n" +
@@ -123,12 +126,51 @@ public abstract class ActionsGeneration {
             	htmlContent.append("\t\t\t\t\t\t\t\t<td>" + (++ActionID) +"</td>\n");
             	if(action.getSubOperationList().size() == 0) {
             		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation() +"</td>\n"
-            				+ "\t\t\t\t\t\t\t\t<td colspan=\"2\"></td>\n");
+            				+ "\t\t\t\t\t\t\t\t<td colspan=\"2\"></td>\n"
+            				+ "\t\t\t\t\t\t\t</tr>\n");
             	}
             	else {
-            		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation() +"</td>\n"
+            		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation()+"(");
+            		StringBuilder temp1 = new StringBuilder();
+            		for(Parameter param:action.getOperation().getArgsList().keySet()) {
+        				
+        				Value val = action.getOperation().getArgsList().get(param);
+        				temp1.append(param.getNameParam()+" = " + val.getNameValue()+", ");
+        			}
+        			if(temp1.length() != 0) {
+        				temp1.replace(temp1.length()-2, temp1.length()+1, "");
+        				htmlContent.append(temp1);
+        			}
+            		htmlContent.append(")</td>\n"
             				+ "\t\t\t\t\t\t\t\t<td></td>\n"
-            				+ "<td><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\".detail\">View Detail</button></td>");
+            				+ "\t\t\t\t\t\t\t\t<td><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#"+ActionID+"_action\">View Detail</button></td>"
+            				+ "\t\t\t\t\t\t\t</tr>\n"
+            				+ "\t\t\t\t\t\t\t<tr id=\""+ActionID+"_action\" class=\"detail collapse\">\n"
+            				+ "\t\t\t\t\t\t\t\t<td colspan=\"3\"><table class=\"table\">\n"
+            				+ "\t\t\t\t\t\t\t\t\t<tr>\n"
+            				+ "\t\t\t\t\t\t\t\t\t\t<td colspan=\"3\" class=\"subaction\">Subactions</td>\n"
+            				+ "\t\t\t\t\t\t\t\t\t</tr>\n");
+            		int subId = 0;
+            		for(Operation subAction : action.getSubOperationList()) {
+            			htmlContent.append("\t\t\t\t\t\t\t\t\t<tr>\n")
+            			.append("\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center\">" + (++subId) +"</td>\n")
+            			.append("\t\t\t\t\t\t\t\t\t\t<td colspan=\"2\">" + subAction.getNameOperation() +"(");
+            			StringBuilder temp = new StringBuilder();
+            			for(Parameter param:subAction.getArgsList().keySet()) {
+            				
+            				Value val = subAction.getArgsList().get(param);
+            				temp.append(param.getNameParam()+" = " + val.getNameValue()+", ");
+            			}
+            			if(temp.length() != 0) {
+            				temp.replace(temp.length()-2, temp.length()+1, "");
+            				htmlContent.append(temp);
+            			}
+            			
+            			htmlContent.append(")</td>\n"+
+            					"\t\t\t\t\t\t\t\t\t</tr>\n");
+            		}
+            		htmlContent.append("\t\t\t\t\t\t\t\t</table></td>\n" +
+            							"\t\t\t\t\t\t\t</tr>\n");
             	}
             });
             
@@ -152,7 +194,7 @@ public abstract class ActionsGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println(test.getTestName() + " testcase variants generation done!");
+            System.out.println(test.getTestName() + " actions generation done!");
         }
         catch(IOException exception)
         {

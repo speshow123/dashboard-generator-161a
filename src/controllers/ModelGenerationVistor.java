@@ -3,6 +3,7 @@ package controllers;
 import generation.PatternMasterGeneration;
 import generation.TestcaseLogGeneration;
 import generation.TestcaseVariantsGeneration;
+import generation.ActionsGeneration;
 import generation.LogGeneration;
 import generation.PatternDetailsGeneration;
 import generation.TestcasesListGeneration;
@@ -36,6 +37,8 @@ public class ModelGenerationVistor implements ModelGeneration {
 		TestcaseLogGeneration.generateTestcaseLogHtmlFile(testcase);
 		TestcaseVariantsGeneration.setTestcaseVariantsDirectory(directoryPath);
 		TestcaseVariantsGeneration.generateTestcaseVariantsHtmlFile(testcase);
+		ActionsGeneration.setActionsDirectory(directoryPath);
+		ActionsGeneration.generateActionsHtmlFile(testcase);
 	}
 	
 

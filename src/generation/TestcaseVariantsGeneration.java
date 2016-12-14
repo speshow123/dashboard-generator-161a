@@ -102,10 +102,10 @@ public abstract class TestcaseVariantsGeneration {
             				"<div class=\"content\">\n" +
             				"\t<div class=\"pull-right\">\n" +
             				"\t\t<div class=\"btn-group\">\n" +
-            				"t\t\t<button type=\"button\" class=\"btn btn-success btn-fill filter\" data-target=\"notdetected\">Not detected</button>\n" +
-            				"t\t\t<button type=\"button\" class=\"btn btn-warning btn-fill filter\" data-target=\"inconclusive\">Inconclusive</button>\n" +
-            				"t\t\t<button type=\"button\" class=\"btn btn-danger btn-fill filter\" data-target=\"detected\">Detected</button>\n" +
-            				"t\t\t<button type=\"button\" class=\"btn btn-default btn-fill filter\" data-target=\"all\">All</button>\n" +
+            				"\t\t\t<button type=\"button\" class=\"btn btn-success btn-fill filter\" data-target=\"notdetected\">Not detected</button>\n" +
+            				"\t\t\t<button type=\"button\" class=\"btn btn-warning btn-fill filter\" data-target=\"inconclusive\">Inconclusive</button>\n" +
+            				"\t\t\t<button type=\"button\" class=\"btn btn-danger btn-fill filter\" data-target=\"detected\">Detected</button>\n" +
+            				"\t\t\t<button type=\"button\" class=\"btn btn-default btn-fill filter\" data-target=\"all\">All</button>\n" +
             				"\t\t</div>\n" +
             				"\t</div>\n" +
             				"\t<div class=\"row\">\n" +
@@ -115,7 +115,7 @@ public abstract class TestcaseVariantsGeneration {
             				"\t\t\t\t\t<h4 class=\"title\">Testcase Variants</h4>\n" +
             				"\t\t\t\t</div>\n" +
             				"\t\t\t\t<div class=\"content table-responsive table-full-width\">\n" +
-            				"\t\t\t\t\t<table class=\"table table-hover table-striped\">\n" +
+            				"\t\t\t\t\t<table class=\"table table-hover table-striped table-filter\">\n" +
             				"\t\t\t\t\t\t<thead>\n" +
                 			"\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t<th style=\"width:5%\">No</th>\n" +

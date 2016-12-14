@@ -15,14 +15,22 @@
 </head>
 <body>
 <div class="content">
+	<div class="pull-right">
+		<div class="btn-group">
+			<button type="button" class="btn btn-success btn-fill filter" data-target="notdetected">Not detected</button>
+			<button type="button" class="btn btn-warning btn-fill filter" data-target="inconclusive">Inconclusive</button>
+			<button type="button" class="btn btn-danger btn-fill filter" data-target="detected">Detected</button>
+			<button type="button" class="btn btn-default btn-fill filter" data-target="all">All</button>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
 				<div class="header">
-					<h4 class="title">Testcase Variantss</h4>
+					<h4 class="title">Testcase Variants</h4>
 				</div>
 				<div class="content table-responsive table-full-width">
-					<table class="table table-hover table-striped">
+					<table class="table table-hover table-striped table-filter">
 						<thead>
 							<tr>
 								<th style="width:5%">No</th>

@@ -103,6 +103,8 @@ public abstract class TestcasesMasterGeneration {
             OutputStream htmlFileStream = new FileOutputStream(htmlFile);
             PrintStream printHtmlFile = new PrintStream(htmlFileStream);
             StringBuilder htmlContent = new StringBuilder();
+            int[] statusList = { test.getPassedVariantNumber(),
+            		test.getVulnerableVariantNumber(), test.getErrorVariantNumber() };
             htmlContent.append(header);
             htmlContent.append("\n<body>\n" + 
             				"<div class=\"container\">\n"
@@ -145,19 +147,19 @@ public abstract class TestcasesMasterGeneration {
             				"\t\t\t\t\t\t\t\t<tbody>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Total number of testcases</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">1</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+test.getVariantDetailList().size()+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Testcases revealing a vulnerability</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">1</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+statusList[1]+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Test cases not revealing any vulnerability</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">0</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+statusList[0]+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td>Inconclusive testcases (eg due to technical issue)</td>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">0</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+statusList[2]+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t</tbody>\n" +
             				"\t\t\t\t\t\t\t</table>\n" +
@@ -188,10 +190,34 @@ public abstract class TestcasesMasterGeneration {
                     "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
                     "<script src=\"assets/js/chartist.min.js\"></script>" + 
                     "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
-                    "<script src=\"assets/js/demo.js\"></script>\n" +
-                    "<script type=\"text/javascript\">\n" +
-                    "\t$(document).ready(function(){demo.initChartist();});\n" +
-                    "</script>\n" +
+                    
+                    "<script>\n"
+                    + "\tvar optionsPreferences = {\n"
+                    + "\t\tdonut: true,\n"
+                    + "\t\tdonutWidth: 40,\n"
+                    + "\t\tstartAngle: 0,\n"
+                    + "\t\ttotal: 100,\n"
+                    + "\t\tshowLabel: false,\n"
+                    + "\t\taxisX: {\n"
+                    + "\t\t\tshowGrid: false\n"
+                    + "\t\t}\n"
+                    + "\t};\n\n"
+                    + "\tChartist.Pie('#chartPreferences', optionsPreferences);\n\n"
+                    + "\tChartist.Pie('#chartPreferences', {\n"
+                    + "\t\tlabels: [");
+            for(int i=0;i<3;i++) {
+            	if(statusList[i] != 0) {
+            		htmlContent.append("'"+statusList[i]+"',");
+            	} else {
+            		htmlContent.append("'',");
+            	}
+            	
+            }
+            htmlContent.append("],\n");
+            
+            htmlContent.append("\t\tseries: ["+statusList[0]+","+statusList[1]+","+statusList[2]+"]\n"
+                    + "\t});\n"
+                    + "</script>\n" +
                     "</html>"
                     );
             
