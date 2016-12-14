@@ -7,7 +7,6 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 import models.TestCase;
-import models.TestPattern;
 
 public abstract class TestcaseLogGeneration {
 	static int logID = 0;

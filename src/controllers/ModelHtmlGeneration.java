@@ -8,11 +8,20 @@ import generation.LogGeneration;
 import generation.PatternDetailsGeneration;
 import generation.TestcasesListGeneration;
 import generation.TestcasesMasterGeneration;
+import generation.dashboardGeneration;
 import generation.patternVariantsGeneration;
 import models.*;
 
-public class ModelGenerationVistor implements ModelGeneration {
+public class ModelHtmlGeneration implements ModelGeneration {
 
+	@Override
+	public void generateCampaignToHtml(TestCampaign testCampaign, String directoryPath) {
+		// TODO Auto-generated method stub
+		dashboardGeneration.setDashboardName(testCampaign.getCampaignName());
+		dashboardGeneration.setDashboardDirectory(directoryPath);
+		dashboardGeneration.generateDashboardnHtmlFile(testCampaign);
+	}
+	
 	@Override
 	public void generatePatternToHtml(TestPattern testPattern, String directoryPath) {
 		// TODO Auto-generated method stub
@@ -40,6 +49,8 @@ public class ModelGenerationVistor implements ModelGeneration {
 		ActionsGeneration.setActionsDirectory(directoryPath);
 		ActionsGeneration.generateActionsHtmlFile(testcase);
 	}
+
+	
 	
 
 }

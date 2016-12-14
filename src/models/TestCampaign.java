@@ -2,10 +2,12 @@ package models;
 
 import java.util.*;
 
+import controllers.ModelGeneration;
+
 /**
  * 
  */
-public class TestCampaign {
+public class TestCampaign implements Model{
 
 
     /**
@@ -115,6 +117,16 @@ public class TestCampaign {
 
 	public void setPassTestPatternNumber() {
 		this.passTestPatternNumber++;
+	}
+
+	@Override
+	public void toHtml(ModelGeneration generation, String directoryPath) {
+		// TODO Auto-generated method stub
+		generation.generateCampaignToHtml(this, directoryPath);
+        for(TestPattern pattern : this.getTestPatternList())
+        {
+            pattern.toHtml(generation, directoryPath);
+        }
 	}
 
 

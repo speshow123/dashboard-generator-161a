@@ -1,10 +1,5 @@
 package models;
 
-import java.io.File;
-import java.util.*;
-
-import controllers.ModelGenerationVistor;
-
 /**
  * 
  */

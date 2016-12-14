@@ -1,10 +1,8 @@
 package models;
 
-import java.io.File;
 import java.util.*;
 
 import controllers.ModelGeneration;
-import controllers.ModelGenerationVistor;
 
 /**
  * 

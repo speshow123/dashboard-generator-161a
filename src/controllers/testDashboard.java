@@ -1,6 +1,5 @@
 package controllers;
 
-import generation.dashboardGeneration;
 import models.TestCampaign;
 import parse.PatternParser;
 
@@ -13,9 +12,10 @@ public class testDashboard {
 		dashboard.setCampaignID("D001");
 		dashboard.setCampaignName("Test01");
 		dashboard.setTestPatternList(PatternParser.getTestPatternList());
-		dashboardGeneration.setDashboardFileName("dashboard.html");
-		dashboardGeneration.generateDashboardnHtmlFile(dashboard);
-		PatternParser.getTestPatternList().get(0).toHtml(new ModelGenerationVistor(), "./dashboard");
+		
+		dashboard.toHtml(new ModelHtmlGeneration(), "./dashboard");
+		//dashboardGeneration.generateDashboardnHtmlFile(dashboard);
+		//PatternParser.getTestPatternList().get(0).toHtml(new ModelHtmlGeneration(), "./dashboard");
 		
 	}
 

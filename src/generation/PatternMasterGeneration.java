@@ -5,10 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.Map.Entry;
 
 import models.TestPattern;
-import models.Variant;
 
 public abstract class PatternMasterGeneration {
 	private static String patternDirectory;
@@ -101,11 +99,12 @@ public abstract class PatternMasterGeneration {
             StringBuilder htmlContent = new StringBuilder();
             int[] statusList = { pattern.getPassedTestcaseNumber(),
             		pattern.getVulnerableTestcaseNumber(), pattern.getErrorTestcaseNumber() };
+            
             htmlContent.append(header);
             htmlContent.append("\n<body>\n" + 
             				"<div class=\"container\">\n"
             				+ "\t<ol class=\"breadcrumb breadcrumb-arrow\">\n"
-            				+ "\t\t<li><a href=\"dashboard.html\">Home</a></li>\n"
+            				+ "\t\t<li><a href=\""+ dashboardGeneration.getDashboardFileName() +"\">"+dashboardGeneration.getDashboardName()+"</a></li>\n"
             				+ "\t\t<li><a href=\""+ fileNamePrefix + "_pattern.html" +"\">"+pattern.getPatternName()+"</a></li>\n"
             				+ "\t\t<li class=\"active\"><span>Testcases</span></li>\n"
             				+ "\t</ol>\n<br/>\n"

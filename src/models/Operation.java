@@ -9,7 +9,7 @@ public class Operation {
 	private Map<Parameter, Value> argsList;
 	
 	public Operation() {
-		argsList = new HashMap();
+		argsList = new HashMap<>();
 	}
 
 	public String getIdOperation() {

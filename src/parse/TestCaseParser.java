@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.xml.stream.XMLInputFactory;
@@ -79,7 +78,7 @@ public abstract class TestCaseParser {
                             	optList.add(OperationParser.getOperation(streamReader.getAttributeValue(1)));
                             	break;
                             case "argument":
-                            	Value val = ValueParser.getValue(streamReader.getAttributeValue(1)) != null ? ValueParser.getValue(streamReader.getAttributeValue(1)):new Value(streamReader.getAttributeValue(1));
+                            	Value val = OperationParser.getValue(streamReader.getAttributeValue(1)) != null ? OperationParser.getValue(streamReader.getAttributeValue(1)):new Value(streamReader.getAttributeValue(1));
                             	optList.get(optList.size()-1).setValue(streamReader.getAttributeValue(0),val);
                             	break;
                             

@@ -23,14 +23,25 @@ public abstract class dashboardGeneration {
             + "\t<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>\n"
             + "\t<link href=\"assets/css/pe-icon-7-stroke.css\" rel=\"stylesheet\" />\n"
             + "</head>";
-	public static void setDashboardDirectory(String path) {
-		dashboardGeneration.dashboardirectory = path;
+	public static void setDashboardName(String name) {
+		dashboardGeneration.dashboardName = name;
 	}
 	
+	public static String getDashboardName() {
+		return dashboardName;
+	}
+    public static void setDashboardDirectory(String path) {
+		dashboardGeneration.dashboardirectory = path;
+	}
+    public static String getDashboardDirectory() {
+		return dashboardirectory;
+	}
     public static void setDashboardFileName(String name) {
 		dashboardGeneration.dashboardFileName = name;
 	}
-	
+    public static String getDashboardFileName() {
+		return dashboardFileName;
+	}
     public static String getHeader() {
 		return header;
 	}
@@ -38,7 +49,10 @@ public abstract class dashboardGeneration {
 		
 		try
         {
-			String patternFilePath = "../TestingDashboardGenerator/dashboard/"+dashboardFileName;
+			
+			
+			dashboardGeneration.setDashboardFileName(dashboard.getCampaignName().replace(' ', '_') + ".html");
+			String patternFilePath = dashboardirectory+File.separator+dashboardFileName;
 			File htmlFile = new File(patternFilePath);
 			OutputStream htmlFileStream = new FileOutputStream(htmlFile);
 	        PrintStream printHtmlFile = new PrintStream(htmlFileStream);
@@ -173,7 +187,7 @@ public abstract class dashboardGeneration {
 			printHtmlFile.print(htmlContent.toString());
 	        printHtmlFile.close();
 	        htmlFileStream.close();
-	        System.out.println("Test campaign generation done!");
+	        System.out.println("Dashboard generation done!");
         }
         catch(IOException exception)
         {

@@ -7,7 +7,6 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 import models.TestCase;
-import models.TestPattern;
 
 public abstract class TestcasesMasterGeneration {
 	private static String testDirectory;
@@ -109,7 +108,7 @@ public abstract class TestcasesMasterGeneration {
             htmlContent.append("\n<body>\n" + 
             				"<div class=\"container\">\n"
             				+ "\t<ol class=\"breadcrumb breadcrumb-arrow\">\n"
-            				+ "\t\t<li><a href=\"dashboard.html\">Home</a></li>\n"
+            				+ "\t\t<li><a href=\""+dashboardGeneration.getDashboardFileName()+"\">"+dashboardGeneration.getDashboardName()+"</a></li>\n"
             				
             				+ "\t\t<li><a href=\"pattern.html\">Testcases List</a></li>\n"
             				+ "\t\t<li class=\"active\"><span>"+test.getTestName()+"</span></li>\n"

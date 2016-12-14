@@ -99,8 +99,8 @@ public abstract class PatternDetailsGeneration
             htmlContent.append("\n<body>\n" +
 	                "\t<div class=\"container\">\n" +
 	                "\t\t<ol class=\"breadcrumb breadcrumb-arrow\">\n" +
-	                "\t\t\t<li><a href=\"dashboard.html\">Home</a></li>\n" +
-	                "\t\t\t<li class=\"active\"><span>Detail Pattern</span></li>\n" +
+	                "\t\t<li><a href=\""+dashboardGeneration.getDashboardFileName()+"\">"+dashboardGeneration.getDashboardName()+"</a></li>\n" +
+	                "\t\t\t<li class=\"active\"><span>"+pattern.getPatternName()+"</span></li>\n" +
 	                "\t\t</ol><br/>\n" +
 	                "\t\t<div class=\"row\">\n" + 
 	                "\t\t\t<div class=\"col-md-2 col-md-offset-3\">\n" +

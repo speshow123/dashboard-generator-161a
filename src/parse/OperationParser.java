@@ -14,9 +14,11 @@ import javax.xml.stream.XMLStreamReader;
 
 import models.Operation;
 import models.Parameter;
+import models.Value;
 
 public abstract class OperationParser {
 	private static List<Operation> operationList;
+	private static List<Value> valueList;
 
     /**
      *
@@ -26,6 +28,7 @@ public abstract class OperationParser {
     public static void initiateOperationList()
     {
     	operationList = new ArrayList<>();
+    	valueList = new ArrayList<>();
     }
 
     /**
@@ -44,6 +47,18 @@ public abstract class OperationParser {
     	}
     	return null;
     }
+    public static List<Value> getValueList()
+    {
+        return valueList;
+    }
+    public static Value getValue(String valueID) {
+    	for(Value val:valueList) {
+    		if(val.getIdValue().equals(valueID)) {
+    			return val;
+    		}
+    	}
+    	return null;
+    }
     /**
      *
      * @param fileName
@@ -54,6 +69,7 @@ public abstract class OperationParser {
         {
         	Operation operation = null;
         	Parameter parameter = null;
+        	Value value = null;
         	int count = 0;
             String elementContent = null;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
@@ -79,7 +95,11 @@ public abstract class OperationParser {
                         		parameter = new Parameter();
                         		parameter.setIdParam(streamReader.getAttributeValue(0));
                         		parameter.setNameParam(streamReader.getAttributeValue(1));
-                        		
+                        	case "value":
+                        		value = new Value();
+                        		value.setIdValue(streamReader.getAttributeValue(0));
+                        		value.setNameValue(streamReader.getAttributeValue(1));
+                        		break;
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:
@@ -95,7 +115,9 @@ public abstract class OperationParser {
                             case "parameter":
                                 operation.setParameter(parameter);
                                 break;
-                            
+                            case "value":
+                            	valueList.add(value);
+                                break;
                         }
                         break;
                     case XMLStreamConstants.END_DOCUMENT:
