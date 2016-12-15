@@ -115,7 +115,7 @@ public abstract class PatternMasterGeneration {
             				+ "\t\t\t\t\t<div class=\"card\">\n"
             				+ "\t\t\t\t\t\t<div class=\"header\">\n" +
             				"\t\t\t\t\t\t\t<h4 class=\"title\">Test Statistics</h4>\n" +
-            				"\t\t\t\t\t\t\t<p class=\"category\">Last Campaign Performance</p>\n" +
+            				"\t\t\t\t\t\t\t<p class=\"category\">Last Pattern Performance</p>\n" +
             				"\t\t\t\t\t\t</div>\n" +
             				"\t\t\t\t\t\t<div class=\"content\">\n" +
             				"\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" +

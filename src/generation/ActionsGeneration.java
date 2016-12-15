@@ -125,7 +125,7 @@ public abstract class ActionsGeneration {
             	htmlContent.append("\t\t\t\t\t\t\t<tr>\n");
             	htmlContent.append("\t\t\t\t\t\t\t\t<td>" + (++ActionID) +"</td>\n");
             	if(action.getSubOperationList().size() == 0) {
-            		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation() +"</td>\n"
+            		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation() +"()</td>\n"
             				+ "\t\t\t\t\t\t\t\t<td colspan=\"2\"></td>\n"
             				+ "\t\t\t\t\t\t\t</tr>\n");
             	}

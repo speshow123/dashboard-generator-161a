@@ -8,7 +8,7 @@ import controllers.ModelGeneration;
 /**
  * 
  */
-public class TestCase {
+public class TestCase implements Model{
 	
 	/**
      * 

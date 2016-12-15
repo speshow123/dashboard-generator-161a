@@ -120,7 +120,7 @@ public abstract class TestcasesMasterGeneration {
             				+ "\t\t\t\t\t<div class=\"card\">\n"
             				+ "\t\t\t\t\t\t<div class=\"header\">\n" +
             				"\t\t\t\t\t\t\t<h4 class=\"title\">Test Statistics</h4>\n" +
-            				"\t\t\t\t\t\t\t<p class=\"category\">Last Campaign Performance</p>\n" +
+            				"\t\t\t\t\t\t\t<p class=\"category\">Last Testcase Performance</p>\n" +
             				"\t\t\t\t\t\t</div>\n" +
             				"\t\t\t\t\t\t<div class=\"content\">\n" +
             				"\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" +
@@ -143,19 +143,19 @@ public abstract class TestcasesMasterGeneration {
             				"\t\t\t\t\t\t\t\t</thead>\n" +
             				"\t\t\t\t\t\t\t\t<tbody>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Total number of testcases</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td>Total number of variants</td>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+test.getVariantDetailList().size()+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Testcases revealing a vulnerability</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td>Variants revealing a vulnerability</td>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+statusList[1]+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Test cases not revealing any vulnerability</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td>Variants not revealing any vulnerability</td>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+statusList[0]+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t<td>Inconclusive testcases (eg due to technical issue)</td>\n" +
+            				"\t\t\t\t\t\t\t\t\t\t<td>Inconclusive Variants (eg due to technical issue)</td>\n" +
             				"\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+statusList[2]+"</td>\n" +
             				"\t\t\t\t\t\t\t\t\t</tr>\n" +
             				"\t\t\t\t\t\t\t\t</tbody>\n" +
