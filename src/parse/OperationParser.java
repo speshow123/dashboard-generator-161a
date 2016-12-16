@@ -20,9 +20,6 @@ public abstract class OperationParser {
 	private static List<Operation> operationList;
 	private static List<Value> valueList;
 
-    /**
-     *
-     */
 	private OperationParser() { }
 	
     public static void initiateOperationList()
@@ -31,10 +28,6 @@ public abstract class OperationParser {
     	valueList = new ArrayList<>();
     }
 
-    /**
-     *
-     * @return
-     */
     public static List<Operation> getOperationList()
     {
         return operationList;
@@ -59,10 +52,7 @@ public abstract class OperationParser {
     	}
     	return null;
     }
-    /**
-     *
-     * @param fileName
-     */
+    
     public static void parseOperationXmlFile(String fileName)
     {
         try
@@ -70,12 +60,12 @@ public abstract class OperationParser {
         	Operation operation = null;
         	Parameter parameter = null;
         	Value value = null;
-        	int count = 0;
+        	
             String elementContent = null;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-                        InputStream inputStream = new FileInputStream(fileName);
+            InputStream inputStream = new FileInputStream(fileName);
 
-                        XMLStreamReader streamReader = inputFactory.createXMLStreamReader(new InputStreamReader(inputStream));
+            XMLStreamReader streamReader = inputFactory.createXMLStreamReader(new InputStreamReader(inputStream));
             while(streamReader.hasNext())
             {
                 int event = streamReader.next();
