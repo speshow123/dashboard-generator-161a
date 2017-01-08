@@ -90,6 +90,7 @@ public abstract class PatternMasterGeneration {
     {
         try
         {
+        	long startTime = System.currentTimeMillis();
         	String fileNamePrefix = pattern.getPatternID().replace('-', '_').toLowerCase();
             setPatternFileName("pattern.html");
             String patternFilePath = patternDirectory + File.separator + patternFileName;
@@ -214,7 +215,9 @@ public abstract class PatternMasterGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println("pattern generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println("pattern generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

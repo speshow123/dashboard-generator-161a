@@ -88,6 +88,7 @@ public abstract class PatternDetailsGeneration
     {
         try
         {
+        	long startTime = System.currentTimeMillis();
             String fileNamePrefix = pattern.getPatternID().replace('-', '_').toLowerCase();
             setPatternFileName(fileNamePrefix + "_pattern.html");
             String patternFilePath = patternDirectory + File.separator + patternFileName;
@@ -188,7 +189,9 @@ public abstract class PatternDetailsGeneration
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println("Test pattern generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println("Test pattern generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

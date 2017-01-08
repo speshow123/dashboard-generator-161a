@@ -13,8 +13,6 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import models.Log;
-import models.Operation;
-import models.Value;
 
 public abstract class LogParser {
 	private static List<Log> logList;

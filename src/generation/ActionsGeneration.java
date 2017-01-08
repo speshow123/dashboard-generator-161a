@@ -90,6 +90,7 @@ public abstract class ActionsGeneration {
     {
         try
         {
+        	long startTime = System.currentTimeMillis();
         	ActionID = 0;
         	String fileNamePrefix = test.getTestName().replace(' ', '_').toLowerCase();
             setActionsFileName(fileNamePrefix + "_actions.html");
@@ -123,19 +124,20 @@ public abstract class ActionsGeneration {
                     );
             test.getActionList().stream().forEach(action -> {
             	htmlContent.append("\t\t\t\t\t\t\t<tr>\n");
-            	htmlContent.append("\t\t\t\t\t\t\t\t<td>" + (++ActionID) +"</td>\n");
+            	htmlContent.append("\t\t\t\t\t\t\t\t<td>").append(++ActionID).append("</td>\n");
             	if(action.getSubOperationList().size() == 0) {
-            		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation() +"()</td>\n"
-            				+ "\t\t\t\t\t\t\t\t<td colspan=\"2\"></td>\n"
-            				+ "\t\t\t\t\t\t\t</tr>\n");
+            		htmlContent.append("\t\t\t\t\t\t\t\t<td>").append(action.getOperation().getNameOperation()).append("()</td>\n")
+            		.append("\t\t\t\t\t\t\t\t<td colspan=\"2\"></td>\n")
+            		.append("\t\t\t\t\t\t\t</tr>\n");
             	}
             	else {
-            		htmlContent.append("\t\t\t\t\t\t\t\t<td>" + action.getOperation().getNameOperation()+"(");
+            		htmlContent.append("\t\t\t\t\t\t\t\t<td>")
+            		.append(action.getOperation().getNameOperation()).append("(");
             		StringBuilder temp1 = new StringBuilder();
             		for(Parameter param:action.getOperation().getArgsList().keySet()) {
         				
         				Value val = action.getOperation().getArgsList().get(param);
-        				temp1.append(param.getNameParam()+" = " + val.getNameValue()+", ");
+        				temp1.append(param.getNameParam()).append(" = ").append(val.getNameValue()).append(", ");
         			}
         			if(temp1.length() != 0) {
         				temp1.replace(temp1.length()-2, temp1.length()+1, "");
@@ -194,7 +196,9 @@ public abstract class ActionsGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println(test.getTestName() + " actions generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println(test.getTestName() + " actions generation done! "+"Runtime is "+totalTime+" ms.");
         }
         catch(IOException exception)
         {

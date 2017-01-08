@@ -87,7 +87,7 @@ public abstract class patternVariantsGeneration {
     {
         try
         {
-        	
+        	long startTime = System.currentTimeMillis();
             String fileNamePrefix = pattern.getPatternID().replace('-', '_').toLowerCase();
             setPatternVariantsFileName(fileNamePrefix + "_variants.html");
             String patternFilePath = patternVariantsDirectory + File.separator + patternVariantsFileName;
@@ -108,31 +108,28 @@ public abstract class patternVariantsGeneration {
             				"\t\t\t\t<div class=\"content table-responsive table-full-width\">\n"
             				
                     );
+            
             for(Variant v: pattern.getVariantList()) {
-            	htmlContent.append("\t\t\t\t\t<table class=\"table table-hover\">\n" +
-            			"\t\t\t\t\t\t<tr>\n" +
-            			"\t\t\t\t\t\t\t<td>Variant "+v.getName()+"</td>\n" +
-            			"\t\t\t\t\t\t\t<td style=\"text-align:right;\"><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#"+ v.getID() +"\">View Detail</button></td>\n" +
-            			"\t\t\t\t\t\t</tr>\n" +
-            			"\t\t\t\t\t\t<table id=\""+ v.getID() +"\"class=\"collapse table detail\">\n" +
-            			"\t\t\t\t\t\t\t<thead>\n" +
-            			"\t\t\t\t\t\t\t\t<tr>\n" +
-            			"\t\t\t\t\t\t\t\t\t<th>Label</th>\n" +
-            			"\t\t\t\t\t\t\t\t\t<th>Code</th>\n" +
-            			"\t\t\t\t\t\t\t\t\t<th>Description</th>\n" +
-            			"\t\t\t\t\t\t\t\t\t<th>Browser</th>\n" +
-            			"\t\t\t\t\t\t\t\t</tr>\n" +
-            			"\t\t\t\t\t\t\t</thead>\n" +
-            			"\t\t\t\t\t\t\t<tbody>\n" +
-            			"\t\t\t\t\t\t\t\t<tr>\n" +
-            			"\t\t\t\t\t\t\t\t\t<td>"+ v.getLabel() +"</td>\n" +
-            			"\t\t\t\t\t\t\t\t\t<td>"+ v.getCode() +"</td>\n" +
-            			"\t\t\t\t\t\t\t\t\t<td>"+ v.getDesc() +"</td>\n" +
-            			"\t\t\t\t\t\t\t\t\t<td>"+ v.getBrowser() +"</td>\n" +
-            			"\t\t\t\t\t\t\t\t</tr>\n" +
-            			"\t\t\t\t\t\t\t</tbody>\n" +
-            			"\t\t\t\t\t\t</table>\n" +
-            			"\t\t\t\t\t</table>\n");
+            	htmlContent.append("\t\t\t\t\t<table class=\"table table-hover\">\n")
+            	.append("\t\t\t\t\t\t<tr>\n")
+            	.append("\t\t\t\t\t\t\t<td>Variant ").append(v.getName()).append("</td>\n")
+            	.append("\t\t\t\t\t\t\t<td style=\"text-align:right;\"><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#")
+            	.append(v.getID()).append("\">View Detail</button></td>\n\t\t\t\t\t\t</tr>\n")
+            	.append("\t\t\t\t\t\t<table id=\"").append(v.getID()).append("\"class=\"collapse table detail\">\n")
+            	.append("\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<th>Label</th>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<th>Code</th>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<th>Description</th>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<th>Browser</th>\n")
+            	.append("\t\t\t\t\t\t\t\t</tr>\n")
+            	.append("\t\t\t\t\t\t\t</thead>\n")
+            	.append("\t\t\t\t\t\t\t<tbody>\n")
+            	.append("\t\t\t\t\t\t\t\t<tr>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<td>").append(v.getLabel()).append("</td>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<td>").append(v.getCode()).append("</td>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<td>").append(v.getDesc()).append("</td>\n")
+            	.append("\t\t\t\t\t\t\t\t\t<td>").append(v.getBrowser()).append("</td>\n")
+            	.append("\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</table>\n");
             }
             htmlContent.append("\t\t\t\t</div>\n" +
             		"\t\t\t</div>\n" +
@@ -154,7 +151,9 @@ public abstract class patternVariantsGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println("Test pattern variants generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println("Test pattern variants generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

@@ -61,7 +61,7 @@ public abstract class OperationParser {
         	Parameter parameter = null;
         	Value value = null;
         	
-            String elementContent = null;
+            //String elementContent = null;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             InputStream inputStream = new FileInputStream(fileName);
 
@@ -93,7 +93,7 @@ public abstract class OperationParser {
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:
-                        elementContent = streamReader.getText().trim();
+                        //elementContent = streamReader.getText().trim();
                         break;
                     case XMLStreamConstants.END_ELEMENT:
                         switch(streamReader.getLocalName())

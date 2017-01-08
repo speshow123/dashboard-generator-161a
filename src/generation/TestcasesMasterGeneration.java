@@ -90,7 +90,7 @@ public abstract class TestcasesMasterGeneration {
     {
         try
         {
-        
+        	long startTime = System.currentTimeMillis();
         	String fileNamePrefix = test.getTestName().replace(' ', '_').toLowerCase();
             setTestcaseFileName(fileNamePrefix + ".html");
             fileNamePrefix.replace('-', '_');
@@ -221,7 +221,9 @@ public abstract class TestcasesMasterGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println(test.getTestName() + " testcase generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println(test.getTestName() + " testcase generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

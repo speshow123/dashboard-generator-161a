@@ -88,7 +88,7 @@ public abstract class TestcasesListGeneration {
     {
         try
         {
-        	
+        	long startTime = System.currentTimeMillis();
             String fileNamePrefix = pattern.getPatternID().replace('-', '_').toLowerCase();
             setTestcasesFileName(fileNamePrefix + "_testcases.html");
             String patternFilePath = testDirectory + File.separator + testFileName;
@@ -156,7 +156,9 @@ public abstract class TestcasesListGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println("Test cases list generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println("Test cases list generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

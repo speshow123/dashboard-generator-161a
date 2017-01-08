@@ -2,6 +2,7 @@ package generation;
 
 import java.io.*;
 
+import controllers.FolderUtils;
 import models.TestCampaign;;
 
 public abstract class dashboardGeneration {
@@ -45,13 +46,17 @@ public abstract class dashboardGeneration {
     public static String getHeader() {
 		return header;
 	}
+    public static void makeCampaignDirectories()
+    {
+        FolderUtils.makeDirectory(dashboardirectory);
+    }
 	public static void generateDashboardnHtmlFile(TestCampaign dashboard) {
 		
 		try
         {
 			
-			
-			dashboardGeneration.setDashboardFileName(dashboard.getCampaignName().replace(' ', '_') + ".html");
+			long startTime = System.currentTimeMillis();
+			dashboardGeneration.setDashboardFileName("index.html");
 			String patternFilePath = dashboardirectory+File.separator+dashboardFileName;
 			File htmlFile = new File(patternFilePath);
 			OutputStream htmlFileStream = new FileOutputStream(htmlFile);
@@ -68,14 +73,14 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t<ul class=\"nav\">\n" +
 	                "\t\t\t\t\t<li class=\"active\">\n" +
 	                "\t\t\t\t\t<a href=\"#\"> <i class=\"pe-7s-graph\"></i> <p>Dashboard <b class=\"caret\"></b></p> </a>\n" +
-	                "\t\t\t\t\t\t<ul class=\"sidebar-submenu\">\n" +
-	                "\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"\"></i> Dashboard "+ dashboard.getCampaignName() +"</a></li>\n" +
+	                "\t\t\t\t\t\t<ul class=\"sidebar-submenu\">\n")
+			.append("\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"\"></i>"+ dashboard.getCampaignName() +"</a></li>\n" +
 	                "\t\t\t\t\t\t</ul>\n" +
 	                "\t\t\t\t\t</li>\n" +
 	                "\t\t\t\t</ul>\n" +
 	                "\t\t\t</div>\n" +
-	                "\t\t</div>\n" + 
-	                "\t\t<div class=\"main-panel\">\n" + 
+	                "\t\t</div>\n")
+			.append("\t\t<div class=\"main-panel\">\n" + 
 	                "\t\t\t<nav class=\"navbar navbar-default navbar-fixed\">\n" + 
 	                "\t\t\t\t<div class=\"container-fluid\">\n" + 
 	                "\t\t\t\t\t<div class=\"navbar-header\">\n" + 
@@ -85,8 +90,8 @@ public abstract class dashboardGeneration {
 	                + "\t\t\t\t\t\t<ul class=\"nav navbar-nav navbar-right\"></ul>\n"
 	                + "\t\t\t\t\t</div>\n"
 	                + "\t\t\t\t</div>\n"
-	                + "\t\t\t</nav>\n"
-	                + "\t\t\t<div class=\"content\">\n" + 
+	                + "\t\t\t</nav>\n")
+			.append("\t\t\t<div class=\"content\">\n" + 
 	                "\t\t\t<div class=\"container-fluid\">\n" +
 	                "\t\t\t<div class=\"row\">\n" + 
 	                "\t\t\t\t<div class=\"col-md-4\">\n" + 
@@ -96,9 +101,9 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t\t\t<p class=\"category\">Last Campaign Performance</p>\n" + 
 	                "\t\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t\t\t<div class=\"content\">\n" + 
-	                "\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n" + 
+	                "\t\t\t\t\t\t\t<div id=\"chartPreferences\" class=\"ct-chart ct-perfect-fourth\"></div>\n")
 	                
-	                "\t\t\t\t\t\t</div>\n" + 
+			.append("\t\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t</div>\n" +
 	                "\t\t\t\t<div class=\"col-md-8\">\n" + 
@@ -110,8 +115,8 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\"s>\n" + 
 	                "\t\t\t\t\t\t\t\t<thead><tr><th></th><th style=\"text-align:center;\">Number of test patterns</th></tr></thead>\n" + 
 	                "\t\t\t\t\t\t\t\t<tbody>\n" + 
-	                "\t\t\t\t\t\t\t\t\t<tr><td>Total number of run test patterns</td>\n" +
-	                "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getTestPatternList().size()+"</td></tr>\n" + 
+	                "\t\t\t\t\t\t\t\t\t<tr><td>Total number of run test patterns</td>\n")
+			.append("\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getTestPatternList().size()+"</td></tr>\n" + 
 	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns revealing a vulnerability</td>\n"
 	                + "\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">"+dashboard.getVulnerableTestPatternNumber()+"</td></tr>\n" + 
 	                "\t\t\t\t\t\t\t\t\t<tr><td>Test patterns not revealing any vulnerability</td>\n"
@@ -125,8 +130,8 @@ public abstract class dashboardGeneration {
 	                "\t\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t\t</div>\n" + 
 	                "\t\t\t\t</div>\n" + 
-	                "\t\t\t</div>\n" +
-	                "\t\t\t<div class=\"row\">\n" + 
+	                "\t\t\t</div>\n")
+			.append("\t\t\t<div class=\"row\">\n" + 
 	                "\t\t\t\t<div class=\"col-md-10\">\n" + 
 	                "\t\t\t\t\t<div class=\"card\">\n" + 
 	                "\t\t\t\t\t\t<div class=\"header\">\n" + 
@@ -154,8 +159,8 @@ public abstract class dashboardGeneration {
 	                "<script src=\"assets/js/jquery-1.10.2.js\" type=\"text/javascript\"></script>\n" +
 	                "<script src=\"assets/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n" +
 	                "<script src=\"assets/js/chartist.min.js\"></script>\n" +
-	                "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n" +
-	                "<script>\n"
+	                "<script src=\"assets/js/light-bootstrap-dashboard.js\"></script>\n")
+	                .append("<script>\n"
                     + "\tvar optionsPreferences = {\n"
                     + "\t\tdonut: true,\n"
                     + "\t\tdonutWidth: 40,\n"
@@ -187,7 +192,9 @@ public abstract class dashboardGeneration {
 			printHtmlFile.print(htmlContent.toString());
 	        printHtmlFile.close();
 	        htmlFileStream.close();
-	        System.out.println("Dashboard generation done!");
+	        long endTime   = System.currentTimeMillis();
+	        long totalTime = endTime - startTime;
+	        System.out.println("Dashboard generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

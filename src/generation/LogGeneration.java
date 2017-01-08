@@ -87,7 +87,7 @@ public abstract class LogGeneration {
     {
         try
         {
-        	
+        	long startTime = System.currentTimeMillis();
             String fileNamePrefix = pattern.getPatternID().replace('-', '_').toLowerCase();
             setLogFileName(fileNamePrefix + "_logs.html");
             String patternFilePath = logDirectory + File.separator + logFileName;
@@ -112,25 +112,29 @@ public abstract class LogGeneration {
     		.flatMap(x -> x.getVariantDetailList().stream())
     		.forEach((log) -> {
     			
-    			htmlContent.append("\t\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\">\n" +
-            			"\t\t\t\t\t\t\t\t\t<tr>\n" +
-            			"\t\t\t\t\t\t\t\t\t\t<td>Info: test variant "+log.getName()+" ] has run duration in "+ log.getRuntime() +" and its vulnerability is ");
+    			htmlContent.append("\t\t\t\t\t\t\t\t<table class=\"table table-hover table-striped\">\n\t\t\t\t\t\t\t\t\t<tr>\n")
+    			.append("\t\t\t\t\t\t\t\t\t\t<td>Info: test variant ").append(log.getName())
+    			.append(" ] has run duration in ").append(log.getRuntime())
+    			.append(" and its vulnerability is ");
     			if(log.getVariantDetailError().equals("passed")) {
     				htmlContent.append("<span class=\"notdetected\">not detect</span></td>\n");
     			} else {
     				htmlContent.append("<span class=\"detected\">detect</span></td>\n");
     			}
-    			htmlContent.append("\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:right;\"><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#log_"+ (++logID) +"\">View Detail</button></td>\n" +
-            			"\t\t\t\t\t\t\t\t\t</tr>\n" +
-            			"\t\t\t\t\t\t\t\t\t<table id=\"log_"+ logID +"\"class=\"collapse table detail\">\n");
-            	for(int i=0;i<log.getPayLoads().size();i++) {
-            		htmlContent.append("\t\t\t\t\t\t\t\t\t\t<tr>\n" +
-            				"\t\t\t\t\t\t\t\t\t\t\t<td>" + log.getPayLoads().get(i) +
-            				"</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n");
-            	}
-						
-    			htmlContent.append("\t\t\t\t\t\t\t\t\t</table>\n" +
-    					"\t\t\t\t\t\t\t\t</table>\n");
+    			htmlContent.append("\t\t\t\t\t\t\t\t\t\t<td style=\"text-align:right;\"><button class=\"btn btn-info btn-fill btn-sm\" data-toggle=\"collapse\" data-target=\"#log_")
+    					.append(++logID).append("\">View Detail</button></td>\n")
+    					.append("\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<table id=\"log_").append(logID).append("\"class=\"collapse table detail\">\n");
+            	/*for(int i=0;i<log.getPayLoads().size();i++) {
+            		htmlContent.append("\t\t\t\t\t\t\t\t\t\t<tr>\n")
+            			.append("\t\t\t\t\t\t\t\t\t\t\t<td>").append(log.getPayLoads().get(i))
+            				.append("</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n");
+            	}*/
+				for(String payLoad : log.getPayLoads()) {
+					htmlContent.append("\t\t\t\t\t\t\t\t\t\t<tr>\n")
+        			.append("\t\t\t\t\t\t\t\t\t\t\t<td>").append(payLoad)
+        				.append("</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n");
+				}
+    			htmlContent.append("\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t</table>\n");
     		});
             	
             
@@ -178,7 +182,9 @@ public abstract class LogGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println("Test logs generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println("Test logs generation done!"+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

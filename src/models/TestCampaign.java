@@ -9,6 +9,8 @@ import controllers.ModelGeneration;
  */
 public class TestCampaign implements Model{
 
+	// singleton pattern
+	public static TestCampaign instance;
 
     /**
      * 
@@ -43,13 +45,18 @@ public class TestCampaign implements Model{
     /**
      * Default constructor
      */
-    public TestCampaign() {
+    private TestCampaign() {
     	testPatternList = new ArrayList<>();
     	vulnerableTestPatternNumber = 0;
     	errorTestPatternNumber = 0;
     	passTestPatternNumber = 0;
     }
-
+    
+    public static TestCampaign getInstance() {
+    	if(instance == null)
+    		return new TestCampaign();
+    	return instance;
+    }
 	public String getCampaignID() {
 		return campaignID;
 	}

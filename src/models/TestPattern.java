@@ -217,11 +217,13 @@ public class TestPattern implements Model{
     {
 		// TODO Auto-generated method stub
         generation.generatePatternToHtml(this, directoryPath);
-        
-        for(TestCase testCase : this.getTestCaseList())
+       this.getTestCaseList()
+       		.parallelStream()
+       		.forEachOrdered(test -> test.toHtml(generation, directoryPath));
+        /*for(TestCase testCase : this.getTestCaseList())
         {
             testCase.toHtml(generation, directoryPath);
-        }
+        }*/
         
         
     }

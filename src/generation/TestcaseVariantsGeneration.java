@@ -87,6 +87,7 @@ public abstract class TestcaseVariantsGeneration {
     {
         try
         {
+        	long startTime = System.currentTimeMillis();
         	VariantID = 0;
         	String fileNamePrefix = test.getTestName().replace(' ', '_').toLowerCase();
             setTestcaseVariantsFileName(fileNamePrefix + "_variants.html");
@@ -172,7 +173,10 @@ public abstract class TestcaseVariantsGeneration {
             printHtmlFile.print(htmlContent.toString());
             printHtmlFile.close();
             htmlFileStream.close();
-            System.out.println(test.getTestName() + " testcase variants generation done!");
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println(test.getTestName() + " testcase variants generation done!"
+            		+ " Runtime is " + totalTime + " ms.");
         }
         catch(IOException exception)
         {

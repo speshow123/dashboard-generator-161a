@@ -49,7 +49,7 @@ public abstract class TestCaseParser {
         	TestCase test = null;
             Action action = null;
             List<Operation> optList = new ArrayList<>();
-            String elementContent = null;
+            //String elementContent = null;
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
                         InputStream inputStream = new FileInputStream(fileName);
 
@@ -85,7 +85,7 @@ public abstract class TestCaseParser {
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:
-                        elementContent = streamReader.getText().trim();
+                        //elementContent = streamReader.getText().trim();
                         break;
                     case XMLStreamConstants.END_ELEMENT:
                         switch(streamReader.getLocalName())

@@ -1,0 +1,24 @@
+<TestPattern id="XSS-MS">
+	<Name>XSS MultiStep</Name>
+	<Preconditions />
+	<Postconditions />
+	<Description>This pattern could be used on any web applications that use user inputs not filtered; a stored XSS is usually used to redirect a user to a malevolent site in order to steal browser information (session, cookies, and exploitation) and it will be trigger all the time because it’s a persistent attack.</Description>
+	<TestObjective>Steal cookie session of user, gain browser privileges</TestObjective>
+	<Prerequisites>N/A</Prerequisites>
+	<Procedure>&lt;script&gt;alert(document.cookies);&lt;/script&gt;</Procedure>
+	<Observation>Execution of JavaScript payload (interactive) + information stolen is a success</Observation>
+	<Variants>
+		<Variant>Encoding characters</Variant>
+		<Variant>Non ALNUM transformation</Variant>
+		<Variant>Hex Transformation</Variant>
+	</Variants>
+	<KnownUses>Sometimes web application use web application firewall to mitigate attacks but still, it could be possible to bypass it using variants</KnownUses>
+	<RelatedPatterns>
+		<RelatedPattern id="XSS-R" />
+	</RelatedPatterns>
+	<References>
+		<Reference title="OWASP: Cross Site Scripting" url="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" />
+		<Reference title="CAPEC-86: Cross-site Scripting" url="http://capec.mitre.org/data/definitions/86.html" /> 
+		<Reference title="WASC-8: Cross Site" url="http://projects.webappsec.org/w/page/13246920/Cross%20Site%20Scripting" />               
+	</References>
+</TestPattern>
